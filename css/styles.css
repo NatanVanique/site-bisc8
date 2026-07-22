@@ -154,6 +154,7 @@ h1, h2, h3, .display-font {
 .hero-section .container {
   position: relative;
   z-index: 1;
+  transform: translateY(-4rem);
 }
 
 .hero-layout {
@@ -623,6 +624,10 @@ h1, h2, h3, .display-font {
   .hero-section::after {
     inset: 0;
     background-size: 100% 100%;
+  }
+
+  .hero-section .container {
+    transform: translateY(-1.5rem);
   }
 
   .hero-layout {
