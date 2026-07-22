@@ -129,7 +129,7 @@ h1, h2, h3, .display-font {
 .hero-section {
   background-color: #111;
   width: 100%;
-  aspect-ratio: 1279 / 485;
+  height: clamp(32rem, calc(100vw * 485 / 1279 - 8rem), 42rem);
   margin-top: 4.4rem;
   padding: 4rem 0;
   position: relative;
@@ -148,7 +148,7 @@ h1, h2, h3, .display-font {
   background-image: url("../assets/images/cascata-bisc8.png");
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: 100% calc(100% + 2rem);
+  background-size: 100% auto;
 }
 
 .hero-section .container {
@@ -613,6 +613,7 @@ h1, h2, h3, .display-font {
 @media (max-width: 991px) {
   .hero-section {
     aspect-ratio: auto;
+    height: auto;
     margin-top: 4rem;
     padding-top: 5rem;
     min-height: calc(100vw * 485 / 1279);
@@ -621,7 +622,7 @@ h1, h2, h3, .display-font {
 
   .hero-section::after {
     inset: 0;
-    background-size: 100% calc(100% + 1rem);
+    background-size: 100% 100%;
   }
 
   .hero-layout {
