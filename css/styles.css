@@ -172,17 +172,24 @@ h1, h2, h3, .display-font {
 }
 
 .hero-title {
+  font-family: "Cooper Black", Cooper, serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   color: #fff;
   line-height: 1;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .hero-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.92);
   font-size: 0.95rem;
   line-height: 1.7;
   max-width: 520px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
 }
 
 .btn-bisc-dark {
