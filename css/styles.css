@@ -146,7 +146,7 @@ h1, h2, h3, .display-font {
   z-index: 0;
   pointer-events: none;
   background-image: url("../assets/images/cascata-bisc8.png");
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-position: center bottom;
   background-size: 100% auto;
 }
@@ -412,7 +412,7 @@ h1, h2, h3, .display-font {
 
 /* ── Continuous lower cascade background ── */
 .lower-cascade-background {
-  position: relative;
+  position: absolute;
   padding-top: clamp(100px, 9vw, 170px);
   background-color: #111;
   background-image: url("../assets/images/cascata-baixa-bisc8.png");
@@ -703,7 +703,8 @@ h1, h2, h3, .display-font {
   }
 
   .game-card img {
-    height: 270px;
+    height: 10vh;
+    max-width: fit-content;
   }
 
   .games-arrow-prev {
