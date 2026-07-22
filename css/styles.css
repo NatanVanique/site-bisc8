@@ -553,7 +553,7 @@ h1, h2, h3, .display-font {
   display: block;
 }
 
-.team-card.active {
+.team-card:hover {
   width: 220px;
   transform: scale(1.05);
   z-index: 2;
@@ -579,7 +579,6 @@ h1, h2, h3, .display-font {
   text-align: center;
 }
 
-.team-card.active .team-card-overlay,
 .team-card:hover .team-card-overlay {
   opacity: 1;
 }
@@ -701,7 +700,7 @@ h1, h2, h3, .display-font {
     height: 220px;
   }
 
-  .team-card.active {
+  .team-card:hover {
     width: 170px;
   }
 }
@@ -717,7 +716,7 @@ h1, h2, h3, .display-font {
     clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
   }
 
-  .team-card.active {
+  .team-card:hover {
     width: 130px;
   }
 }

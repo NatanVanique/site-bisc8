@@ -174,7 +174,7 @@
             <img src="https://placehold.co/60x60/f57c00/fff?text=B8" alt="" class="team-card-icon">
           </div>
         </a>
-        <a href="pages/team/ian.html" class="team-card active" data-index="2">
+        <a href="pages/team/ian.html" class="team-card" data-index="2">
           <img src="https://placehold.co/300x400/666/ccc?text=Team+3" alt="Team Member 3">
           <div class="team-card-overlay">
             <span class="team-card-name">MEMBER 3</span>
@@ -390,18 +390,8 @@
     const teamCards = document.querySelectorAll('.team-card');
     const teamDots = document.querySelectorAll('.team-dot');
 
-    function setActiveTeam(index) {
-      teamCards.forEach((card, i) => card.classList.toggle('active', i === index));
-      teamDots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-    }
-
-    teamCards.forEach((card) => {
-      card.addEventListener('mouseenter', () => setActiveTeam(parseInt(card.dataset.index, 10)));
-    });
-
     teamDots.forEach((dot, i) => {
       dot.addEventListener('click', () => {
-        setActiveTeam(i);
         teamCards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       });
     });
