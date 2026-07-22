@@ -692,6 +692,7 @@ h1, h2, h3, .display-font {
   position: relative;
   z-index: 1;
   text-align: center;
+  transform: translateY(-60px);
 }
 
 .contact-title {
@@ -840,6 +841,10 @@ h1, h2, h3, .display-font {
     aspect-ratio: auto;
     background-position: center;
     background-size: contain;
+  }
+
+  .contact-content {
+    transform: translateY(-30px);
   }
 
   .contact-links {
