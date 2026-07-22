@@ -12,9 +12,57 @@
   <link href="../../css/styles.css" rel="stylesheet">
 </head>
 <body class="detail-page">
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-bisc fixed-top">
+  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark navbar-bisc fixed-top">
     <div class="container-fluid px-4">
-      <a class="navbar-brand" href="../../index.html">BISC8<span>. GAME DEVS</span></a>
+      <a class="navbar-brand" href="../../index.html">
+        BISC8
+        <span>. GAME DEVS</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link active" href="../../index.html#jogos">Página Inicial</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jogos</a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="noon.html">Noon</a></li>
+              <li><a class="dropdown-item" href="bananabongo.html">BananaBongô</a></li>
+              <li><a class="dropdown-item" href="overtime.html">Overtime</a></li>
+              <li><a class="dropdown-item" href="pops.html">Pops on the Go</a></li>
+              <li><a class="dropdown-item" href="trashexe.html">Trash.exe</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown ms-lg-2">
+            <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
+              Idiomas
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+              <li>
+                <a class="dropdown-item lang-option active-lang" href="#">
+                  <img src="https://flagcdn.com/w40/br.png" alt="Brasil" class="lang-flag">
+                  Português
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item lang-option" href="#">
+                  <img src="https://flagcdn.com/w40/us.png" alt="Estados Unidos" class="lang-flag">
+                  English
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item lang-option" href="#">
+                  <img src="https://flagcdn.com/w40/es.png" alt="Espanha" class="lang-flag">
+                  Español
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
   <section class="detail-hero" aria-label="Noon">
@@ -68,6 +116,27 @@
         </section>
     </div>
   </main>
+  <div class="game-subscribe-footer" data-game-subscribe data-game-name="Noon">
+    <button class="game-subscribe-toggle" type="button" data-subscribe-toggle aria-expanded="false">
+      Se Inscrever <i class="bi bi-chevron-down toggle-arrow" aria-hidden="true"></i>
+    </button>
+    <div class="game-subscribe-form">
+      <div class="game-subscribe-content">
+        <div class="game-subscribe-decoration"></div>
+        <div class="game-subscribe-text">
+          <h3 class="game-subscribe-title">Fique atento às novidades!</h3>
+          <p class="game-subscribe-subtitle">Receba notificações sobre esse projeto no seu email.</p>
+        </div>
+        <div class="game-subscribe-input-group">
+          <label class="game-subscribe-label" for="email-noon">Email:</label>
+          <input class="game-subscribe-input" type="email" id="email-noon" placeholder="seu@email.com">
+          <button class="game-subscribe-btn" type="button">Registrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../src/scripts/game-subscribe-footer.js"></script>
   <script src="../../src/scripts/game-gallery.js"></script>
 </body>
 </html>
