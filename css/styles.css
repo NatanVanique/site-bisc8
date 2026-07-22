@@ -897,7 +897,7 @@ h1, h2, h3, .display-font {
   flex-direction: column;
   align-items: center;
   gap: 0.65rem;
-  transform: translateY(clamp(5rem, 9vw, 8rem));
+  transform: translateY(clamp(8rem, 13vw, 12rem));
 }
 
 .detail-download {
@@ -979,7 +979,7 @@ h1, h2, h3, .display-font {
   position: relative;
   z-index: 1;
   margin-top: -1px;
-  padding: clamp(7rem, 10vw, 9rem) 0 5rem;
+  padding: clamp(10rem, 14vw, 13rem) 0 5rem;
   background: #110d0b;
 }
 
@@ -1018,7 +1018,7 @@ h1, h2, h3, .display-font {
   .detail-hero-ui {
     width: calc(100% - 1.5rem);
     margin-bottom: 1.25rem;
-    transform: translateY(4rem);
+    transform: translateY(6rem);
   }
 
   .detail-download {
@@ -1033,6 +1033,6 @@ h1, h2, h3, .display-font {
   }
 
   .detail-content {
-    padding-top: 6rem;
+    padding-top: 8rem;
   }
 }
