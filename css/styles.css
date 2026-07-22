@@ -439,7 +439,8 @@ h1, h2, h3, .display-font {
 }
 
 .quem-somos-label {
-  font-size: 0.85rem;
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  font-weight: 700;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.7);
@@ -447,9 +448,10 @@ h1, h2, h3, .display-font {
 }
 
 .quem-somos-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(3rem, 7vw, 6.5rem);
   color: #fff;
-  line-height: 1.1;
+  line-height: 0.95;
+  letter-spacing: 0.02em;
 }
 
 /* ── Narrative ── */
