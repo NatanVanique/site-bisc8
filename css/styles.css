@@ -413,12 +413,15 @@ h1, h2, h3, .display-font {
 /* ── Quem Somos ── */
 .quem-somos-section {
   position: relative;
-  min-height: 420px;
+  width: 100%;
+  aspect-ratio: 1280 / 441;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("https://placehold.co/1920x600/333/666?text=Office+Photo");
-  background-size: cover;
+  background-color: #111;
+  background-image: url("../assets/images/studio-photo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   background-position: center;
 }
 
