@@ -17,24 +17,120 @@
       <a class="navbar-brand" href="../../index.html">BISC8<span>. GAME DEVS</span></a>
     </div>
   </nav>
-  <div class="container detail-hero">
-    <a href="../../index.html#jogos" class="detail-back"><i class="bi bi-arrow-left"></i> Voltar aos Jogos</a>
-    <div class="row g-4 align-items-start">
-      <div class="col-lg-7">
-        <img src="https://placehold.co/800x450/2d1810/f57c00?text=Noon" alt="Noon">
-      </div>
-      <div class="col-lg-5">
-        <h1 class="display-font display-3 mb-3">Noon</h1>
-        <p class="text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-        <div class="game-meta mb-4">
-          <span><i class="bi bi-people-fill"></i> 1-4 Jogadores</span>
-          <span><i class="bi bi-windows"></i> Windows</span>
-          <span><i class="bi bi-apple"></i> Mac</span>
-          <span><i class="bi bi-steam"></i> Steam</span>
-        </div>
-        <a href="#" class="btn btn-bisc-orange">Download</a>
-      </div>
+  <section class="detail-hero" aria-label="Noon">
+    <img class="detail-hero-image" src="../../assets/images/game-covers/noon-cover.png" alt="Arte do jogo Noon">
+    <div class="detail-hero-ui">
+      <a href="#" class="detail-download"><i class="bi bi-download" aria-hidden="true"></i> Download</a>
+      <ul class="detail-tags" aria-label="Tags do jogo"><li>Esconde-esconde</li><li>Terror</li><li>Humor</li><li>Multiplayer</li></ul>
+      <ul class="detail-features" aria-label="Características do jogo"><li><i class="bi bi-people-fill"></i> 1-4 Jogadores</li><li><i class="bi bi-windows"></i> Windows</li><li><i class="bi bi-apple"></i> Mac</li><li><i class="bi bi-steam"></i> Steam</li></ul>
     </div>
-  </div>
+  </section>
+  <main class="detail-content detail-content-with-news">
+    <div class="container detail-content-inner">
+      <a href="../../index.html#jogos" class="detail-back"><i class="bi bi-arrow-left"></i> Voltar</a>
+        <h1 class="display-font display-3 mb-3">Noon</h1>
+        <p class="text-white-50"><strong>Noon</strong> reinventa o esconde-esconde com uma mecânica inovadora baseada em luz e sombras. Jogue como o Fogo, iluminando o cenário, queimando objetos e caçando criaturas da escuridão, ou assuma o papel de uma Sombra, escondendo-se entre objetos e fundindo-se às trevas para escapar. Em cada partida, controlar a luz significa controlar a sobrevivência.</p>
+        <div class="media-gallery" data-media-gallery>
+          <div class="media-gallery-stage">
+            <button class="media-gallery-arrow" type="button" data-gallery-prev aria-label="Mídia anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+            <div class="media-gallery-main" aria-live="polite">
+              <div class="media-gallery-item active" data-gallery-item>
+                <iframe src="https://www.youtube-nocookie.com/embed/qkdgpkwDAis" title="Trailer de Noon" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/games/noon/noon-screenshot-01.png" alt="Tela de sala de Noon com código da partida"></div>
+              <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/games/noon/noon-screenshot-02.png" alt="Partida de Noon em uma floresta noturna"></div>
+              <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/games/noon/noon-screenshot-03.png" alt="Personagem de fogo iluminando o cenário de Noon"></div>
+            </div>
+            <button class="media-gallery-arrow" type="button" data-gallery-next aria-label="Próxima mídia"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+          </div>
+          <div class="media-gallery-thumbs" id="noonGalleryThumbs" aria-label="Mídias de Noon">
+            <button class="media-gallery-thumb active" type="button" data-gallery-thumb="0" aria-label="Exibir trailer" aria-pressed="true"><img src="../../assets/images/game-covers/noon-cover.png" alt=""><i class="bi bi-play-circle-fill media-gallery-play" aria-hidden="true"></i></button>
+            <button class="media-gallery-thumb" type="button" data-gallery-thumb="1" aria-label="Exibir imagem 1" aria-pressed="false"><img src="../../assets/images/games/noon/noon-screenshot-01.png" alt=""></button>
+            <button class="media-gallery-thumb" type="button" data-gallery-thumb="2" aria-label="Exibir imagem 2" aria-pressed="false"><img src="../../assets/images/games/noon/noon-screenshot-02.png" alt=""></button>
+            <button class="media-gallery-thumb" type="button" data-gallery-thumb="3" aria-label="Exibir imagem 3" aria-pressed="false"><img src="../../assets/images/games/noon/noon-screenshot-03.png" alt=""></button>
+          </div>
+          <div class="media-gallery-scrollbar" data-gallery-scrollbar role="scrollbar" tabindex="0" aria-label="Rolar miniaturas de Noon" aria-controls="noonGalleryThumbs" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <span class="media-gallery-scrollbar-thumb" data-gallery-scrollbar-thumb></span>
+          </div>
+        </div>
+    </div>
+    <section class="game-news" aria-labelledby="gameNewsTitle">
+      <div class="container detail-content-inner">
+        <h2 class="game-news-title" id="gameNewsTitle">Novidades</h2>
+        <div class="game-news-grid">
+          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
+          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
+          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('[data-media-gallery]').forEach((gallery) => {
+      const items = [...gallery.querySelectorAll('[data-gallery-item]')];
+      const thumbs = [...gallery.querySelectorAll('[data-gallery-thumb]')];
+      const thumbsTrack = gallery.querySelector('.media-gallery-thumbs');
+      const scrollbar = gallery.querySelector('[data-gallery-scrollbar]');
+      const scrollbarThumb = gallery.querySelector('[data-gallery-scrollbar-thumb]');
+      let currentIndex = 0;
+
+      const updateScrollbar = () => {
+        const maxScroll = thumbsTrack.scrollWidth - thumbsTrack.clientWidth;
+        const visibleRatio = Math.min(1, thumbsTrack.clientWidth / thumbsTrack.scrollWidth);
+        const thumbWidth = visibleRatio * scrollbar.clientWidth;
+        const maxThumbX = scrollbar.clientWidth - thumbWidth;
+        const progress = maxScroll > 0 ? thumbsTrack.scrollLeft / maxScroll : 0;
+
+        scrollbarThumb.style.width = `${thumbWidth}px`;
+        scrollbarThumb.style.transform = `translateX(${progress * maxThumbX}px)`;
+        scrollbar.classList.toggle('is-full', maxScroll <= 1);
+        scrollbar.setAttribute('aria-disabled', String(maxScroll <= 1));
+        scrollbar.setAttribute('aria-valuenow', String(Math.round(progress * 100)));
+      };
+
+      const selectMedia = (index) => {
+        currentIndex = (index + items.length) % items.length;
+        items.forEach((item, itemIndex) => item.classList.toggle('active', itemIndex === currentIndex));
+        thumbs.forEach((thumb, thumbIndex) => {
+          const isActive = thumbIndex === currentIndex;
+          thumb.classList.toggle('active', isActive);
+          thumb.setAttribute('aria-pressed', String(isActive));
+        });
+        thumbs[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      };
+
+      gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => selectMedia(currentIndex - 1));
+      gallery.querySelector('[data-gallery-next]').addEventListener('click', () => selectMedia(currentIndex + 1));
+      thumbs.forEach((thumb) => thumb.addEventListener('click', () => selectMedia(Number(thumb.dataset.galleryThumb))));
+      thumbsTrack.addEventListener('scroll', updateScrollbar, { passive: true });
+      window.addEventListener('resize', updateScrollbar);
+
+      scrollbar.addEventListener('pointerdown', (event) => {
+        if (scrollbar.classList.contains('is-full')) return;
+        scrollbar.setPointerCapture(event.pointerId);
+
+        const moveScrollbar = (pointerEvent) => {
+          const bounds = scrollbar.getBoundingClientRect();
+          const thumbWidth = scrollbarThumb.offsetWidth;
+          const maxThumbX = bounds.width - thumbWidth;
+          const targetX = Math.max(0, Math.min(maxThumbX, pointerEvent.clientX - bounds.left - (thumbWidth / 2)));
+          const progress = maxThumbX > 0 ? targetX / maxThumbX : 0;
+          thumbsTrack.scrollLeft = progress * (thumbsTrack.scrollWidth - thumbsTrack.clientWidth);
+        };
+
+        moveScrollbar(event);
+        const stopDragging = () => {
+          scrollbar.removeEventListener('pointermove', moveScrollbar);
+          scrollbar.removeEventListener('pointerup', stopDragging);
+          scrollbar.removeEventListener('pointercancel', stopDragging);
+        };
+        scrollbar.addEventListener('pointermove', moveScrollbar);
+        scrollbar.addEventListener('pointerup', stopDragging);
+        scrollbar.addEventListener('pointercancel', stopDragging);
+      });
+
+      requestAnimationFrame(updateScrollbar);
+    });
+  </script>
 </body>
 </html>
