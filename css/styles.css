@@ -526,8 +526,8 @@ h1, h2, h3, .display-font {
   align-items: center;
   justify-content: flex-start;
   gap: 0;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 96vw;
+  margin-left: calc(50% - 48vw);
   overflow-x: auto;
   overflow-y: hidden;
   padding: 1rem 0;
@@ -542,7 +542,7 @@ h1, h2, h3, .display-font {
 
 .team-card {
   position: relative;
-  flex: 1 0 13.5vw;
+  flex: 1 0 10vw;
   min-width: 190px;
   width: auto;
   height: clamp(320px, 24vw, 430px);
@@ -570,37 +570,6 @@ h1, h2, h3, .display-font {
 .team-photo {
   transition: transform 0.3s ease;
 }
-
-.team-photo-gomes {
-  object-position: 52% center;
-  transform: translateY(25%) scale(1.55);
-}
-
-.team-photo-ismael {
-  object-position: 50% center;
-  transform: translateY(17%) scale(1.5);
-}
-
-.team-photo-jaqueline {
-  object-position: 52% center;
-  transform: translateY(8%) scale(1);
-}
-
-.team-photo-natan {
-  object-position: 50% center;
-  transform: translateY(6%) scale(1);
-}
-
-.team-photo-thor {
-  object-position: 50% center;
-  transform: translateY(55%) scale(2.4);
-}
-
-.team-photo-galletti {
-  object-position: 52% center;
-  transform: translateY(32%) scale(1.5);
-}
-
 .team-card-placeholder {
   background: rgba(17, 17, 17, 0.92);
 }
@@ -614,7 +583,7 @@ h1, h2, h3, .display-font {
 .team-card-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -644,11 +613,15 @@ h1, h2, h3, .display-font {
   margin-top: 0.25rem;
 }
 
-.team-card-icon {
-  width: 30px;
-  height: 30px;
-  margin-top: 0.75rem;
-  opacity: 0.8;
+.team-card-white-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: RGBA(255, 255, 255, 255);
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 10%, rgba(0, 0, 0, 0) 60%);
 }
 
 .team-dots {
