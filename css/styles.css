@@ -468,7 +468,7 @@ h1, h2, h3, .display-font {
 /* ── Narrative ── */
 .narrative-section {
   background-color: transparent;
-  padding: 4rem 0;
+  padding: 4rem 0 1.5rem;
 }
 
 .narrative-section .container {
@@ -513,7 +513,7 @@ h1, h2, h3, .display-font {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  padding: 4rem 0 5rem;
+  padding: 1.5rem 0 5rem;
 }
 
 .team-title {
@@ -521,13 +521,15 @@ h1, h2, h3, .display-font {
   font-size: clamp(2.25rem, 5vw, 3.25rem);
   text-align: center;
   color: #fff;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.5rem;
   letter-spacing: 0.05em;
 }
 
 .team-subtitle {
   width: fit-content;
   max-width: calc(100% - 2rem);
+  position: relative;
+  z-index: 5;
   margin: 0 auto 0.5rem;
   padding: 0.65rem 1.2rem;
   background-color: rgba(17, 17, 17, 0.65);
@@ -546,8 +548,9 @@ h1, h2, h3, .display-font {
 .team-members-frame {
   position: relative;
   width: 100vw;
+  margin-top: -3vw;
   margin-left: calc(50% - 50vw);
-  padding: calc(7.4vw + 1rem) 0 calc(5.6vw + 4.5rem);
+  padding: calc(7.4vw + 1.5rem) 0 calc(5.6vw + 3.1rem);
   overflow: hidden;
   isolation: isolate;
   background-image:
@@ -594,7 +597,7 @@ h1, h2, h3, .display-font {
   margin-left: calc(50% - 48vw);
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 1rem 0;
+  padding: 1rem 0 0;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -695,7 +698,7 @@ h1, h2, h3, .display-font {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 .team-dot {
