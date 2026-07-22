@@ -75,7 +75,7 @@
   <!-- Hero -->
   <section id="hero" class="hero-section">
     <div class="container">
-      <div class="row align-items-center g-5">
+      <div class="row align-items-center g-3">
         <div class="col-lg-5">
           <div class="hero-logo-wrap">
             <img src="assets/images/bisc8-logo.png" alt="Logo BISC8 Game Devs">
@@ -317,6 +317,8 @@
     }
 
     gameCards.forEach((card) => card.addEventListener('click', () => selectGame(parseInt(card.dataset.index, 10))));
+    firstGameClone.addEventListener('click', () => selectGame(0));
+    lastGameClone.addEventListener('click', () => selectGame(gameCards.length - 1));
     gamesPrev.addEventListener('click', () => moveGame(-1));
     gamesNext.addEventListener('click', () => moveGame(1));
     gamesCarousel.addEventListener('keydown', (event) => {
