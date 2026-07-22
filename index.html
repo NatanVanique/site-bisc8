@@ -81,7 +81,7 @@
             <img src="assets/images/bisc8-logo.png" alt="Logo BISC8 Game Devs">
           </div>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-7 hero-copy">
           <h1 class="hero-title display-font">BISCOITO, com 8</h1>
           <p class="hero-text">
             Diretamente de Brasília, DF, a BISC8 é um estúdio que encanta por onde passa, unindo a medida certa de diversão e profissionalismo para criar jogos únicos que desafiam o óbvio. Afinal, só brasileiros, estudantes, jogadores e desenvolvedores entendem de verdade o significado de BISC8. Agora é hora de levar essa ideia do Brasil para o mundo!
@@ -279,24 +279,50 @@
     const gameTitle = document.getElementById('gameTitle');
     const gameDescription = document.getElementById('gameDescription');
     const gameVerMais = document.getElementById('gameVerMais');
-    const gameCards = [...document.querySelectorAll('.game-card')];
     const gamesPrev = document.getElementById('gamesPrev');
     const gamesNext = document.getElementById('gamesNext');
+    const gameCards = [...gamesCarousel.querySelectorAll('.game-card')];
+    const firstGameClone = gameCards[0].cloneNode(true);
+    const lastGameClone = gameCards[gameCards.length - 1].cloneNode(true);
+    firstGameClone.classList.add('game-card-clone');
+    lastGameClone.classList.add('game-card-clone');
+    firstGameClone.classList.remove('active');
+    lastGameClone.classList.remove('active');
+    firstGameClone.setAttribute('aria-hidden', 'true');
+    lastGameClone.setAttribute('aria-hidden', 'true');
+    firstGameClone.tabIndex = -1;
+    lastGameClone.tabIndex = -1;
+    gamesCarousel.append(firstGameClone);
+    gamesCarousel.prepend(lastGameClone);
     let activeGameIndex = 0;
 
-    function selectGame(index, shouldScroll = true) {
+    function scrollCardToStart(card, smooth = true) {
+      gamesCarousel.scrollTo({ left: card.offsetLeft - gamesCarousel.offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+    }
+
+    function selectGame(index, shouldScroll = true, targetCard = null) {
       activeGameIndex = (index + gameCards.length) % gameCards.length;
       updateGameInfo(activeGameIndex);
-      if (shouldScroll) gameCards[activeGameIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (shouldScroll) scrollCardToStart(targetCard || gameCards[activeGameIndex]);
+    }
+
+    function moveGame(direction) {
+      if (direction > 0 && activeGameIndex === gameCards.length - 1) {
+        selectGame(0, true, firstGameClone);
+      } else if (direction < 0 && activeGameIndex === 0) {
+        selectGame(gameCards.length - 1, true, lastGameClone);
+      } else {
+        selectGame(activeGameIndex + direction);
+      }
     }
 
     gameCards.forEach((card) => card.addEventListener('click', () => selectGame(parseInt(card.dataset.index, 10))));
-    gamesPrev.addEventListener('click', () => selectGame(activeGameIndex - 1));
-    gamesNext.addEventListener('click', () => selectGame(activeGameIndex + 1));
+    gamesPrev.addEventListener('click', () => moveGame(-1));
+    gamesNext.addEventListener('click', () => moveGame(1));
     gamesCarousel.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
         event.preventDefault();
-        selectGame(activeGameIndex + (event.key === 'ArrowRight' ? 1 : -1));
+        moveGame(event.key === 'ArrowRight' ? 1 : -1);
       }
     });
 
@@ -304,13 +330,18 @@
     gamesCarousel.addEventListener('scroll', () => {
       clearTimeout(gamesScrollTimer);
       gamesScrollTimer = setTimeout(() => {
-        const carouselCenter = gamesCarousel.getBoundingClientRect().left + gamesCarousel.clientWidth / 2;
-        const closestCard = gameCards.reduce((closest, card) => {
-          const cardCenter = card.getBoundingClientRect().left + card.clientWidth / 2;
-          const closestCenter = closest.getBoundingClientRect().left + closest.clientWidth / 2;
-          return Math.abs(cardCenter - carouselCenter) < Math.abs(closestCenter - carouselCenter) ? card : closest;
+        const allCards = [...gamesCarousel.querySelectorAll('.game-card')];
+        const carouselLeft = gamesCarousel.getBoundingClientRect().left;
+        const closestCard = allCards.reduce((closest, card) => {
+          const cardLeft = card.getBoundingClientRect().left;
+          const closestLeft = closest.getBoundingClientRect().left;
+          return Math.abs(cardLeft - carouselLeft) < Math.abs(closestLeft - carouselLeft) ? card : closest;
         });
-        selectGame(parseInt(closestCard.dataset.index, 10), false);
+        const index = parseInt(closestCard.dataset.index, 10);
+        selectGame(index, false);
+
+        if (closestCard === firstGameClone) scrollCardToStart(gameCards[0], false);
+        if (closestCard === lastGameClone) scrollCardToStart(gameCards[gameCards.length - 1], false);
       }, 100);
     }, { passive: true });
 
@@ -325,6 +356,7 @@
     }
 
     updateGameInfo(0);
+    requestAnimationFrame(() => scrollCardToStart(gameCards[0], false));
 
     const teamCards = document.querySelectorAll('.team-card');
     const teamDots = document.querySelectorAll('.team-dot');
