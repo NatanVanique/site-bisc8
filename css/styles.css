@@ -1338,7 +1338,7 @@ h1, h2, h3, .display-font {
   opacity: 0;
   transition: max-height 0.4s ease, opacity 0.3s ease;
   background: linear-gradient(90deg, var(--bisc-orange) 0%, #e65100 100%);
-  border-radius: 8px 8px 0 0;
+  border-radius: 0px 8px 0 0;
   width: 100%;
 }
 
