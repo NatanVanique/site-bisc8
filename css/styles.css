@@ -1063,9 +1063,22 @@ h1, h2, h3, .display-font {
   color: var(--bisc-orange);
 }
 
-.detail-trailer {
+.media-gallery {
   width: 100%;
   margin-top: 2rem;
+}
+
+.media-gallery-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.media-gallery-main {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
   overflow: hidden;
   border: 2px solid rgba(245, 124, 0, 0.55);
   border-radius: 12px;
@@ -1074,11 +1087,91 @@ h1, h2, h3, .display-font {
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
 }
 
-.detail-trailer iframe {
+.media-gallery-item {
+  position: absolute;
+  inset: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.media-gallery-item.active {
+  display: block;
+}
+
+.media-gallery-item iframe,
+.media-gallery-item img {
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.media-gallery-item img {
+  object-fit: cover;
+}
+
+.media-gallery-arrow {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 64px;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(245, 124, 0, 0.9);
+  color: #111;
+  font-size: 1.8rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.media-gallery-arrow:hover,
+.media-gallery-arrow:focus-visible {
+  background: var(--bisc-orange-light);
+  transform: scale(1.06);
+}
+
+.media-gallery-thumbs {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.25rem 0.1rem 0.65rem;
+  overflow-x: auto;
+  scrollbar-color: var(--bisc-orange) rgba(255, 255, 255, 0.1);
+}
+
+.media-gallery-thumb {
+  position: relative;
+  flex: 0 0 155px;
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background: #000;
+  aspect-ratio: 16 / 9;
+  opacity: 0.62;
+  transition: border-color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.media-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-gallery-thumb.active,
+.media-gallery-thumb:hover,
+.media-gallery-thumb:focus-visible {
+  border-color: var(--bisc-orange);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.media-gallery-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  color: #fff;
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px #000);
+  transform: translate(-50%, -50%);
 }
 
 .detail-back {
@@ -1124,5 +1217,19 @@ h1, h2, h3, .display-font {
 
   .detail-content {
     padding-top: 8rem;
+  }
+
+  .media-gallery-stage {
+    gap: 0.35rem;
+  }
+
+  .media-gallery-arrow {
+    width: 36px;
+    height: 52px;
+    font-size: 1.35rem;
+  }
+
+  .media-gallery-thumb {
+    flex-basis: 120px;
   }
 }
