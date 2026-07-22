@@ -513,12 +513,12 @@ h1, h2, h3, .display-font {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
-  padding: 1.5rem 0 5rem;
+  padding: 1.5rem 0 0;
 }
 
 .team-title {
   font-family: "Bungee", cursive;
-  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-size: clamp(2.75rem, 6vw, 4rem);
   text-align: center;
   color: #fff;
   margin-bottom: 0.5rem;
@@ -548,7 +548,7 @@ h1, h2, h3, .display-font {
 .team-members-frame {
   position: relative;
   width: 100vw;
-  margin-top: -3vw;
+  margin-top: -1vw;
   margin-left: calc(50% - 50vw);
   padding: calc(7.4vw + 1.5rem) 0 calc(5.6vw + 3.1rem);
   overflow: hidden;
@@ -699,6 +699,7 @@ h1, h2, h3, .display-font {
   justify-content: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
+  transform: translateY(34px);
 }
 
 .team-dot {
@@ -719,6 +720,7 @@ h1, h2, h3, .display-font {
 /* ── Contato ── */
 .contact-section {
   position: relative;
+  margin-top: -3rem;
   min-height: 0;
   aspect-ratio: 1280 / 773;
   display: flex;
