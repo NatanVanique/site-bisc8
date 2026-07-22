@@ -159,7 +159,7 @@ h1, h2, h3, .display-font {
 
 .hero-layout {
   display: grid;
-  grid-template-columns: 275px minmax(0, 420px);
+  grid-template-columns: 275px minmax(0, 460px);
   justify-content: center;
   column-gap: 0.75rem;
 }
@@ -197,7 +197,7 @@ h1, h2, h3, .display-font {
 
 .hero-title {
   font-family: "Shrikhand", "Cooper Black", Cooper, serif;
-  font-size: clamp(2rem, 3vw, 2.65rem);
+  font-size: clamp(2.4rem, 3.3vw, 3.15rem);
   color: #fff;
   line-height: 1.15;
   margin-bottom: 0.8rem;
@@ -208,9 +208,9 @@ h1, h2, h3, .display-font {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 0.76rem;
+  font-size: 0.9rem;
   line-height: 1.5;
-  max-width: 410px;
+  max-width: 460px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -326,8 +326,8 @@ h1, h2, h3, .display-font {
 }
 
 .hero-copy .btn-bisc-dark {
-  padding: 0.55rem 1.5rem;
-  font-size: 0.78rem;
+  padding: 0.7rem 1.9rem;
+  font-size: 0.95rem;
 }
 
 .games-carousel {
