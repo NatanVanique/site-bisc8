@@ -159,7 +159,7 @@ h1, h2, h3, .display-font {
   display: grid;
   grid-template-columns: 210px minmax(0, 420px);
   justify-content: center;
-  column-gap: 2rem;
+  column-gap: 0.75rem;
 }
 
 .hero-layout > * {
@@ -178,6 +178,7 @@ h1, h2, h3, .display-font {
 
 .hero-logo-wrap {
   text-align: center;
+  transform: translateY(-14px);
 }
 
 .hero-logo-wrap img {
@@ -325,7 +326,7 @@ h1, h2, h3, .display-font {
 }
 
 .games-carousel {
-  --game-previous-peek: 92px;
+  --game-previous-peek: 132px;
   display: flex;
   gap: 0.75rem;
   width: 100%;
@@ -353,6 +354,7 @@ h1, h2, h3, .display-font {
   cursor: pointer;
   opacity: 0.68;
   scroll-snap-align: start;
+  scroll-margin-inline-start: var(--game-previous-peek);
   transition: opacity 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
@@ -615,6 +617,7 @@ h1, h2, h3, .display-font {
     margin-bottom: 2rem;
     padding-right: 0;
     text-align: center;
+    transform: none;
   }
 
   .game-info-panel {
@@ -626,7 +629,7 @@ h1, h2, h3, .display-font {
   }
 
   .games-carousel {
-    --game-previous-peek: 64px;
+    --game-previous-peek: 82px;
   }
 
   .game-card img {
