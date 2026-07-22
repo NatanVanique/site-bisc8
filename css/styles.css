@@ -132,11 +132,27 @@ h1, h2, h3, .display-font {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
-  padding: 6rem 0 0;
+  padding: 6rem 0 5rem;
   position: relative;
-  min-height: 85vh;
+  min-height: 0;
   display: flex;
   align-items: center;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 7%;
+  background: #111;
+  z-index: 0;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-logo-wrap {
@@ -145,7 +161,7 @@ h1, h2, h3, .display-font {
 
 .hero-logo-wrap img {
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
   height: auto;
   display: inline-block;
   border-radius: 0;
@@ -516,6 +532,10 @@ h1, h2, h3, .display-font {
     padding-top: 5rem;
     min-height: auto;
     padding-bottom: 5rem;
+  }
+
+  .hero-section::after {
+    height: 4rem;
   }
 
   .hero-logo-wrap {
