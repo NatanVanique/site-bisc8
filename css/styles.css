@@ -161,7 +161,11 @@ h1, h2, h3, .display-font {
   width: 100%;
   max-width: 400px;
   height: auto;
-  object-fit: contain;
+  display: inline-block;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  clip-path: none;
 }
 
 .hero-title {
