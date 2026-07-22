@@ -410,6 +410,16 @@ h1, h2, h3, .display-font {
   right: -18px;
 }
 
+/* ── Continuous lower cascade background ── */
+.lower-cascade-background {
+  position: relative;
+  background-color: var(--bisc-orange);
+  background-image: url("../assets/images/cascata-baixa-bisc8.png");
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
+}
+
 /* ── Quem Somos ── */
 .quem-somos-section {
   position: relative;
@@ -456,13 +466,17 @@ h1, h2, h3, .display-font {
 
 /* ── Narrative ── */
 .narrative-section {
-  background-color: var(--bisc-brown);
+  background-color: transparent;
   padding: 4rem 0;
 }
 
 .narrative-text {
   max-width: 800px;
   margin: 0 auto;
+  padding: 2rem;
+  background: rgba(17, 17, 17, 0.9);
+  border: 2px solid var(--bisc-orange);
+  border-radius: 12px;
   text-align: center;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
@@ -486,7 +500,7 @@ h1, h2, h3, .display-font {
 
 /* ── Team ── */
 .team-section {
-  background-color: var(--bisc-brown-mid);
+  background-color: transparent;
   padding: 4rem 0 5rem;
 }
 
