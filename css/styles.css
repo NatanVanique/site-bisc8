@@ -1080,6 +1080,7 @@ h1, h2, h3, .display-font {
 
 .detail-content h1 {
   color: var(--bisc-orange);
+  font-size: clamp(3.8rem, 8vw, 5.5rem);
 }
 
 .media-gallery {
@@ -1248,9 +1249,10 @@ h1, h2, h3, .display-font {
 
 .game-recognition-title {
   margin-bottom: 1.25rem;
-  color: #fff;
-  font-family: "Bungee", cursive;
-  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  color: var(--bisc-orange);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: 0.02em;
 }
 
 .game-recognition-list {
