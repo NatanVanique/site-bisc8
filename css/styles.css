@@ -129,7 +129,7 @@ h1, h2, h3, .display-font {
 .hero-section {
   background-color: #111;
   width: 100%;
-  height: clamp(32rem, calc(100vw * 485 / 1279 - 8rem), 42rem);
+  height: clamp(32rem, calc(100vw * 485 / 1279 - 10rem), 42rem);
   margin-top: 4.4rem;
   padding: 4rem 0;
   position: relative;
