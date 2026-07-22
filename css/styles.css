@@ -524,8 +524,10 @@ h1, h2, h3, .display-font {
 .team-carousel {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   overflow-x: auto;
   overflow-y: hidden;
   padding: 1rem 0;
@@ -540,12 +542,13 @@ h1, h2, h3, .display-font {
 
 .team-card {
   position: relative;
-  flex-shrink: 0;
-  width: 180px;
-  height: 280px;
+  flex: 1 0 12.5vw;
+  min-width: 190px;
+  width: auto;
+  height: clamp(320px, 24vw, 430px);
   clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
   overflow: hidden;
-  transition: transform 0.3s, width 0.3s;
+  transition: transform 0.3s;
   cursor: pointer;
   scroll-snap-align: center;
   text-decoration: none;
@@ -554,7 +557,6 @@ h1, h2, h3, .display-font {
 }
 
 .team-card:hover {
-  width: 220px;
   transform: scale(1.05);
   z-index: 2;
 }
@@ -696,7 +698,9 @@ h1, h2, h3, .display-font {
   }
 
   .team-card {
-    width: 140px;
+    flex: 0 0 170px;
+    min-width: 170px;
+    width: 170px;
     height: 220px;
   }
 
@@ -711,7 +715,9 @@ h1, h2, h3, .display-font {
   }
 
   .team-card {
-    width: 110px;
+    flex-basis: 130px;
+    min-width: 130px;
+    width: 130px;
     height: 180px;
     clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
   }
