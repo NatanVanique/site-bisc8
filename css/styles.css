@@ -542,11 +542,11 @@ h1, h2, h3, .display-font {
 
 .team-card {
   position: relative;
-  flex: 1 0 12.5vw;
+  flex: 1 0 13.5vw;
   min-width: 190px;
   width: auto;
   height: clamp(320px, 24vw, 430px);
-  clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+  clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
   overflow: hidden;
   transition: transform 0.3s;
   cursor: pointer;
@@ -573,12 +573,12 @@ h1, h2, h3, .display-font {
 
 .team-photo-gomes {
   object-position: 52% center;
-  transform: translateY(25%) scale(1.45);
+  transform: translateY(25%) scale(1.55);
 }
 
 .team-photo-ismael {
   object-position: 50% center;
-  transform: translateY(17%) scale(1.4);
+  transform: translateY(17%) scale(1.5);
 }
 
 .team-photo-jaqueline {
@@ -587,18 +587,18 @@ h1, h2, h3, .display-font {
 }
 
 .team-photo-natan {
-  object-position: 59% center;
-  transform: translateY(-2%) scale(1);
+  object-position: 50% center;
+  transform: translateY(6%) scale(1);
 }
 
 .team-photo-thor {
   object-position: 50% center;
-  transform: translateY(55%) scale(2.25);
+  transform: translateY(55%) scale(2.4);
 }
 
 .team-photo-galletti {
   object-position: 52% center;
-  transform: translateY(32%) scale(1.4);
+  transform: translateY(32%) scale(1.5);
 }
 
 .team-card-placeholder {
