@@ -158,20 +158,10 @@ h1, h2, h3, .display-font {
 }
 
 .hero-logo-wrap img {
-  width: 220px;
-  height: 220px;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
   object-fit: contain;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px;
-}
-
-.hero-brand-text {
-  font-family: "Bungee", cursive;
-  font-size: 2rem;
-  color: var(--bisc-orange-light);
-  margin-top: 0.5rem;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
 .hero-title {
