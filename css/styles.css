@@ -155,6 +155,20 @@ h1, h2, h3, .display-font {
   z-index: 1;
 }
 
+.hero-layout {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 420px);
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+.hero-layout > * {
+  width: auto;
+  max-width: none;
+  padding-right: 0;
+  padding-left: 0;
+}
+
 .hero-copy {
   display: flex;
   flex-direction: column;
@@ -163,13 +177,12 @@ h1, h2, h3, .display-font {
 }
 
 .hero-logo-wrap {
-  text-align: right;
-  padding-right: 0.75rem;
+  text-align: center;
 }
 
 .hero-logo-wrap img {
   width: 100%;
-  max-width: 250px;
+  max-width: 210px;
   height: auto;
   display: inline-block;
   border-radius: 0;
@@ -180,10 +193,10 @@ h1, h2, h3, .display-font {
 
 .hero-title {
   font-family: "Shrikhand", "Cooper Black", Cooper, serif;
-  font-size: clamp(2.15rem, 4vw, 3.25rem);
+  font-size: clamp(2rem, 3vw, 2.65rem);
   color: #fff;
   line-height: 1.15;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
   text-align: center;
 }
 
@@ -191,9 +204,9 @@ h1, h2, h3, .display-font {
   font-family: "Inter", sans-serif;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 0.88rem;
-  line-height: 1.6;
-  max-width: 500px;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  max-width: 360px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -306,7 +319,13 @@ h1, h2, h3, .display-font {
   min-width: 0;
 }
 
+.hero-copy .btn-bisc-dark {
+  padding: 0.55rem 1.5rem;
+  font-size: 0.78rem;
+}
+
 .games-carousel {
+  --game-previous-peek: 92px;
   display: flex;
   gap: 0.75rem;
   width: 100%;
@@ -316,6 +335,8 @@ h1, h2, h3, .display-font {
   scrollbar-width: none;
   overscroll-behavior-inline: contain;
   padding: 0.5rem 0.25rem;
+  padding-inline-end: calc(var(--game-previous-peek) + 0.25rem);
+  scroll-padding-inline-start: var(--game-previous-peek);
 }
 
 .games-carousel::-webkit-scrollbar {
@@ -586,6 +607,10 @@ h1, h2, h3, .display-font {
     height: 4rem;
   }
 
+  .hero-layout {
+    display: flex;
+  }
+
   .hero-logo-wrap {
     margin-bottom: 2rem;
     padding-right: 0;
@@ -598,6 +623,10 @@ h1, h2, h3, .display-font {
 
   .game-card {
     flex-basis: min(72vw, 360px);
+  }
+
+  .games-carousel {
+    --game-previous-peek: 64px;
   }
 
   .game-card img {

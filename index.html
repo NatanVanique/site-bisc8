@@ -75,7 +75,7 @@
   <!-- Hero -->
   <section id="hero" class="hero-section">
     <div class="container">
-      <div class="row align-items-center g-3">
+      <div class="row align-items-center hero-layout">
         <div class="col-lg-5">
           <div class="hero-logo-wrap">
             <img src="assets/images/bisc8-logo.png" alt="Logo BISC8 Game Devs">
@@ -296,8 +296,15 @@
     gamesCarousel.prepend(lastGameClone);
     let activeGameIndex = 0;
 
+    function getPreviousGamePeek() {
+      return parseFloat(getComputedStyle(gamesCarousel).getPropertyValue('--game-previous-peek')) || 92;
+    }
+
     function scrollCardToStart(card, smooth = true) {
-      gamesCarousel.scrollTo({ left: card.offsetLeft - gamesCarousel.offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+      gamesCarousel.scrollTo({
+        left: card.offsetLeft - gamesCarousel.offsetLeft - getPreviousGamePeek(),
+        behavior: smooth ? 'smooth' : 'auto'
+      });
     }
 
     function selectGame(index, shouldScroll = true, targetCard = null) {
@@ -333,11 +340,11 @@
       clearTimeout(gamesScrollTimer);
       gamesScrollTimer = setTimeout(() => {
         const allCards = [...gamesCarousel.querySelectorAll('.game-card')];
-        const carouselLeft = gamesCarousel.getBoundingClientRect().left;
+        const selectedPosition = gamesCarousel.getBoundingClientRect().left + getPreviousGamePeek();
         const closestCard = allCards.reduce((closest, card) => {
           const cardLeft = card.getBoundingClientRect().left;
           const closestLeft = closest.getBoundingClientRect().left;
-          return Math.abs(cardLeft - carouselLeft) < Math.abs(closestLeft - carouselLeft) ? card : closest;
+          return Math.abs(cardLeft - selectedPosition) < Math.abs(closestLeft - selectedPosition) ? card : closest;
         });
         const index = parseInt(closestCard.dataset.index, 10);
         selectGame(index, false);
