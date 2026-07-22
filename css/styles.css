@@ -1266,12 +1266,12 @@ h1, h2, h3, .display-font {
   display: inline-grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  gap: 1.1rem;
+  gap: 0.7rem;
   flex: 0 1 auto;
   width: fit-content;
   max-width: 100%;
-  padding: 1.25rem 1.5rem;
-  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  border-radius: 9px;
   background: #fff;
   color: #17110e;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
@@ -1279,7 +1279,7 @@ h1, h2, h3, .display-font {
 
 .game-recognition-star {
   color: var(--bisc-orange);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   line-height: 1;
 }
 
@@ -1287,14 +1287,14 @@ h1, h2, h3, .display-font {
   margin: 0 0 0.25rem;
   color: #17110e;
   font-family: "Bebas Neue", sans-serif;
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
   line-height: 1.1;
 }
 
 .game-recognition-source {
   margin: 0;
   color: #6c625d;
-  font-size: 0.85rem;
+  font-size: 0.72rem;
 }
 
 .game-recognition-card.is-empty .game-recognition-star {
@@ -1373,7 +1373,7 @@ h1, h2, h3, .display-font {
   }
 
   .game-recognition-card {
-    padding: 1rem;
+    padding: 0.7rem 0.85rem;
   }
 
 }
