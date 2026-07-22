@@ -583,12 +583,12 @@ h1, h2, h3, .display-font {
 
 .team-photo-jaqueline {
   object-position: 52% center;
-  transform: translateY(8%) scale(0.95);
+  transform: translateY(8%) scale(1);
 }
 
 .team-photo-natan {
   object-position: 59% center;
-  transform: translateY(-2%) scale(0.85);
+  transform: translateY(-2%) scale(1);
 }
 
 .team-photo-thor {
