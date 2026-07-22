@@ -509,6 +509,10 @@ h1, h2, h3, .display-font {
 /* ── Team ── */
 .team-section {
   background-color: transparent;
+  background-image: url("../assets/images/team/opacity-members.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
   padding: 4rem 0 5rem;
 }
 
@@ -548,11 +552,10 @@ h1, h2, h3, .display-font {
   isolation: isolate;
   background-image:
     url("../assets/images/team/members-x-top.png"),
-    url("../assets/images/team/members-x-down.png"),
-    url("../assets/images/team/opacity-members.png");
+    url("../assets/images/team/members-x-down.png");
   background-repeat: no-repeat;
-  background-position: center top, center bottom, center;
-  background-size: min(100%, 1260px) auto, min(88%, 1099px) auto, cover;
+  background-position: center top, center bottom;
+  background-size: 100% auto, 100% auto;
 }
 
 .team-members-frame::before,
