@@ -96,7 +96,7 @@
   <section id="jogos" class="games-section">
     <div class="container">
       <div class="row align-items-center g-4">
-        <div class="col-lg-5">
+        <div class="col-lg-4">
           <div class="game-info-panel" id="gameInfoPanel">
             <h3 id="gameTitle">Noon</h3>
             <p id="gameDescription">
@@ -114,34 +114,17 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-8">
           <div class="games-carousel-wrap">
-            <div id="gamesCarousel" class="carousel slide games-carousel" data-bs-ride="false">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="https://placehold.co/800x450/2d1810/f57c00?text=Noon" alt="Noon">
-                </div>
-                <div class="carousel-item">
-                  <img src="https://placehold.co/800x450/2d1810/ff9800?text=BananaBongo" alt="BananaBongo">
-                </div>
-                <div class="carousel-item">
-                  <img src="https://placehold.co/800x450/2d1810/fff?text=Overtime" alt="Overtime">
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#gamesCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#gamesCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
-              </button>
+            <button class="games-arrow games-arrow-prev" id="gamesPrev" type="button" aria-label="Jogo anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+            <div id="gamesCarousel" class="games-carousel" tabindex="0" aria-label="Carrossel de jogos">
+              <button class="game-card active" type="button" data-index="0" aria-label="Selecionar Noon"><img src="assets/images/noon-cover.png" alt="Capa do jogo Noon"></button>
+              <button class="game-card" type="button" data-index="1" aria-label="Selecionar BananaBongo"><img src="assets/images/bananabongo-cover.jpg" alt="Capa do jogo BananaBongo"></button>
+              <button class="game-card" type="button" data-index="2" aria-label="Selecionar Overtime"><img src="assets/images/overtime-cover.png" alt="Capa do jogo Overtime"></button>
+              <button class="game-card" type="button" data-index="3" aria-label="Selecionar Pops"><img src="https://placehold.co/800x450/512918/f3a846?text=Pops" alt="Capa do jogo Pops"></button>
+              <button class="game-card" type="button" data-index="4" aria-label="Selecionar Trash.exe"><img src="https://placehold.co/800x450/201b19/e85d34?text=Trash.exe" alt="Capa do jogo Trash.exe"></button>
             </div>
-            <div class="game-thumbs">
-              <img src="https://placehold.co/200x120/2d1810/f57c00?text=Noon" alt="Noon" class="game-thumb active" data-index="0">
-              <img src="https://placehold.co/200x120/2d1810/ff9800?text=BananaBongo" alt="BananaBongo" class="game-thumb" data-index="1">
-              <img src="https://placehold.co/200x120/2d1810/fff?text=Overtime" alt="Overtime" class="game-thumb" data-index="2">
-            </div>
+            <button class="games-arrow games-arrow-next" id="gamesNext" type="button" aria-label="Próximo jogo"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
           </div>
         </div>
       </div>
@@ -279,6 +262,16 @@
         title: 'Overtime',
         description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa.',
         url: 'pages/games/overtime.html'
+      },
+      {
+        title: 'Pops',
+        description: 'Uma experiência cheia de personalidade, desafios rápidos e uma direção de arte marcante criada pela BISC8.',
+        url: 'pages/games/pops.html'
+      },
+      {
+        title: 'Trash.exe',
+        description: 'Entre em um universo caótico e divertido, supere os obstáculos e descubra os segredos escondidos em Trash.exe.',
+        url: 'pages/games/trashexe.html'
       }
     ];
 
@@ -286,26 +279,52 @@
     const gameTitle = document.getElementById('gameTitle');
     const gameDescription = document.getElementById('gameDescription');
     const gameVerMais = document.getElementById('gameVerMais');
-    const gameThumbs = document.querySelectorAll('.game-thumb');
+    const gameCards = [...document.querySelectorAll('.game-card')];
+    const gamesPrev = document.getElementById('gamesPrev');
+    const gamesNext = document.getElementById('gamesNext');
+    let activeGameIndex = 0;
 
-    gamesCarousel.addEventListener('slid.bs.carousel', (e) => {
-      updateGameInfo(e.to);
+    function selectGame(index, shouldScroll = true) {
+      activeGameIndex = (index + gameCards.length) % gameCards.length;
+      updateGameInfo(activeGameIndex);
+      if (shouldScroll) gameCards[activeGameIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    gameCards.forEach((card) => card.addEventListener('click', () => selectGame(parseInt(card.dataset.index, 10))));
+    gamesPrev.addEventListener('click', () => selectGame(activeGameIndex - 1));
+    gamesNext.addEventListener('click', () => selectGame(activeGameIndex + 1));
+    gamesCarousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        selectGame(activeGameIndex + (event.key === 'ArrowRight' ? 1 : -1));
+      }
     });
 
-    gameThumbs.forEach((thumb) => {
-      thumb.addEventListener('click', () => {
-        const index = parseInt(thumb.dataset.index, 10);
-        bootstrap.Carousel.getOrCreateInstance(gamesCarousel).to(index);
-        updateGameInfo(index);
-      });
-    });
+    let gamesScrollTimer;
+    gamesCarousel.addEventListener('scroll', () => {
+      clearTimeout(gamesScrollTimer);
+      gamesScrollTimer = setTimeout(() => {
+        const carouselCenter = gamesCarousel.getBoundingClientRect().left + gamesCarousel.clientWidth / 2;
+        const closestCard = gameCards.reduce((closest, card) => {
+          const cardCenter = card.getBoundingClientRect().left + card.clientWidth / 2;
+          const closestCenter = closest.getBoundingClientRect().left + closest.clientWidth / 2;
+          return Math.abs(cardCenter - carouselCenter) < Math.abs(closestCenter - carouselCenter) ? card : closest;
+        });
+        selectGame(parseInt(closestCard.dataset.index, 10), false);
+      }, 100);
+    }, { passive: true });
 
     function updateGameInfo(index) {
       gameTitle.textContent = gamesData[index].title;
       gameDescription.textContent = gamesData[index].description;
       gameVerMais.href = gamesData[index].url;
-      gameThumbs.forEach((t, i) => t.classList.toggle('active', i === index));
+      gameCards.forEach((card, i) => {
+        card.classList.toggle('active', i === index);
+        card.setAttribute('aria-pressed', i === index ? 'true' : 'false');
+      });
     }
+
+    updateGameInfo(0);
 
     const teamCards = document.querySelectorAll('.team-card');
     const teamDots = document.querySelectorAll('.team-dot');

@@ -294,52 +294,85 @@ h1, h2, h3, .display-font {
 
 .games-carousel-wrap {
   position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
 }
 
-.games-carousel .carousel-item img {
+.games-carousel {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+  padding: 0.5rem 0.25rem;
+}
+
+.games-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.game-card {
+  flex: 0 0 clamp(230px, 48%, 360px);
+  padding: 0;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.68;
+  scroll-snap-align: center;
+  transition: opacity 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.game-card img {
+  display: block;
   width: 100%;
   height: 320px;
   object-fit: cover;
-  border-radius: 8px;
-  border: 3px solid rgba(245, 124, 0, 0.4);
 }
 
-.games-carousel .carousel-control-prev,
-.games-carousel .carousel-control-next {
-  width: 40px;
-  opacity: 1;
-}
-
-.games-carousel .carousel-control-prev-icon,
-.games-carousel .carousel-control-next-icon {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  padding: 1.2rem;
-  background-size: 50%;
-}
-
-.game-thumbs {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 1rem;
-  justify-content: center;
-}
-
-.game-thumb {
-  width: 100px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 4px;
-  border: 2px solid transparent;
-  cursor: pointer;
-  opacity: 0.6;
-  transition: opacity 0.2s, border-color 0.2s;
-}
-
-.game-thumb.active,
-.game-thumb:hover {
+.game-card:hover,
+.game-card.active {
   opacity: 1;
   border-color: var(--bisc-orange);
+  transform: translateY(-3px);
+}
+
+.game-card:focus-visible,
+.games-arrow:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.games-arrow {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  width: 44px;
+  height: 58px;
+  border: 0;
+  border-radius: 7px;
+  background: rgba(24, 17, 15, 0.88);
+  color: #fff;
+  font-size: 1.7rem;
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.games-arrow:hover {
+  background: var(--bisc-orange);
+}
+
+.games-arrow-prev {
+  left: -18px;
+}
+
+.games-arrow-next {
+  right: -18px;
 }
 
 /* ── Quem Somos ── */
@@ -556,6 +589,22 @@ h1, h2, h3, .display-font {
 
   .game-info-panel {
     margin-bottom: 2rem;
+  }
+
+  .game-card {
+    flex-basis: min(72vw, 360px);
+  }
+
+  .game-card img {
+    height: 270px;
+  }
+
+  .games-arrow-prev {
+    left: 0.25rem;
+  }
+
+  .games-arrow-next {
+    right: 0.25rem;
   }
 
   .team-card {
