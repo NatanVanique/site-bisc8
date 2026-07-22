@@ -680,7 +680,7 @@ h1, h2, h3, .display-font {
   aspect-ratio: 1280 / 773;
   display: flex;
   align-items: center;
-  background-color: var(--bisc-orange);
+  background-color: transparent;
   background-image: url("../assets/images/ahoy-banner-site.png");
   background-repeat: no-repeat;
   background-position: center;
