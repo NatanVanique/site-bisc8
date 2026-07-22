@@ -295,9 +295,8 @@
     const trailingGameClones = gameCards.map(createGameClone);
     gamesCarousel.prepend(...leadingGameClones);
     gamesCarousel.append(...trailingGameClones);
-    const firstGameClone = trailingGameClones[0];
-    const lastGameClone = leadingGameClones[leadingGameClones.length - 1];
     let activeGameIndex = 0;
+    let activeVisualCard = gameCards[0];
 
     function getPreviousGamePeek() {
       return parseFloat(getComputedStyle(gamesCarousel).getPropertyValue('--game-previous-peek')) || 56;
@@ -320,13 +319,19 @@
     }
 
     function moveGame(direction) {
-      if (direction > 0 && activeGameIndex === gameCards.length - 1) {
-        selectGame(0, true, firstGameClone);
-      } else if (direction < 0 && activeGameIndex === 0) {
-        selectGame(gameCards.length - 1, true, lastGameClone);
-      } else {
-        selectGame(activeGameIndex + direction);
+      const allCards = [...gamesCarousel.querySelectorAll('.game-card')];
+      let currentPosition = allCards.indexOf(activeVisualCard);
+      let targetCard = allCards[currentPosition + direction];
+
+      if (!targetCard) {
+        const rebasedCard = gameCards[activeGameIndex];
+        scrollCardToStart(rebasedCard, false);
+        updateGameInfo(activeGameIndex, rebasedCard);
+        currentPosition = allCards.indexOf(rebasedCard);
+        targetCard = allCards[currentPosition + direction];
       }
+
+      selectGame(parseInt(targetCard.dataset.index, 10), true, targetCard);
     }
 
     gameCards.forEach((card) => card.addEventListener('click', () => selectGame(parseInt(card.dataset.index, 10))));
@@ -364,6 +369,7 @@
     }, { passive: true });
 
     function updateGameInfo(index, selectedCard = gameCards[index]) {
+      activeVisualCard = selectedCard;
       gameTitle.textContent = gamesData[index].title;
       gameDescription.textContent = gamesData[index].description;
       gameVerMais.href = gamesData[index].url;
