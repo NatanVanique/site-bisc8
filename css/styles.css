@@ -153,6 +153,7 @@ h1, h2, h3, .display-font {
 .hero-section .container {
   position: relative;
   z-index: 1;
+  transform: translateY(-35px);
 }
 
 .hero-logo-wrap {
@@ -536,6 +537,10 @@ h1, h2, h3, .display-font {
 
   .hero-section::after {
     height: 4rem;
+  }
+
+  .hero-section .container {
+    transform: translateY(-20px);
   }
 
   .hero-logo-wrap {
