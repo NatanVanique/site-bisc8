@@ -673,6 +673,90 @@ h1, h2, h3, .display-font {
   background: #fff;
 }
 
+/* ── Contato ── */
+.contact-section {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  background-color: var(--bisc-orange);
+  background-image: url("../assets/images/ahoy-banner-site.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 5rem 0;
+}
+
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.32);
+}
+
+.contact-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.contact-title {
+  margin-bottom: 2.5rem;
+  color: #fff;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.45);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 240px;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-link:hover,
+.contact-link:focus-visible {
+  color: #fff;
+  background-color: #111;
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.contact-link i {
+  flex: 0 0 auto;
+  color: var(--bisc-orange-light);
+  font-size: 1.6rem;
+}
+
+.contact-link span,
+.contact-link strong {
+  display: block;
+}
+
+.contact-link span {
+  font-size: 0.9rem;
+}
+
+.contact-link strong {
+  margin-bottom: 0.1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 /* ── Footer ── */
 .footer-bisc {
   background-color: #111;
@@ -750,6 +834,20 @@ h1, h2, h3, .display-font {
 
   .team-card:hover {
     width: 170px;
+  }
+
+  .contact-section {
+    min-height: 560px;
+    background-position: 35% center;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-link {
+    width: min(100%, 360px);
   }
 }
 
