@@ -153,7 +153,7 @@ h1, h2, h3, .display-font {
 .hero-section .container {
   position: relative;
   z-index: 1;
-  transform: translateY(-80px);
+  transform: translateY(-55px);
 }
 
 .hero-logo-wrap {
@@ -540,7 +540,7 @@ h1, h2, h3, .display-font {
   }
 
   .hero-section .container {
-    transform: translateY(-45px);
+    transform: translateY(-30px);
   }
 
   .hero-logo-wrap {
