@@ -996,6 +996,25 @@ h1, h2, h3, .display-font {
   transform: translateY(-3px);
 }
 
+.detail-download > i {
+  font-size: 1.15em;
+}
+
+.detail-download-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.9rem;
+  padding: 0.2rem 0.35rem;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.58em;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
 .detail-tags,
 .detail-features {
   position: relative;
