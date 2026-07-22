@@ -613,9 +613,10 @@ h1, h2, h3, .display-font {
 
 .team-card-name {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   color: #fff;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.07em;
+  white-space: nowrap;
 }
 
 .team-card-role {
