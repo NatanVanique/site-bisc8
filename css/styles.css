@@ -172,7 +172,7 @@ h1, h2, h3, .display-font {
 }
 
 .hero-title {
-  font-family: "Cooper Black", Cooper, serif;
+  font-family: "Shrikhand", "Cooper Black", Cooper, serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   color: #fff;
   line-height: 1;
