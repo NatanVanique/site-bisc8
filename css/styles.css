@@ -526,7 +526,8 @@ h1, h2, h3, .display-font {
   max-width: calc(100% - 2rem);
   margin: 0 auto 2.5rem;
   padding: 0.65rem 1.2rem;
-  background-color: #111;
+  background-color: rgba(17, 17, 17, 0.65);
+  border-radius: 10px;
   text-align: center;
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.85rem;
@@ -538,7 +539,50 @@ h1, h2, h3, .display-font {
   font-weight: 800;
 }
 
+.team-members-frame {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 5rem 0 4.5rem;
+  overflow: hidden;
+  isolation: isolate;
+  background-image:
+    url("../assets/images/team/members-x-top.png"),
+    url("../assets/images/team/members-x-down.png"),
+    url("../assets/images/team/opacity-members.png");
+  background-repeat: no-repeat;
+  background-position: center top, center bottom, center;
+  background-size: min(100%, 1260px) auto, min(88%, 1099px) auto, cover;
+}
+
+.team-members-frame::before,
+.team-members-frame::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.team-members-frame::before {
+  top: 3.6rem;
+  height: 22px;
+  background-image: url("../assets/images/team/bisc8-bar.png");
+}
+
+.team-members-frame::after {
+  bottom: 3.25rem;
+  height: 49px;
+  background-image: url("../assets/images/team/bisc8-bar-down.png");
+}
+
 .team-carousel {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -643,6 +687,8 @@ h1, h2, h3, .display-font {
 }
 
 .team-dots {
+  position: relative;
+  z-index: 4;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
