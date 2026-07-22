@@ -413,6 +413,7 @@ h1, h2, h3, .display-font {
 /* ── Continuous lower cascade background ── */
 .lower-cascade-background {
   position: relative;
+  padding-top: clamp(56px, 5vw, 96px);
   background-color: var(--bisc-orange);
   background-image: url("../assets/images/cascata-baixa-bisc8.png");
   background-repeat: repeat-y;
