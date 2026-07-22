@@ -20,12 +20,12 @@
   <section class="detail-hero" aria-label="Noon">
     <img class="detail-hero-image" src="../../assets/images/game-covers/noon-cover.png" alt="Arte do jogo Noon">
     <div class="detail-hero-ui">
-      <a href="#" class="detail-download"><i class="bi bi-download" aria-hidden="true"></i> Download</a>
+      <a href="https://bisc8gamedev.itch.io/noon" class="detail-download" target="_blank" rel="noopener noreferrer"><span class="detail-download-brand" aria-hidden="true">itch.io</span> Download</a>
       <ul class="detail-tags" aria-label="Tags do jogo"><li>Esconde-esconde</li><li>Terror</li><li>Humor</li><li>Multiplayer</li></ul>
-      <ul class="detail-features" aria-label="Características do jogo"><li><i class="bi bi-people-fill"></i> 1-4 Jogadores</li><li><i class="bi bi-windows"></i> Windows</li><li><i class="bi bi-apple"></i> Mac</li><li><i class="bi bi-steam"></i> Steam</li></ul>
+      <ul class="detail-features" aria-label="Características do jogo"><li><i class="bi bi-people-fill"></i> 1-4 Jogadores</li><li><i class="bi bi-windows"></i> Windows</li><li><i class="bi bi-steam"></i> Steam</li><li><i class="bi bi-translate"></i> Disponível em inglês</li><li><i class="bi bi-translate"></i> Disponível em espanhol</li><li><i class="bi bi-translate"></i> Disponível em português</li></ul>
     </div>
   </section>
-  <main class="detail-content detail-content-with-news">
+  <main class="detail-content">
     <div class="container detail-content-inner">
       <a href="../../index.html#jogos" class="detail-back"><i class="bi bi-arrow-left"></i> Voltar</a>
         <h1 class="display-font display-3 mb-3">Noon</h1>
@@ -53,106 +53,21 @@
             <span class="media-gallery-scrollbar-thumb" data-gallery-scrollbar-thumb></span>
           </div>
         </div>
+        <section class="game-recognition" aria-labelledby="noonRecognitionTitle">
+          <h2 class="game-recognition-title" id="noonRecognitionTitle">Prêmios e comentários</h2>
+          <div class="game-recognition-list">
+            <article class="game-recognition-card">
+              <i class="bi bi-star-fill game-recognition-star" aria-hidden="true"></i>
+              <div><h3 class="game-recognition-name">Honra ao mérito</h3><p class="game-recognition-source">IESB Pitch Day 2026.1</p></div>
+            </article>
+            <article class="game-recognition-card">
+              <i class="bi bi-star-fill game-recognition-star" aria-hidden="true"></i>
+              <div><h3 class="game-recognition-name">Incubados BGH</h3><p class="game-recognition-source">Brasília Game Hub 2026.2</p></div>
+            </article>
+          </div>
+        </section>
     </div>
-    <section class="game-news" aria-labelledby="gameNewsTitle">
-      <div class="container detail-content-inner">
-        <h2 class="game-news-title" id="gameNewsTitle">Novidades</h2>
-        <div class="game-news-grid">
-          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
-          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
-          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
-        </div>
-      </div>
-    </section>
   </main>
-  <div class="game-subscribe-footer" data-game-subscribe data-game-name="Noon">
-    <div class="game-subscribe-form">
-      <div class="game-subscribe-content">
-        <div class="game-subscribe-decoration"></div>
-        <div class="game-subscribe-text">
-          <h3 class="game-subscribe-title">Fique atento às novidades!</h3>
-          <p class="game-subscribe-subtitle">Receba notificações sobre esse projeto no seu email.</p>
-        </div>
-        <div class="game-subscribe-input-group">
-          <label class="game-subscribe-label" for="email-noon">Email:</label>
-          <input class="game-subscribe-input" type="email" id="email-noon" placeholder="seu@email.com">
-          <button class="game-subscribe-btn" type="button">Registrar</button>
-        </div>
-      </div>
-    </div>
-    <div class="game-subscribe-bar">
-      <button class="game-subscribe-toggle" type="button" data-subscribe-toggle aria-expanded="false">
-        Se Inscrever <i class="bi bi-chevron-down toggle-arrow" aria-hidden="true"></i>
-      </button>
-    </div>
-  </div>
-  <script src="../../src/scripts/game-subscribe-footer.js"></script>
-  <script>
-    document.querySelectorAll('[data-media-gallery]').forEach((gallery) => {
-      const items = [...gallery.querySelectorAll('[data-gallery-item]')];
-      const thumbs = [...gallery.querySelectorAll('[data-gallery-thumb]')];
-      const thumbsTrack = gallery.querySelector('.media-gallery-thumbs');
-      const scrollbar = gallery.querySelector('[data-gallery-scrollbar]');
-      const scrollbarThumb = gallery.querySelector('[data-gallery-scrollbar-thumb]');
-      let currentIndex = 0;
-
-      const updateScrollbar = () => {
-        const maxScroll = thumbsTrack.scrollWidth - thumbsTrack.clientWidth;
-        const visibleRatio = Math.min(1, thumbsTrack.clientWidth / thumbsTrack.scrollWidth);
-        const thumbWidth = visibleRatio * scrollbar.clientWidth;
-        const maxThumbX = scrollbar.clientWidth - thumbWidth;
-        const progress = maxScroll > 0 ? thumbsTrack.scrollLeft / maxScroll : 0;
-
-        scrollbarThumb.style.width = `${thumbWidth}px`;
-        scrollbarThumb.style.transform = `translateX(${progress * maxThumbX}px)`;
-        scrollbar.classList.toggle('is-full', maxScroll <= 1);
-        scrollbar.setAttribute('aria-disabled', String(maxScroll <= 1));
-        scrollbar.setAttribute('aria-valuenow', String(Math.round(progress * 100)));
-      };
-
-      const selectMedia = (index) => {
-        currentIndex = (index + items.length) % items.length;
-        items.forEach((item, itemIndex) => item.classList.toggle('active', itemIndex === currentIndex));
-        thumbs.forEach((thumb, thumbIndex) => {
-          const isActive = thumbIndex === currentIndex;
-          thumb.classList.toggle('active', isActive);
-          thumb.setAttribute('aria-pressed', String(isActive));
-        });
-        thumbs[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-      };
-
-      gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => selectMedia(currentIndex - 1));
-      gallery.querySelector('[data-gallery-next]').addEventListener('click', () => selectMedia(currentIndex + 1));
-      thumbs.forEach((thumb) => thumb.addEventListener('click', () => selectMedia(Number(thumb.dataset.galleryThumb))));
-      thumbsTrack.addEventListener('scroll', updateScrollbar, { passive: true });
-      window.addEventListener('resize', updateScrollbar);
-
-      scrollbar.addEventListener('pointerdown', (event) => {
-        if (scrollbar.classList.contains('is-full')) return;
-        scrollbar.setPointerCapture(event.pointerId);
-
-        const moveScrollbar = (pointerEvent) => {
-          const bounds = scrollbar.getBoundingClientRect();
-          const thumbWidth = scrollbarThumb.offsetWidth;
-          const maxThumbX = bounds.width - thumbWidth;
-          const targetX = Math.max(0, Math.min(maxThumbX, pointerEvent.clientX - bounds.left - (thumbWidth / 2)));
-          const progress = maxThumbX > 0 ? targetX / maxThumbX : 0;
-          thumbsTrack.scrollLeft = progress * (thumbsTrack.scrollWidth - thumbsTrack.clientWidth);
-        };
-
-        moveScrollbar(event);
-        const stopDragging = () => {
-          scrollbar.removeEventListener('pointermove', moveScrollbar);
-          scrollbar.removeEventListener('pointerup', stopDragging);
-          scrollbar.removeEventListener('pointercancel', stopDragging);
-        };
-        scrollbar.addEventListener('pointermove', moveScrollbar);
-        scrollbar.addEventListener('pointerup', stopDragging);
-        scrollbar.addEventListener('pointercancel', stopDragging);
-      });
-
-      requestAnimationFrame(updateScrollbar);
-    });
-  </script>
+  <script src="../../src/scripts/game-gallery.js"></script>
 </body>
 </html>

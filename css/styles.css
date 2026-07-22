@@ -996,6 +996,25 @@ h1, h2, h3, .display-font {
   transform: translateY(-3px);
 }
 
+.detail-download > i {
+  font-size: 1.15em;
+}
+
+.detail-download-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.9rem;
+  padding: 0.2rem 0.35rem;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.58em;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
 .detail-tags,
 .detail-features {
   position: relative;
@@ -1055,16 +1074,13 @@ h1, h2, h3, .display-font {
   background: #110d0b;
 }
 
-.detail-content-with-news {
-  padding-bottom: 0;
-}
-
 .detail-content-inner {
   max-width: 920px;
 }
 
 .detail-content h1 {
   color: var(--bisc-orange);
+  font-size: clamp(3.8rem, 8vw, 5.5rem);
 }
 
 .media-gallery {
@@ -1227,84 +1243,62 @@ h1, h2, h3, .display-font {
   transform: translate(-50%, -50%);
 }
 
-.game-news {
-  width: 100vw;
-  margin-top: 5rem;
-  margin-left: calc(50% - 50vw);
-  padding: 4rem 0 5rem;
+.game-recognition {
+  margin-top: 4rem;
+}
+
+.game-recognition-title {
+  margin-bottom: 1.25rem;
+  color: var(--bisc-orange);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: 0.02em;
+}
+
+.game-recognition-list {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.game-recognition-card {
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.7rem;
+  flex: 0 1 auto;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 9px;
   background: #fff;
   color: #17110e;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
 }
 
-.game-news-title {
-  margin-bottom: 2rem;
-  color: #17110e;
-  font-family: "Bungee", cursive;
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  text-align: center;
-}
-
-.game-news-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
-}
-
-.game-news-card {
-  min-height: 260px;
-  overflow: hidden;
-  border: 2px solid #e5e0dd;
-  border-radius: 12px;
-  background: #f5f3f2;
-}
-
-.game-news-card.is-empty {
-  display: grid;
-  place-items: center;
-  padding: 2rem;
-  border-style: dashed;
-  color: #746b66;
-  font-family: "Bungee", cursive;
-  text-align: center;
-}
-
-.game-news-media {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #17110e;
-}
-
-.game-news-media img,
-.game-news-media iframe,
-.game-news-media video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  object-fit: cover;
-}
-
-.game-news-body {
-  padding: 1.25rem;
-}
-
-.game-news-card-title {
-  margin-bottom: 0.6rem;
-  color: #17110e;
-  font-size: 1.65rem;
-}
-
-.game-news-summary {
-  margin-bottom: 1rem;
-  color: #5f5752;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-.game-news-date {
+.game-recognition-star {
   color: var(--bisc-orange);
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1;
+}
+
+.game-recognition-name {
+  margin: 0 0 0.25rem;
+  color: #17110e;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  line-height: 1.1;
+}
+
+.game-recognition-source {
+  margin: 0;
+  color: #6c625d;
+  font-size: 0.72rem;
+}
+
+.game-recognition-card.is-empty .game-recognition-star {
+  color: #b8afaa;
 }
 
 .detail-back {
@@ -1757,16 +1751,12 @@ h1, h2, h3, .display-font {
     height: 14px;
   }
 
-  .game-news {
-    margin-top: 3.5rem;
-    padding: 3rem 0;
+  .game-recognition {
+    margin-top: 3rem;
   }
 
-  .game-news-grid {
-    grid-template-columns: 1fr;
+  .game-recognition-card {
+    padding: 0.7rem 0.85rem;
   }
 
-  .game-news-card {
-    min-height: 190px;
-  }
 }
