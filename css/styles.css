@@ -676,21 +676,16 @@ h1, h2, h3, .display-font {
 /* ── Contato ── */
 .contact-section {
   position: relative;
-  min-height: 620px;
+  min-height: 0;
+  aspect-ratio: 1280 / 773;
   display: flex;
   align-items: center;
   background-color: var(--bisc-orange);
   background-image: url("../assets/images/ahoy-banner-site.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   padding: 5rem 0;
-}
-
-.contact-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(17, 17, 17, 0.32);
 }
 
 .contact-content {
@@ -838,7 +833,9 @@ h1, h2, h3, .display-font {
 
   .contact-section {
     min-height: 560px;
-    background-position: 35% center;
+    aspect-ratio: auto;
+    background-position: center;
+    background-size: contain;
   }
 
   .contact-links {
