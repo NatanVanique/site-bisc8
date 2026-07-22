@@ -572,33 +572,33 @@ h1, h2, h3, .display-font {
 }
 
 .team-photo-gomes {
-  object-position: 53% 30%;
-  transform: scale(1.45);
+  object-position: 52% center;
+  transform: translateY(25%) scale(1.45);
 }
 
 .team-photo-ismael {
-  object-position: 50% 27%;
-  transform: scale(1.7);
+  object-position: 50% center;
+  transform: translateY(24%) scale(1.7);
 }
 
 .team-photo-jaqueline {
-  object-position: 54% 30%;
-  transform: scale(1.35);
+  object-position: 52% center;
+  transform: translateY(18%) scale(1.35);
 }
 
 .team-photo-natan {
-  object-position: 62% 32%;
-  transform: scale(1.5);
+  object-position: 59% center;
+  transform: translateY(8%) scale(1.5);
 }
 
 .team-photo-thor {
-  object-position: 50% 22%;
-  transform: scale(2.1);
+  object-position: 50% center;
+  transform: translateY(50%) scale(2.1);
 }
 
 .team-photo-galletti {
-  object-position: 55% 26%;
-  transform: scale(1.75);
+  object-position: 52% center;
+  transform: translateY(44%) scale(1.75);
 }
 
 .team-card-placeholder {
