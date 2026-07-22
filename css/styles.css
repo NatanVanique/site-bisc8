@@ -13,7 +13,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: var(--bisc-brown);
+  background-color: #111;
   color: #fff;
   overflow-x: hidden;
 }
@@ -128,19 +128,28 @@ h1, h2, h3, .display-font {
 /* ── Hero ── */
 .hero-section {
   background-color: #111;
-  background-image: url("../assets/images/cascata-bisc8.png");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
   padding: 6rem 0 5rem;
   position: relative;
+  z-index: 1;
+  overflow: visible;
   min-height: 0;
   display: flex;
   align-items: center;
 }
 
 .hero-section::after {
-  content: none;
+  content: "";
+  position: absolute;
+  top: 3.75rem;
+  right: 0;
+  bottom: -5.5rem;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("../assets/images/cascata-bisc8.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
 }
 
 .hero-section .container {
@@ -255,7 +264,9 @@ h1, h2, h3, .display-font {
 
 /* ── Games Section ── */
 .games-section {
-  background-color: var(--bisc-brown);
+  position: relative;
+  z-index: 0;
+  background-color: #111;
   padding: 4rem 0 5rem;
 }
 
@@ -452,6 +463,14 @@ h1, h2, h3, .display-font {
   line-height: 1.8;
 }
 
+.narrative-text p {
+  margin-bottom: 1rem;
+}
+
+.narrative-text p:last-child {
+  margin-bottom: 0;
+}
+
 .narrative-text .highlight {
   color: var(--bisc-orange);
   font-weight: 600;
@@ -596,11 +615,11 @@ h1, h2, h3, .display-font {
     padding-top: 5rem;
     min-height: auto;
     padding-bottom: 5rem;
-    background-position: center bottom;
   }
 
   .hero-section::after {
-    content: none;
+    top: 3.25rem;
+    bottom: -4rem;
   }
 
   .hero-layout {
