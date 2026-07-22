@@ -65,6 +65,28 @@
       </div>
     </section>
   </main>
+  <div class="game-subscribe-footer" data-game-subscribe data-game-name="Noon">
+    <div class="game-subscribe-form">
+      <div class="game-subscribe-content">
+        <div class="game-subscribe-decoration"></div>
+        <div class="game-subscribe-text">
+          <h3 class="game-subscribe-title">Fique atento às novidades!</h3>
+          <p class="game-subscribe-subtitle">Receba notificações sobre esse projeto no seu email.</p>
+        </div>
+        <div class="game-subscribe-input-group">
+          <label class="game-subscribe-label" for="email-noon">Email:</label>
+          <input class="game-subscribe-input" type="email" id="email-noon" placeholder="seu@email.com">
+          <button class="game-subscribe-btn" type="button">Registrar</button>
+        </div>
+      </div>
+    </div>
+    <div class="game-subscribe-bar">
+      <button class="game-subscribe-toggle" type="button" data-subscribe-toggle aria-expanded="false">
+        Se Inscrever <i class="bi bi-chevron-down toggle-arrow" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+  <script src="../../src/scripts/game-subscribe-footer.js"></script>
   <script>
     document.querySelectorAll('[data-media-gallery]').forEach((gallery) => {
       const items = [...gallery.querySelectorAll('[data-gallery-item]')];
