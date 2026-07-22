@@ -583,17 +583,17 @@ h1, h2, h3, .display-font {
 
 .team-photo-jaqueline {
   object-position: 52% center;
-  transform: translateY(14%) scale(1.2);
+  transform: translateY(11%) scale(1.1);
 }
 
 .team-photo-natan {
   object-position: 59% center;
-  transform: translateY(2%) scale(1.15);
+  transform: translateY(0) scale(1);
 }
 
 .team-photo-thor {
   object-position: 50% center;
-  transform: translateY(50%) scale(2.1);
+  transform: translateY(55%) scale(2.25);
 }
 
 .team-photo-galletti {
