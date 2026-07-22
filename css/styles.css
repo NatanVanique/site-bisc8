@@ -1242,6 +1242,60 @@ h1, h2, h3, .display-font {
   transform: translate(-50%, -50%);
 }
 
+.game-recognition {
+  margin-top: 4rem;
+}
+
+.game-recognition-title {
+  margin-bottom: 1.25rem;
+  color: #fff;
+  font-family: "Bungee", cursive;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.game-recognition-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.game-recognition-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1.1rem;
+  width: 100%;
+  min-height: 112px;
+  padding: 1.25rem 1.5rem;
+  border-radius: 12px;
+  background: #fff;
+  color: #17110e;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+}
+
+.game-recognition-star {
+  color: var(--bisc-orange);
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1;
+}
+
+.game-recognition-name {
+  margin: 0 0 0.25rem;
+  color: #17110e;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.1;
+}
+
+.game-recognition-source {
+  margin: 0;
+  color: #6c625d;
+  font-size: 0.85rem;
+}
+
+.game-recognition-card.is-empty .game-recognition-star {
+  color: #b8afaa;
+}
+
 .detail-back {
   color: var(--bisc-orange);
   text-decoration: none;
@@ -1307,6 +1361,15 @@ h1, h2, h3, .display-font {
 
   .media-gallery-scrollbar {
     height: 14px;
+  }
+
+  .game-recognition {
+    margin-top: 3rem;
+  }
+
+  .game-recognition-card {
+    min-height: 96px;
+    padding: 1rem;
   }
 
 }
