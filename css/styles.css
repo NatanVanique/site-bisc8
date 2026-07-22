@@ -1148,25 +1148,47 @@ h1, h2, h3, .display-font {
   margin-top: 1rem;
   padding: 0.25rem 0.1rem 0.65rem;
   overflow-x: auto;
-  scrollbar-color: var(--bisc-orange) rgba(255, 255, 255, 0.1);
+  scrollbar-width: none;
 }
 
-.media-gallery-slider {
-  display: block;
+.media-gallery-thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.media-gallery-scrollbar {
+  position: relative;
   width: 100%;
-  height: 18px;
+  height: 12px;
   margin-top: 0.35rem;
-  accent-color: var(--bisc-orange);
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
   cursor: grab;
+  touch-action: none;
 }
 
-.media-gallery-slider:active {
+.media-gallery-scrollbar:active {
   cursor: grabbing;
 }
 
-.media-gallery-slider:focus-visible {
+.media-gallery-scrollbar:focus-visible {
   outline: 2px solid var(--bisc-orange-light);
   outline-offset: 3px;
+}
+
+.media-gallery-scrollbar.is-full {
+  cursor: default;
+  pointer-events: none;
+}
+
+.media-gallery-scrollbar-thumb {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  border-radius: 999px;
+  background: #fff;
+  transform: translateX(0);
+  will-change: transform;
 }
 
 .media-gallery-thumb {
@@ -1348,8 +1370,8 @@ h1, h2, h3, .display-font {
     flex-basis: 120px;
   }
 
-  .media-gallery-slider {
-    height: 22px;
+  .media-gallery-scrollbar {
+    height: 14px;
   }
 
   .game-news {
