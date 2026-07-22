@@ -207,7 +207,7 @@ h1, h2, h3, .display-font {
   color: rgba(255, 255, 255, 0.92);
   font-size: 0.76rem;
   line-height: 1.5;
-  max-width: 360px;
+  max-width: 410px;
   margin-right: auto;
   margin-left: auto;
   text-align: center;
@@ -326,7 +326,7 @@ h1, h2, h3, .display-font {
 }
 
 .games-carousel {
-  --game-previous-peek: 132px;
+  --game-previous-peek: 56px;
   display: flex;
   gap: 0.75rem;
   width: 100%;
@@ -629,7 +629,7 @@ h1, h2, h3, .display-font {
   }
 
   .games-carousel {
-    --game-previous-peek: 82px;
+    --game-previous-peek: 44px;
   }
 
   .game-card img {

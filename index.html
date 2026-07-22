@@ -282,35 +282,40 @@
     const gamesPrev = document.getElementById('gamesPrev');
     const gamesNext = document.getElementById('gamesNext');
     const gameCards = [...gamesCarousel.querySelectorAll('.game-card')];
-    const firstGameClone = gameCards[0].cloneNode(true);
-    const lastGameClone = gameCards[gameCards.length - 1].cloneNode(true);
-    firstGameClone.classList.add('game-card-clone');
-    lastGameClone.classList.add('game-card-clone');
-    firstGameClone.classList.remove('active');
-    lastGameClone.classList.remove('active');
-    firstGameClone.setAttribute('aria-hidden', 'true');
-    lastGameClone.setAttribute('aria-hidden', 'true');
-    firstGameClone.tabIndex = -1;
-    lastGameClone.tabIndex = -1;
-    gamesCarousel.append(firstGameClone);
-    gamesCarousel.prepend(lastGameClone);
+    const createGameClone = (card) => {
+      const clone = card.cloneNode(true);
+      clone.classList.add('game-card-clone');
+      clone.classList.remove('active');
+      clone.setAttribute('aria-hidden', 'true');
+      clone.tabIndex = -1;
+      return clone;
+    };
+    const leadingGameClones = gameCards.map(createGameClone);
+    const trailingGameClones = gameCards.map(createGameClone);
+    gamesCarousel.prepend(...leadingGameClones);
+    gamesCarousel.append(...trailingGameClones);
+    const firstGameClone = trailingGameClones[0];
+    const lastGameClone = leadingGameClones[leadingGameClones.length - 1];
     let activeGameIndex = 0;
 
     function getPreviousGamePeek() {
-      return parseFloat(getComputedStyle(gamesCarousel).getPropertyValue('--game-previous-peek')) || 132;
+      return parseFloat(getComputedStyle(gamesCarousel).getPropertyValue('--game-previous-peek')) || 56;
     }
 
     function scrollCardToStart(card, smooth = true) {
+      if (!smooth) gamesCarousel.style.scrollBehavior = 'auto';
       gamesCarousel.scrollTo({
         left: card.offsetLeft - gamesCarousel.offsetLeft - getPreviousGamePeek(),
         behavior: smooth ? 'smooth' : 'auto'
       });
+      if (!smooth) requestAnimationFrame(() => { gamesCarousel.style.scrollBehavior = ''; });
     }
 
     function selectGame(index, shouldScroll = true, targetCard = null) {
       activeGameIndex = (index + gameCards.length) % gameCards.length;
-      updateGameInfo(activeGameIndex);
-      if (shouldScroll) scrollCardToStart(targetCard || gameCards[activeGameIndex]);
+      const selectedCard = targetCard || gameCards[activeGameIndex];
+      updateGameInfo(activeGameIndex, selectedCard);
+      if (shouldScroll) scrollCardToStart(selectedCard);
     }
 
     function moveGame(direction) {
@@ -324,8 +329,9 @@
     }
 
     gameCards.forEach((card) => card.addEventListener('click', () => selectGame(parseInt(card.dataset.index, 10))));
-    firstGameClone.addEventListener('click', () => selectGame(0));
-    lastGameClone.addEventListener('click', () => selectGame(gameCards.length - 1));
+    [...leadingGameClones, ...trailingGameClones].forEach((clone) => {
+      clone.addEventListener('click', () => selectGame(parseInt(clone.dataset.index, 10), true, clone));
+    });
     gamesPrev.addEventListener('click', () => moveGame(-1));
     gamesNext.addEventListener('click', () => moveGame(1));
     gamesCarousel.addEventListener('keydown', (event) => {
@@ -347,20 +353,23 @@
           return Math.abs(cardLeft - selectedPosition) < Math.abs(closestLeft - selectedPosition) ? card : closest;
         });
         const index = parseInt(closestCard.dataset.index, 10);
-        selectGame(index, false);
+        selectGame(index, false, closestCard);
 
-        if (closestCard === firstGameClone) scrollCardToStart(gameCards[0], false);
-        if (closestCard === lastGameClone) scrollCardToStart(gameCards[gameCards.length - 1], false);
+        if (closestCard.classList.contains('game-card-clone')) {
+          scrollCardToStart(gameCards[index], false);
+          updateGameInfo(index, gameCards[index]);
+        }
       }, 100);
     }, { passive: true });
 
-    function updateGameInfo(index) {
+    function updateGameInfo(index, selectedCard = gameCards[index]) {
       gameTitle.textContent = gamesData[index].title;
       gameDescription.textContent = gamesData[index].description;
       gameVerMais.href = gamesData[index].url;
-      gameCards.forEach((card, i) => {
-        card.classList.toggle('active', i === index);
-        card.setAttribute('aria-pressed', i === index ? 'true' : 'false');
+      gamesCarousel.querySelectorAll('.game-card').forEach((card) => {
+        const isSelected = card === selectedCard;
+        card.classList.toggle('active', isSelected);
+        card.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
       });
     }
 
