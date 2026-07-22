@@ -147,8 +147,8 @@ h1, h2, h3, .display-font {
   pointer-events: none;
   background-image: url("../assets/images/cascata-bisc8.png");
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
+  background-position: center bottom;
+  background-size: 100% calc(100% + 2rem);
 }
 
 .hero-section .container {
@@ -621,6 +621,7 @@ h1, h2, h3, .display-font {
 
   .hero-section::after {
     inset: 0;
+    background-size: 100% calc(100% + 1rem);
   }
 
   .hero-layout {
