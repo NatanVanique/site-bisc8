@@ -25,7 +25,7 @@
       <ul class="detail-features" aria-label="Características do jogo"><li><i class="bi bi-people-fill"></i> 1-4 Jogadores</li><li><i class="bi bi-windows"></i> Windows</li><li><i class="bi bi-apple"></i> Mac</li><li><i class="bi bi-steam"></i> Steam</li></ul>
     </div>
   </section>
-  <main class="detail-content">
+  <main class="detail-content detail-content-with-news">
     <div class="container detail-content-inner">
       <a href="../../index.html#jogos" class="detail-back"><i class="bi bi-arrow-left"></i> Voltar</a>
         <h1 class="display-font display-3 mb-3">Noon</h1>
@@ -49,14 +49,28 @@
             <button class="media-gallery-thumb" type="button" data-gallery-thumb="2" aria-label="Exibir imagem 2" aria-pressed="false"><img src="../../assets/images/games/noon/noon-screenshot-02.png" alt=""></button>
             <button class="media-gallery-thumb" type="button" data-gallery-thumb="3" aria-label="Exibir imagem 3" aria-pressed="false"><img src="../../assets/images/games/noon/noon-screenshot-03.png" alt=""></button>
           </div>
+          <input class="media-gallery-slider" data-gallery-slider type="range" min="0" max="3" step="1" value="0" aria-label="Navegar pelas mídias de Noon">
         </div>
     </div>
+    <section class="game-news" aria-labelledby="gameNewsTitle">
+      <div class="container detail-content-inner">
+        <h2 class="game-news-title" id="gameNewsTitle">Novidades</h2>
+        <div class="game-news-grid">
+          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
+          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
+          <article class="game-news-card is-empty"><span>Novidades em breve</span></article>
+        </div>
+      </div>
+    </section>
   </main>
   <script>
     document.querySelectorAll('[data-media-gallery]').forEach((gallery) => {
       const items = [...gallery.querySelectorAll('[data-gallery-item]')];
       const thumbs = [...gallery.querySelectorAll('[data-gallery-thumb]')];
+      const slider = gallery.querySelector('[data-gallery-slider]');
       let currentIndex = 0;
+
+      slider.max = String(items.length - 1);
 
       const selectMedia = (index) => {
         currentIndex = (index + items.length) % items.length;
@@ -66,12 +80,14 @@
           thumb.classList.toggle('active', isActive);
           thumb.setAttribute('aria-pressed', String(isActive));
         });
+        slider.value = String(currentIndex);
         thumbs[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       };
 
       gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => selectMedia(currentIndex - 1));
       gallery.querySelector('[data-gallery-next]').addEventListener('click', () => selectMedia(currentIndex + 1));
       thumbs.forEach((thumb) => thumb.addEventListener('click', () => selectMedia(Number(thumb.dataset.galleryThumb))));
+      slider.addEventListener('input', () => selectMedia(Number(slider.value)));
     });
   </script>
 </body>

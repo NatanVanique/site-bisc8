@@ -1055,6 +1055,10 @@ h1, h2, h3, .display-font {
   background: #110d0b;
 }
 
+.detail-content-with-news {
+  padding-bottom: 0;
+}
+
 .detail-content-inner {
   max-width: 920px;
 }
@@ -1147,6 +1151,24 @@ h1, h2, h3, .display-font {
   scrollbar-color: var(--bisc-orange) rgba(255, 255, 255, 0.1);
 }
 
+.media-gallery-slider {
+  display: block;
+  width: 100%;
+  height: 18px;
+  margin-top: 0.35rem;
+  accent-color: var(--bisc-orange);
+  cursor: grab;
+}
+
+.media-gallery-slider:active {
+  cursor: grabbing;
+}
+
+.media-gallery-slider:focus-visible {
+  outline: 2px solid var(--bisc-orange-light);
+  outline-offset: 3px;
+}
+
 .media-gallery-thumb {
   position: relative;
   flex: 0 0 155px;
@@ -1181,6 +1203,86 @@ h1, h2, h3, .display-font {
   font-size: 2rem;
   filter: drop-shadow(0 2px 4px #000);
   transform: translate(-50%, -50%);
+}
+
+.game-news {
+  width: 100vw;
+  margin-top: 5rem;
+  margin-left: calc(50% - 50vw);
+  padding: 4rem 0 5rem;
+  background: #fff;
+  color: #17110e;
+}
+
+.game-news-title {
+  margin-bottom: 2rem;
+  color: #17110e;
+  font-family: "Bungee", cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.game-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.game-news-card {
+  min-height: 260px;
+  overflow: hidden;
+  border: 2px solid #e5e0dd;
+  border-radius: 12px;
+  background: #f5f3f2;
+}
+
+.game-news-card.is-empty {
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  border-style: dashed;
+  color: #746b66;
+  font-family: "Bungee", cursive;
+  text-align: center;
+}
+
+.game-news-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #17110e;
+}
+
+.game-news-media img,
+.game-news-media iframe,
+.game-news-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+.game-news-body {
+  padding: 1.25rem;
+}
+
+.game-news-card-title {
+  margin-bottom: 0.6rem;
+  color: #17110e;
+  font-size: 1.65rem;
+}
+
+.game-news-summary {
+  margin-bottom: 1rem;
+  color: #5f5752;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.game-news-date {
+  color: var(--bisc-orange);
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .detail-back {
@@ -1244,5 +1346,22 @@ h1, h2, h3, .display-font {
 
   .media-gallery-thumb {
     flex-basis: 120px;
+  }
+
+  .media-gallery-slider {
+    height: 22px;
+  }
+
+  .game-news {
+    margin-top: 3.5rem;
+    padding: 3rem 0;
+  }
+
+  .game-news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-news-card {
+    min-height: 190px;
   }
 }
