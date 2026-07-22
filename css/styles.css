@@ -578,17 +578,17 @@ h1, h2, h3, .display-font {
 
 .team-photo-ismael {
   object-position: 50% center;
-  transform: translateY(24%) scale(1.7);
+  transform: translateY(17%) scale(1.4);
 }
 
 .team-photo-jaqueline {
   object-position: 52% center;
-  transform: translateY(18%) scale(1.35);
+  transform: translateY(14%) scale(1.2);
 }
 
 .team-photo-natan {
   object-position: 59% center;
-  transform: translateY(8%) scale(1.5);
+  transform: translateY(2%) scale(1.15);
 }
 
 .team-photo-thor {
@@ -598,7 +598,7 @@ h1, h2, h3, .display-font {
 
 .team-photo-galletti {
   object-position: 52% center;
-  transform: translateY(44%) scale(1.75);
+  transform: translateY(32%) scale(1.4);
 }
 
 .team-card-placeholder {
