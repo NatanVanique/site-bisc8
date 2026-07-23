@@ -2401,9 +2401,28 @@ h1, h2, h3, .display-font {
   .hero-section {
     height: auto;
     min-height: 0;
-    padding-bottom: clamp(7.5rem, 18vw, 9rem);
-    background-color: #ff7418;
+    overflow: hidden;
+    padding-bottom: clamp(8rem, 38vw, 11.25rem);
+    background-color: #111;
+    background-image: url("../assets/images/background-bisc8.png");
+    background-repeat: repeat-y;
     background-size: 100% auto;
+    background-position: center top;
+  }
+
+  .hero-section::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    height: clamp(8rem, 38vw, 11.25rem);
+    pointer-events: none;
+    background-color: #111;
+    background-image: url("../assets/images/cascata-superior.png");
+    background-repeat: no-repeat;
     background-position: center bottom;
+    background-size: 100% auto;
   }
 }
