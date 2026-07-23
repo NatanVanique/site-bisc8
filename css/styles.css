@@ -11,9 +11,17 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Inter", sans-serif;
   background-color: #111;
+  background-image: url("../assets/images/background-bisc8.png");
+  background-repeat: repeat-y;
+  background-position: center top;
+  background-size: 100% auto;
   color: #fff;
   overflow-x: hidden;
 }
@@ -127,28 +135,15 @@ h1, h2, h3, .display-font {
 
 /* ── Hero ── */
 .hero-section {
-  background-color: #111;
   width: 100%;
   height: clamp(32rem, calc(100vw * 485 / 1279 - 10rem), 42rem);
   margin-top: 4.4rem;
-  padding: 4rem 0;
+  padding: 4rem 0 0 0;
   position: relative;
   z-index: 1;
   overflow: visible;
   display: flex;
   align-items: center;
-}
-
-.hero-section::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: url("../assets/images/cascata-bisc8.png");
-  background-repeat: repeat-y;
-  background-position: center bottom;
-  background-size: 100% auto;
 }
 
 .hero-section .container {
@@ -263,6 +258,20 @@ h1, h2, h3, .display-font {
   color: #fff;
 }
 
+/* ── Cascade Divider ── */
+.cascade-divider {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.cascade-divider img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* ── Games Section ── */
 .games-section {
   position: relative;
@@ -297,7 +306,7 @@ h1, h2, h3, .display-font {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  line-clamp: 5;
 }
 
 .game-info-panel .game-meta {
@@ -426,17 +435,6 @@ h1, h2, h3, .display-font {
 
 .games-arrow-next {
   right: -18px;
-}
-
-/* ── Continuous lower cascade background ── */
-.lower-cascade-background {
-  position: absolute;
-  padding-top: clamp(100px, 9vw, 170px);
-  background-color: #111;
-  background-image: url("../assets/images/cascata-baixa-bisc8.png");
-  background-repeat: repeat-y;
-  background-position: center top;
-  background-size: 100% auto;
 }
 
 /* ── Quem Somos ── */
@@ -615,8 +613,8 @@ h1, h2, h3, .display-font {
   align-items: center;
   justify-content: flex-start;
   gap: 0;
-  width: 96vw;
-  margin-left: calc(50% - 48vw);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
   overflow-x: auto;
   overflow-y: hidden;
   padding: 1rem 0 0;
@@ -836,6 +834,10 @@ h1, h2, h3, .display-font {
 
 /* ── Responsive ── */
 @media (max-width: 991px) {
+  .team-dots {
+    display: none;
+  }
+
   .hero-section {
     aspect-ratio: auto;
     height: auto;
