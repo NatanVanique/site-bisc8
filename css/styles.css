@@ -1783,3 +1783,513 @@ h1, h2, h3, .display-font {
   }
 
 }
+
+/* ── Responsive layout consolidation ── */
+@media (max-width: 991.98px) {
+  .hero-section {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .hero-section .container {
+    transform: none;
+  }
+
+  .hero-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .hero-layout > * {
+    width: 100%;
+    padding-inline: 0.75rem;
+  }
+
+  .hero-logo-wrap {
+    margin-bottom: 0;
+  }
+
+  .hero-logo-wrap img {
+    width: min(58vw, 260px);
+  }
+
+  .hero-copy {
+    width: min(100%, 680px);
+    margin-inline: auto;
+  }
+
+  .hero-text {
+    max-width: 640px;
+  }
+
+  .cascade-divider {
+    height: clamp(110px, 20vw, 180px);
+  }
+
+  /* On narrow screens the selected game artwork comes before its description. */
+  .games-section > .container > .row {
+    flex-direction: column-reverse;
+  }
+
+  .games-section .col-lg-4,
+  .games-section .col-lg-8 {
+    width: 100%;
+  }
+
+  .game-info-panel {
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    padding: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .game-info-panel p {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    display: block;
+  }
+
+  .game-info-panel .game-meta {
+    min-height: 0;
+  }
+
+  .game-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .game-buttons .btn {
+    flex: 1 1 180px;
+  }
+
+  .games-carousel-wrap {
+    margin-bottom: 0.5rem;
+  }
+
+  .quem-somos-section {
+    min-height: 320px;
+    aspect-ratio: auto;
+    background-size: cover;
+  }
+
+  .narrative-section {
+    padding-top: 2rem;
+  }
+
+  .narrative-text {
+    padding: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .team-section {
+    background-size: cover;
+  }
+
+  .team-members-frame {
+    padding-top: calc(7.4vw + 1rem);
+    padding-bottom: calc(5.6vw + 2.5rem);
+  }
+
+  .team-card-overlay {
+    justify-content: flex-end;
+    padding-bottom: 1.25rem;
+    opacity: 1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent 68%);
+  }
+
+  .team-card:hover {
+    transform: none;
+  }
+
+  .contact-section {
+    margin-top: 0;
+    min-height: 680px;
+    background-size: cover;
+  }
+
+  .contact-content {
+    transform: none;
+  }
+
+  .contact-title {
+    top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-hero {
+    min-height: clamp(460px, 70vh, 650px);
+  }
+
+  .detail-hero-ui {
+    width: min(calc(100% - 2rem), 760px);
+    margin-bottom: 1.5rem;
+    transform: translateY(3.5rem);
+  }
+
+  .detail-download {
+    margin-bottom: 1.25rem;
+  }
+
+  .detail-content {
+    padding-top: 6.5rem;
+  }
+
+  .media-gallery-arrow[data-gallery-prev] {
+    left: 0.5rem;
+  }
+
+  .media-gallery-arrow[data-gallery-next] {
+    right: 0.5rem;
+  }
+
+  .member-portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-bisc .container-fluid {
+    padding-inline: 0.85rem !important;
+  }
+
+  .detail-page .navbar-compact .container-fluid {
+    flex-wrap: nowrap;
+  }
+
+  .detail-page .navbar-compact .navbar-brand {
+    flex: 0 0 auto;
+    font-size: 0.9rem;
+  }
+
+  .detail-page .navbar-compact .navbar-brand span {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .detail-page .navbar-compact .navbar-nav {
+    min-width: 0;
+    gap: 0 !important;
+  }
+
+  .detail-page .navbar-compact .nav-link {
+    padding: 0.35rem 0.45rem !important;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .detail-page .navbar-compact .lang-selector {
+    gap: 0.25rem;
+  }
+
+  .detail-page .navbar-compact .lang-selector img {
+    width: 18px;
+    height: 12px;
+  }
+
+  .games-section {
+    padding: 2.75rem 0 3.5rem;
+  }
+
+  .games-carousel {
+    --game-previous-peek: 24px;
+    gap: 0.6rem;
+  }
+
+  .game-card {
+    flex-basis: min(82vw, 340px);
+  }
+
+  .game-info-panel h3 {
+    font-size: 2.1rem;
+  }
+
+  .game-meta {
+    gap: 0.65rem 1rem;
+  }
+
+  .quem-somos-section {
+    min-height: 280px;
+  }
+
+  .quem-somos-content {
+    padding: 2rem 1rem;
+  }
+
+  .quem-somos-title {
+    font-size: clamp(2.4rem, 11vw, 4rem);
+  }
+
+  .team-title {
+    top: 0;
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .team-card {
+    flex: 0 0 155px;
+    min-width: 155px;
+    width: 155px;
+    height: 220px;
+  }
+
+  .team-card-name {
+    font-size: 1.05rem;
+  }
+
+  .team-card-role {
+    font-size: 0.6rem;
+  }
+
+  .contact-section {
+    min-height: 620px;
+    padding: 3rem 0;
+  }
+
+  .contact-title {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .contact-link {
+    min-width: 0;
+    width: min(100%, 340px);
+  }
+
+  .detail-hero {
+    min-height: 560px;
+    margin-top: 4rem;
+  }
+
+  .detail-hero-ui {
+    transform: translateY(2.75rem);
+  }
+
+  .detail-tags,
+  .detail-features {
+    gap: 0.35rem 0.65rem;
+  }
+
+  .detail-features li {
+    white-space: normal;
+  }
+
+  .detail-content {
+    padding: 5.5rem 0 4rem;
+  }
+
+  .detail-content h1 {
+    font-size: clamp(3rem, 14vw, 4.4rem);
+  }
+
+  .media-gallery-thumb {
+    flex-basis: min(38vw, 145px);
+  }
+
+  .game-subscribe-footer {
+    padding-inline: 0.5rem;
+  }
+
+  .game-subscribe-footer.is-open .game-subscribe-form {
+    max-height: min(72vh, 520px);
+    overflow-y: auto;
+  }
+
+  .game-subscribe-content {
+    max-height: none;
+    padding: 1rem;
+  }
+
+  .game-subscribe-toggle {
+    padding: 0.55rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .member-hero {
+    padding-top: 5.5rem;
+  }
+
+  .member-hero .row {
+    flex-direction: column;
+  }
+
+  .member-name,
+  .member-role,
+  .member-bio {
+    text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-section {
+    margin-top: 3.8rem;
+    padding: 2.5rem 0 3rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.1rem, 11vw, 2.8rem);
+  }
+
+  .hero-text {
+    font-size: 0.84rem;
+  }
+
+  .cascade-divider {
+    height: 92px;
+  }
+
+  .game-card {
+    flex-basis: calc(100vw - 4.5rem);
+  }
+
+  .games-arrow {
+    width: 38px;
+    height: 50px;
+    font-size: 1.35rem;
+  }
+
+  .game-buttons {
+    flex-direction: column;
+  }
+
+  .game-buttons .btn {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .narrative-text {
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  .team-members-frame {
+    padding-top: 2.75rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .team-members-frame::before {
+    top: 1.75rem;
+  }
+
+  .team-members-frame::after {
+    bottom: 1.5rem;
+  }
+
+  .team-carousel {
+    padding-inline: 0.5rem;
+  }
+
+  .team-card {
+    flex-basis: 140px;
+    min-width: 140px;
+    width: 140px;
+    height: 205px;
+  }
+
+  .contact-section {
+    min-height: 580px;
+  }
+
+  .contact-links {
+    padding-inline: 0.5rem;
+  }
+
+  .detail-page .navbar-compact .navbar-brand span {
+    display: none;
+  }
+
+  .detail-page .navbar-compact .nav-link {
+    padding-inline: 0.32rem !important;
+    font-size: 0.67rem;
+  }
+
+  .detail-page .navbar-compact .lang-selector {
+    border: 0;
+  }
+
+  .detail-hero {
+    min-height: 520px;
+  }
+
+  .detail-hero-ui {
+    width: calc(100% - 1rem);
+    transform: translateY(2.25rem);
+  }
+
+  .detail-download {
+    max-width: calc(100% - 1rem);
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .detail-tags,
+  .detail-features {
+    padding: 0.45rem 0.6rem;
+  }
+
+  .detail-tags li,
+  .detail-features {
+    font-size: 0.66rem;
+  }
+
+  .detail-content {
+    padding-top: 5rem;
+  }
+
+  .media-gallery-arrow {
+    width: 34px;
+    height: 46px;
+  }
+
+  .media-gallery-arrow[data-gallery-prev] {
+    left: 0.25rem;
+  }
+
+  .media-gallery-arrow[data-gallery-next] {
+    right: 0.25rem;
+  }
+
+  .member-photo {
+    max-width: min(76vw, 270px);
+  }
+
+  .member-contact-card {
+    padding: 1rem;
+  }
+
+  .member-contact-item {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 380px) {
+  .detail-page .navbar-compact .navbar-brand {
+    font-size: 0.78rem;
+  }
+
+  .detail-page .navbar-compact .nav-link {
+    padding-inline: 0.22rem !important;
+    font-size: 0.62rem;
+  }
+
+  .detail-page .navbar-compact .lang-selector img {
+    display: none;
+  }
+
+  .game-card {
+    flex-basis: calc(100vw - 3.75rem);
+  }
+
+  .contact-link {
+    padding: 0.75rem;
+  }
+
+  .game-subscribe-title {
+    font-size: 1rem;
+  }
+
+  .game-subscribe-subtitle,
+  .game-subscribe-label {
+    font-size: 0.78rem;
+  }
+}
