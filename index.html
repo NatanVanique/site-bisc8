@@ -451,13 +451,87 @@
     updateGameInfo(0);
     requestAnimationFrame(() => scrollCardToStart(gameCards[0], false));
 
-    const teamCards = document.querySelectorAll('.team-card');
-    const teamDots = document.querySelectorAll('.team-dot');
+    const teamCarousel = document.getElementById('teamCarousel');
+    const teamDotsContainer = document.getElementById('teamDots');
+    const teamCards = [...teamCarousel.querySelectorAll('.team-card')];
+    const teamDots = [...teamDotsContainer.querySelectorAll('.team-dot')];
 
-    teamDots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        teamCards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    const createTeamClone = (card) => {
+      const clone = card.cloneNode(true);
+      clone.classList.add('team-card-clone');
+      clone.setAttribute('aria-hidden', 'true');
+      clone.tabIndex = -1;
+      return clone;
+    };
+
+    const leadingTeamClones = teamCards.map(createTeamClone);
+    const trailingTeamClones = teamCards.map(createTeamClone);
+    teamCarousel.prepend(...leadingTeamClones);
+    teamCarousel.append(...trailingTeamClones);
+
+    function scrollTeamCardToCenter(card, smooth = true) {
+      teamCarousel.scrollTo({
+        left: card.offsetLeft - ((teamCarousel.clientWidth - card.offsetWidth) / 2),
+        behavior: smooth ? 'smooth' : 'auto'
       });
+    }
+
+    function setActiveTeam(index) {
+      teamDots.forEach((dot, dotIndex) => {
+        const active = dotIndex === index;
+        dot.classList.toggle('active', active);
+        dot.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+    }
+
+    teamDots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        setActiveTeam(index);
+        scrollTeamCardToCenter(teamCards[index]);
+      });
+    });
+
+    teamCarousel.addEventListener('wheel', (event) => {
+      if (!teamNeedsNavigation()) return;
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      event.preventDefault();
+      teamCarousel.scrollBy({ left: event.deltaY, behavior: 'auto' });
+    }, { passive: false });
+
+    let teamScrollTimer;
+    teamCarousel.addEventListener('scroll', () => {
+      clearTimeout(teamScrollTimer);
+      teamScrollTimer = setTimeout(() => {
+        const carouselCenter = teamCarousel.getBoundingClientRect().left + (teamCarousel.clientWidth / 2);
+        const allTeamCards = [...teamCarousel.querySelectorAll('.team-card')];
+        const closestCard = allTeamCards.reduce((closest, card) => {
+          const cardCenter = card.getBoundingClientRect().left + (card.getBoundingClientRect().width / 2);
+          const closestCenter = closest.getBoundingClientRect().left + (closest.getBoundingClientRect().width / 2);
+          return Math.abs(cardCenter - carouselCenter) < Math.abs(closestCenter - carouselCenter) ? card : closest;
+        });
+        const index = Number.parseInt(closestCard.dataset.index, 10);
+        setActiveTeam(index);
+
+        if (closestCard.classList.contains('team-card-clone')) {
+          scrollTeamCardToCenter(teamCards[index], false);
+        }
+      }, 100);
+    }, { passive: true });
+
+    function teamNeedsNavigation() {
+      const originalWidth = teamCards.reduce((total, card) => total + card.offsetWidth, 0);
+      return originalWidth > teamCarousel.clientWidth + 1;
+    }
+
+    function updateTeamTabsVisibility() {
+      teamDotsContainer.hidden = window.innerWidth > 991 || !teamNeedsNavigation();
+    }
+
+    window.addEventListener('resize', updateTeamTabsVisibility, { passive: true });
+    requestAnimationFrame(() => {
+      scrollTeamCardToCenter(teamCards[0], false);
+      setActiveTeam(0);
+      updateTeamTabsVisibility();
     });
 
     const navbar = document.getElementById('mainNavbar');

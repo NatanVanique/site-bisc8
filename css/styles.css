@@ -716,26 +716,29 @@ h1, h2, h3, .display-font {
 .team-dots {
   position: relative;
   z-index: 4;
-  display: flex;
+  display: none;
   justify-content: center;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.45rem;
   margin-top: 0.5rem;
   transform: translateY(34px);
 }
 
 .team-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  border: none;
+  width: 28px;
+  height: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.75);
   cursor: pointer;
   padding: 0;
-  transition: background 0.2s;
+  transition: width 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .team-dot.active {
-  background: #fff;
+  width: 40px;
+  border-color: var(--bisc-orange);
+  background: var(--bisc-orange);
 }
 
 /* ── Contato ── */
@@ -836,7 +839,7 @@ h1, h2, h3, .display-font {
 /* ── Responsive ── */
 @media (max-width: 991px) {
   .team-dots {
-    display: none;
+    display: flex;
   }
 
   .hero-section {
@@ -2126,7 +2129,9 @@ h1, h2, h3, .display-font {
   }
 
   .hero-title {
-    font-size: clamp(2.1rem, 11vw, 2.8rem);
+    max-width: 100%;
+    font-size: clamp(1.65rem, 8.5vw, 2.8rem);
+    white-space: nowrap;
   }
 
   .hero-text {
@@ -2176,6 +2181,11 @@ h1, h2, h3, .display-font {
 
   .team-carousel {
     padding-inline: 0.5rem;
+  }
+
+  .team-dots {
+    max-width: calc(100% - 2rem);
+    margin-inline: auto;
   }
 
   .team-card {
@@ -2292,4 +2302,8 @@ h1, h2, h3, .display-font {
   .game-subscribe-label {
     font-size: 0.78rem;
   }
+}
+
+.team-dots[hidden] {
+  display: none !important;
 }
