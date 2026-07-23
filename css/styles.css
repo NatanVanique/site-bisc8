@@ -631,8 +631,8 @@ h1, h2, h3, .display-font {
 
 .team-card {
   position: relative;
-  flex: 1 0 10vw;
-  min-width: 190px;
+  flex: 1 1 12.5vw;
+  min-width: 0;
   width: auto;
   height: clamp(320px, 24vw, 430px);
   clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
@@ -643,6 +643,11 @@ h1, h2, h3, .display-font {
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+.team-carousel.is-static {
+  overflow-x: hidden;
+  scroll-snap-type: none;
 }
 
 .team-card:hover {
