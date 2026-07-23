@@ -867,7 +867,7 @@ h1, h2, h3, .display-font {
 /* ── Responsive ── */
 @media (min-width: 992px) {
   .hero-section {
-    height: clamp(19rem, 23vw, 21.25rem);
+    height: clamp(21rem, 25vw, 23.25rem);
     min-height: 0;
     padding: 0;
     background-position: center bottom;
