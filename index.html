@@ -464,10 +464,10 @@
       return clone;
     };
 
-    const leadingTeamClones = teamCards.map(createTeamClone);
-    const trailingTeamClones = teamCards.map(createTeamClone);
-    teamCarousel.prepend(...leadingTeamClones);
-    teamCarousel.append(...trailingTeamClones);
+    let leadingTeamClones = [];
+    let trailingTeamClones = [];
+    let teamLoopEnabled = false;
+    let activeTeamIndex = 0;
 
     function scrollTeamCardToCenter(card, smooth = true) {
       teamCarousel.scrollTo({
@@ -477,6 +477,7 @@
     }
 
     function setActiveTeam(index) {
+      activeTeamIndex = index;
       teamDots.forEach((dot, dotIndex) => {
         const active = dotIndex === index;
         dot.classList.toggle('active', active);
@@ -492,14 +493,15 @@
     });
 
     teamCarousel.addEventListener('wheel', (event) => {
-      if (!teamNeedsNavigation()) return;
+      if (!teamLoopEnabled) return;
       if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
       event.preventDefault();
-      teamCarousel.scrollBy({ left: event.deltaY, behavior: 'auto' });
+      teamCarousel.scrollBy({ left: event.deltaY, behavior: 'smooth' });
     }, { passive: false });
 
     let teamScrollTimer;
     teamCarousel.addEventListener('scroll', () => {
+      if (!teamLoopEnabled) return;
       clearTimeout(teamScrollTimer);
       teamScrollTimer = setTimeout(() => {
         const carouselCenter = teamCarousel.getBoundingClientRect().left + (teamCarousel.clientWidth / 2);
@@ -523,15 +525,40 @@
       return originalWidth > teamCarousel.clientWidth + 1;
     }
 
-    function updateTeamTabsVisibility() {
-      teamDotsContainer.hidden = window.innerWidth > 991 || !teamNeedsNavigation();
+    function enableTeamLoop() {
+      if (teamLoopEnabled) return;
+      leadingTeamClones = teamCards.map(createTeamClone);
+      trailingTeamClones = teamCards.map(createTeamClone);
+      teamCarousel.prepend(...leadingTeamClones);
+      teamCarousel.append(...trailingTeamClones);
+      teamLoopEnabled = true;
+      requestAnimationFrame(() => scrollTeamCardToCenter(teamCards[activeTeamIndex], false));
     }
 
-    window.addEventListener('resize', updateTeamTabsVisibility, { passive: true });
-    requestAnimationFrame(() => {
-      scrollTeamCardToCenter(teamCards[0], false);
+    function disableTeamLoop() {
+      if (!teamLoopEnabled) return;
+      [...leadingTeamClones, ...trailingTeamClones].forEach((clone) => clone.remove());
+      leadingTeamClones = [];
+      trailingTeamClones = [];
+      teamLoopEnabled = false;
+      teamCarousel.scrollLeft = 0;
       setActiveTeam(0);
-      updateTeamTabsVisibility();
+    }
+
+    function configureTeamCarousel() {
+      const needsNavigation = teamNeedsNavigation();
+      if (needsNavigation) {
+        enableTeamLoop();
+      } else {
+        disableTeamLoop();
+      }
+      teamDotsContainer.hidden = window.innerWidth > 991 || !needsNavigation;
+    }
+
+    window.addEventListener('resize', configureTeamCarousel, { passive: true });
+    requestAnimationFrame(() => {
+      setActiveTeam(0);
+      configureTeamCarousel();
     });
 
     const navbar = document.getElementById('mainNavbar');

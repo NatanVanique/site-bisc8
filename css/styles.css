@@ -603,8 +603,8 @@ h1, h2, h3, .display-font {
 
 .team-members-frame::after {
   bottom: 5.6vw;
-  height: 49px;
-  background-image: url("../assets/images/team/bisc8-bar-down.png");
+  height: 22px;
+  background-image: url("../assets/images/team/bisc8-bar.png");
 }
 
 .team-carousel {
@@ -620,6 +620,7 @@ h1, h2, h3, .display-font {
   overflow-y: hidden;
   padding: 1rem 0 0;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -737,8 +738,8 @@ h1, h2, h3, .display-font {
 
 .team-dot.active {
   width: 40px;
-  border-color: var(--bisc-orange);
-  background: var(--bisc-orange);
+  border-color: #fff;
+  background: #fff;
 }
 
 /* ── Contato ── */
