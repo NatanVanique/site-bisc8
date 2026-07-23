@@ -867,7 +867,7 @@ h1, h2, h3, .display-font {
 /* ── Responsive ── */
 @media (min-width: 992px) {
   .hero-section {
-    height: clamp(23rem, 27vw, 25.25rem);
+    height: clamp(25rem, 29vw, 27.25rem);
     min-height: 0;
     padding: 0;
     background-position: center bottom;
@@ -875,7 +875,7 @@ h1, h2, h3, .display-font {
 
   .hero-section .container {
     margin-top: 0;
-    transform: translateY(-1rem);
+    transform: translateY(-2rem);
   }
 
   .games-section {
