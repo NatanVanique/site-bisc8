@@ -1345,14 +1345,38 @@ h1, h2, h3, .display-font {
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 1.5rem;
 }
 
-.game-subscribe-bar {
+.game-subscribe-container {
   display: flex;
-  justify-content: flex-end;
-  padding: 0.75rem 1.5rem;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.game-subscribe-form {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
   background: linear-gradient(90deg, var(--bisc-orange) 0%, #e65100 100%);
+  border-radius: 0px 8px 0 0;
+  width: 100%;
+}
+
+.game-subscribe-footer.is-open .game-subscribe-form {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.game-subscribe-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
 }
 
 .game-subscribe-toggle {
@@ -1362,8 +1386,8 @@ h1, h2, h3, .display-font {
   padding: 0.65rem 1.5rem;
   border: none;
   border-radius: 8px 8px 0 0;
-  background: #1a1a1a;
-  color: #fff;
+  background: var(--bisc-orange);
+  color: #111;
   font-family: "Bungee", cursive;
   font-size: 0.85rem;
   cursor: pointer;
@@ -1371,7 +1395,7 @@ h1, h2, h3, .display-font {
 }
 
 .game-subscribe-toggle:hover {
-  background: #2a2a2a;
+  background: var(--bisc-orange-light);
 }
 
 .game-subscribe-toggle .toggle-arrow {
@@ -1380,29 +1404,6 @@ h1, h2, h3, .display-font {
 
 .game-subscribe-footer.is-open .game-subscribe-toggle .toggle-arrow {
   transform: rotate(180deg);
-}
-
-.game-subscribe-form {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
-  padding: 0 1.5rem;
-  background: linear-gradient(90deg, var(--bisc-orange) 0%, #e65100 100%);
-}
-
-.game-subscribe-footer.is-open .game-subscribe-form {
-  max-height: 200px;
-  opacity: 1;
-  padding: 1.5rem;
-}
-
-.game-subscribe-content {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
 }
 
 .game-subscribe-text {
