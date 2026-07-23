@@ -602,7 +602,7 @@ h1, h2, h3, .display-font {
 }
 
 .team-members-frame::after {
-  bottom: 5.6vw;
+  bottom: calc(5.6vw + 0.75rem);
   height: 22px;
   background-image: url("../assets/images/team/bisc8-bar.png");
 }
@@ -720,14 +720,18 @@ h1, h2, h3, .display-font {
 }
 
 .team-dots {
-  position: relative;
+  position: absolute;
+  bottom: calc(5.6vw + 0.75rem + 7px);
+  left: 50%;
   z-index: 4;
   display: none;
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.45rem;
-  margin-top: 0.5rem;
-  transform: translateY(34px);
+  width: max-content;
+  max-width: calc(100% - 2rem);
+  margin: 0;
+  transform: translateX(-50%);
 }
 
 .team-dot {
@@ -2190,8 +2194,7 @@ h1, h2, h3, .display-font {
   }
 
   .team-dots {
-    max-width: calc(100% - 2rem);
-    margin-inline: auto;
+    bottom: calc(1.5rem + 7px);
   }
 
   .team-card {
