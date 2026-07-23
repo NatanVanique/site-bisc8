@@ -867,16 +867,48 @@ h1, h2, h3, .display-font {
 /* ── Responsive ── */
 @media (min-width: 992px) {
   .hero-section {
-    height: clamp(18rem, 22vw, 21rem);
-    padding-top: 1rem;
+    height: clamp(19rem, 23vw, 21.25rem);
+    min-height: 0;
+    padding: 0;
+    background-position: center bottom;
   }
 
   .hero-section .container {
-    transform: translateY(-0.5rem);
+    margin-top: 0;
+    transform: none;
   }
 
   .games-section {
-    padding-top: 1.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .game-info-panel {
+    height: 300px;
+    padding: 1.35rem 1.5rem;
+  }
+
+  .game-info-panel h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .game-info-panel p {
+    height: 6.4em;
+    margin-bottom: 0.35rem;
+    line-height: 1.45;
+  }
+
+  .game-info-panel .game-meta {
+    min-height: 3rem;
+    margin: 0.35rem 0 0.65rem;
+  }
+
+  .game-info-panel .game-buttons {
+    flex-direction: row;
+    gap: 0.6rem;
+  }
+
+  .game-info-panel .game-buttons .btn {
+    flex: 1 1 0;
   }
 }
 
@@ -1838,6 +1870,7 @@ h1, h2, h3, .display-font {
   }
 
   .hero-section .container {
+    margin-top: 0;
     transform: none;
   }
 
