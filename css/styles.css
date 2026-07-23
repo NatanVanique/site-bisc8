@@ -272,6 +272,15 @@ h1, h2, h3, .display-font {
   object-fit: cover;
 }
 
+.lower-cascade-background {
+  position: relative;
+  background-color: #111;
+  background-image: url("../assets/images/cascata-baixa-bisc8.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: 100% auto;
+}
+
 /* ── Games Section ── */
 .games-section {
   position: relative;
@@ -847,6 +856,25 @@ h1, h2, h3, .display-font {
 }
 
 /* ── Responsive ── */
+@media (min-width: 992px) {
+  .hero-section {
+    height: clamp(18rem, 22vw, 21rem);
+    padding-top: 1rem;
+  }
+
+  .hero-section .container {
+    transform: translateY(-0.5rem);
+  }
+
+  .cascade-divider {
+    height: clamp(58px, 5.5vw, 82px);
+  }
+
+  .games-section {
+    padding-top: 1.5rem;
+  }
+}
+
 @media (max-width: 991px) {
   .team-dots {
     display: flex;
