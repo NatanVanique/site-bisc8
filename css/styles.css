@@ -2401,8 +2401,9 @@ h1, h2, h3, .display-font {
   .hero-section {
     height: auto;
     min-height: 0;
-    overflow: hidden;
-    padding-bottom: clamp(8rem, 38vw, 11.25rem);
+    overflow: visible;
+    margin-bottom: clamp(8rem, 38vw, 11.25rem);
+    padding-bottom: 3rem;
     background-color: #111;
     background-image: url("../assets/images/background-bisc8.png");
     background-repeat: repeat-y;
@@ -2413,8 +2414,9 @@ h1, h2, h3, .display-font {
   .hero-section::after {
     content: "";
     position: absolute;
+    top: 100%;
     right: 0;
-    bottom: 0;
+    bottom: auto;
     left: 0;
     z-index: 0;
     height: clamp(8rem, 38vw, 11.25rem);
@@ -2422,7 +2424,7 @@ h1, h2, h3, .display-font {
     background-color: #111;
     background-image: url("../assets/images/cascata-superior.png");
     background-repeat: no-repeat;
-    background-position: center bottom;
-    background-size: 100% auto;
+    background-position: center top;
+    background-size: 100% 100%;
   }
 }
