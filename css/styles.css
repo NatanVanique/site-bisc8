@@ -2402,7 +2402,7 @@ h1, h2, h3, .display-font {
     height: auto;
     min-height: 0;
     overflow: visible;
-    margin-bottom: clamp(8rem, 38vw, 11.25rem);
+    margin-bottom: clamp(90px, 10vw, 150px);
     padding-bottom: 3rem;
     background-color: #111;
     background-image: url("../assets/images/background-bisc8.png");
@@ -2419,12 +2419,12 @@ h1, h2, h3, .display-font {
     bottom: auto;
     left: 0;
     z-index: 0;
-    height: clamp(8rem, 38vw, 11.25rem);
+    height: clamp(90px, 10vw, 150px);
     pointer-events: none;
     background-color: #111;
     background-image: url("../assets/images/cascata-superior.png");
     background-repeat: no-repeat;
-    background-position: center top;
-    background-size: 100% 100%;
+    background-position: center bottom;
+    background-size: 100% auto;
   }
 }
