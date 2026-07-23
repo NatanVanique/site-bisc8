@@ -746,12 +746,18 @@ h1, h2, h3, .display-font {
 .team-card-white-overlay {
   position: absolute;
   inset: 0;
+  border: 0;
+  outline: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: RGBA(255, 255, 255, 255);
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.5) 10%, rgba(0, 0, 0, 0) 60%);
+}
+
+#quem-somos {
+  scroll-margin-top: 7rem;
 }
 
 .team-dots {
@@ -2389,4 +2395,15 @@ h1, h2, h3, .display-font {
 
 .team-dots[hidden] {
   display: none !important;
+}
+
+@media (max-width: 991.98px) {
+  .hero-section {
+    height: auto;
+    min-height: 0;
+    padding-bottom: clamp(7.5rem, 18vw, 9rem);
+    background-color: #ff7418;
+    background-size: 100% auto;
+    background-position: center bottom;
+  }
 }
