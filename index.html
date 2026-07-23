@@ -133,7 +133,7 @@
   </section>
 
   <section class="lower-cascade-background">
-    <img src="/assets/images/cascata-inferior.png" alt="">
+    <img src="assets/images/cascata-inferior.png" alt="">
   </section>
   
   <!-- Quem Somos -->
@@ -434,6 +434,8 @@
       const downloadUnavailable = gamesData[index].downloadUnavailable === true;
       gameDownload.textContent = downloadUnavailable ? 'Não disponível para download' : 'Download';
       gameDownload.classList.toggle('disabled', downloadUnavailable);
+      gameDownload.hidden = downloadUnavailable;
+      gameDownload.closest('.game-buttons').classList.toggle('download-unavailable', downloadUnavailable);
       if (downloadUnavailable) {
         gameDownload.removeAttribute('href');
         gameDownload.setAttribute('aria-disabled', 'true');

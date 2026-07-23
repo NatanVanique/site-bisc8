@@ -281,13 +281,30 @@ h1, h2, h3, .display-font {
 
 .lower-cascade-background {
   position: relative;
-  background-size: 100% auto;
+  width: 100%;
+  height: clamp(90px, 10vw, 150px);
+  overflow: hidden;
   background-color: #111;
-  max-height: min(300px, 30vw);
+  line-height: 0;
 }
 .lower-cascade-background img {
-  max-width: 200vw;
-  min-width: 100vw;
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+
+.game-buttons.download-unavailable {
+  justify-content: center;
+}
+
+#gameDownload[hidden] {
+  display: none !important;
+}
+
+.game-buttons.download-unavailable #gameVerMais {
+  flex: 0 1 70%;
+  width: min(100%, 260px);
 }
 
 /* ── Games Section ── */
