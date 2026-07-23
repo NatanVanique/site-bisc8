@@ -37,6 +37,7 @@
               <li><a class="dropdown-item" href="pages/games/overtime.html">Overtime</a></li>
               <li><a class="dropdown-item" href="pages/games/pops.html">Pops: On the Go</a></li>
               <li><a class="dropdown-item" href="pages/games/trashexe.html">Trash.exe</a></li>
+              <li><a class="dropdown-item" href="pages/games/lastplant.html">Last Plan't</a></li>
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="#quem-somos">Equipe</a></li>
@@ -113,7 +114,7 @@
               <span><i class="bi bi-shop"></i> itch.io</span>
             </div>
             <div class="game-buttons">
-              <a href="#" class="btn btn-bisc-orange">Download</a>
+              <a href="#" id="gameDownload" class="btn btn-bisc-orange">Download</a>
               <a href="pages/games/noon.html" id="gameVerMais" class="btn btn-bisc-outline">Ver Mais</a>
             </div>
           </div>
@@ -127,6 +128,7 @@
               <button class="game-card" type="button" data-index="2" aria-label="Selecionar Overtime"><img src="assets/images/game-covers/overtime-cover.png" alt="Capa do jogo Overtime"></button>
               <button class="game-card" type="button" data-index="3" aria-label="Selecionar Pops: On the Go"><img src="assets/images/game-covers/pops-cover.png" alt="Capa do jogo Pops: On the Go"></button>
               <button class="game-card" type="button" data-index="4" aria-label="Selecionar Trash.exe"><img src="assets/images/game-covers/trashexe-cover.png" alt="Capa do jogo Trash.exe"></button>
+              <button class="game-card" type="button" data-index="5" aria-label="Selecionar Last Plan't"><img src="assets/images/game-covers/lastplant-cover.png" alt="Capa do jogo Last Plan't"></button>
             </div>
             <button class="games-arrow games-arrow-next" id="gamesNext" type="button" aria-label="Próximo jogo"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
           </div>
@@ -313,6 +315,13 @@
         description: 'Transforme a tarefa de liberar espaço no computador em uma aventura caótica: enfrente aplicativos em batalhas intensas e conquiste a memória necessária para uma nova instalação.',
         url: 'pages/games/trashexe.html',
         features: [['bi-windows', 'Windows'], ['bi-person-fill', '1 jogador'], ['bi-shop', 'itch.io']]
+      },
+      {
+        title: "Last Plan't",
+        description: 'No vasto vazio do espaço, um robô, um adolescente e uma criança carregam a última planta do universo em uma jornada de volta à Terra.',
+        url: 'pages/games/lastplant.html',
+        features: [['bi-people-fill', '1-3 jogadores'], ['bi-translate', 'Português'], ['bi-pause-circle', 'Desenvolvimento pausado']],
+        downloadUnavailable: true
       }
     ];
 
@@ -320,6 +329,7 @@
     const gameTitle = document.getElementById('gameTitle');
     const gameDescription = document.getElementById('gameDescription');
     const gameMeta = document.getElementById('gameMeta');
+    const gameDownload = document.getElementById('gameDownload');
     const gameVerMais = document.getElementById('gameVerMais');
     const gamesPrev = document.getElementById('gamesPrev');
     const gamesNext = document.getElementById('gamesNext');
@@ -420,6 +430,16 @@
         feature.append(featureIcon, document.createTextNode(` ${label}`));
         return feature;
       }));
+      const downloadUnavailable = gamesData[index].downloadUnavailable === true;
+      gameDownload.textContent = downloadUnavailable ? 'Não disponível para download' : 'Download';
+      gameDownload.classList.toggle('disabled', downloadUnavailable);
+      if (downloadUnavailable) {
+        gameDownload.removeAttribute('href');
+        gameDownload.setAttribute('aria-disabled', 'true');
+      } else {
+        gameDownload.href = '#';
+        gameDownload.removeAttribute('aria-disabled');
+      }
       gameVerMais.href = gamesData[index].url;
       gamesCarousel.querySelectorAll('.game-card').forEach((card) => {
         const isSelected = card === selectedCard;
