@@ -1693,6 +1693,59 @@ h1, h2, h3, .display-font {
   color: #fff;
 }
 
+.member-photo-wrap + .member-contact-card {
+  width: min(100%, 320px);
+  margin: 1.25rem auto 0;
+  text-align: left;
+}
+
+.member-profile-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.member-profile-detail {
+  min-height: 82px;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(245, 124, 0, 0.5);
+  border-radius: 10px;
+  background: rgba(245, 124, 0, 0.06);
+}
+
+.member-profile-detail h2 {
+  margin: 0 0 0.75rem;
+  color: var(--bisc-orange);
+  font-family: "Bungee", cursive;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+}
+
+.member-profile-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.member-profile-items:empty {
+  display: none;
+}
+
+.member-profile-items span {
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 575.98px) {
+  .member-profile-details {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── Contact Card ── */
 .member-contact-card {
   background: rgba(245, 124, 0, 0.08);
