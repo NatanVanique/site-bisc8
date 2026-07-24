@@ -1858,6 +1858,8 @@ h1, h2, h3, .display-font {
   background-size: cover;
   color: #fff;
   cursor: pointer;
+  transform-origin: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, transform 0.2s ease;
 }
 
 .portfolio-folder-card::before {
@@ -1890,7 +1892,9 @@ h1, h2, h3, .display-font {
   border-color: var(--bisc-orange-light);
   background-color: transparent;
   color: #fff;
-  transform: none;
+  transform: translateY(-2px) scale(1.01);
+  filter: brightness(1.08);
+  box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.35), 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
 .portfolio-folder-card:focus-visible {
