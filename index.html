@@ -28,9 +28,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-          <li class="nav-item"><a class="nav-link active" href="#hero">Página Inicial</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#hero" data-i18n="nav.home">Página Inicial</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jogos</a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.games">Jogos</a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="pages/games/noon.html">Noon</a></li>
               <li><a class="dropdown-item" href="pages/games/bananabongo.html">BananaBongô</a></li>
@@ -40,12 +40,12 @@
               <li><a class="dropdown-item" href="pages/games/lastplant.html">Last Plan't</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="#quem-somos">Equipe</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <li class="nav-item"><a class="nav-link" href="#quem-somos" data-i18n="nav.team">Equipe</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato" data-i18n="nav.contact">Contato</a></li>
           <li class="nav-item dropdown ms-lg-2">
             <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
-              Idiomas
+              <span data-i18n="nav.lang">Idiomas</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
               <li>
@@ -82,12 +82,12 @@
             <img src="assets/images/bisc8-logo.png" alt="Logo BISC8 Game Devs">
           </div>
         </div>
-        <div class="col-lg-7 hero-copy">
-          <h1 class="hero-title display-font">BISCOITO, com 8</h1>
-          <p class="hero-text">
+        <div class="col-lg-9 hero-copy">
+          <h1 class="hero-title display-font" data-i18n="hero.title">BISCOITO, com 8</h1>
+          <p class="hero-text" data-i18n="hero.text">
             Diretamente de Brasília, DF, a BISC8 é um estúdio que encanta por onde passa, unindo a medida certa de diversão e profissionalismo para criar jogos únicos que desafiam o óbvio. Afinal, só brasileiros, estudantes, jogadores e desenvolvedores entendem de verdade o significado de BISC8. Agora é hora de levar essa ideia do Brasil para o mundo!
           </p>
-          <a href="#quem-somos" class="btn btn-bisc-dark mt-3">Conheça a Equipe</a>
+          <a href="#quem-somos" class="btn btn-bisc-dark mt-3" data-i18n="hero.ctm">Conheça a Equipe</a>
         </div>
       </div>
     </div>
@@ -99,8 +99,8 @@
       <div class="row align-items-center g-4">
         <div class="col-lg-4">
           <div class="game-info-panel" id="gameInfoPanel">
-            <h3 id="gameTitle">Noon</h3>
-            <p id="gameDescription">
+            <h3 id="gameTitle" data-i18n="games.noon.title">Noon</h3>
+            <p id="gameDescription" data-i18n="games.noon.desc">
               Jogue como o Fogo, iluminando o cenário, queimando objetos e caçando criaturas da escuridão, ou assuma o papel de uma Sombra, escondendo-se entre objetos e fundindo-se às trevas para escapar.
             </p>
             <div class="game-meta" id="gameMeta">
@@ -109,8 +109,8 @@
               <span><i class="bi bi-shop"></i> itch.io</span>
             </div>
             <div class="game-buttons">
-              <a href="#" id="gameDownload" class="btn btn-bisc-orange">Download</a>
-              <a href="pages/games/noon.html" id="gameVerMais" class="btn btn-bisc-outline">Ver Mais</a>
+              <a href="#" id="gameDownload" class="btn btn-bisc-orange" data-i18n="games.download">Download</a>
+              <a href="pages/games/noon.html" id="gameVerMais" class="btn btn-bisc-outline" data-i18n="games.viewMore">Ver Mais</a>
             </div>
           </div>
         </div>
@@ -140,8 +140,8 @@
   <section id="quem-somos" class="quem-somos-section">
     <div class="quem-somos-overlay"></div>
     <div class="quem-somos-content">
-      <p class="quem-somos-label">Quem Somos?</p>
-      <h2 class="quem-somos-title display-font">A BUSCA PELO DIFERENTE</h2>
+      <p class="quem-somos-label" data-i18n="quem.label">Quem Somos?</p>
+      <h2 class="quem-somos-title display-font" data-i18n="quem.title">A BUSCA PELO DIFERENTE</h2>
     </div>
   </section>
 
@@ -149,10 +149,10 @@
   <section class="narrative-section">
     <div class="container">
       <div class="narrative-text">
-        <p>A BISC8 nasceu em 2023, durante Game Jams, movida pela vontade de criar experiências que surpreendessem.</p>
-        <p>Com o crescimento da equipe e a formação de seus integrantes em Jogos Digitais, esse objetivo ganhou força e se transformou em um estúdio.</p>
-        <p>Em 2026, demos o próximo passo e nos tornamos uma empresa, sem deixar para trás o que nos trouxe até aqui: a curiosidade e a coragem de fugir do óbvio, a paixão por criar e o desejo de desenvolver jogos que façam cada jogador sentir que encontrou algo especial.</p>
-        <span class="highlight">Toda essa busca para produzir o diferente, é o que significa ser a BISC8.</span>
+        <p data-i18n="narrative.p1">A BISC8 nasceu em 2023, durante Game Jams, movida pela vontade de criar experiências que surpreendessem.</p>
+        <p data-i18n="narrative.p2">Com o crescimento da equipe e a formação de seus integrantes em Jogos Digitais, esse objetivo ganhou força e se transformou em um estúdio.</p>
+        <p data-i18n="narrative.p3">Em 2026, demos o próximo passo e nos tornamos uma empresa, sem deixar para trás o que nos trouxe até aqui: a curiosidade e a coragem de fugir do óbvio, a paixão por criar e o desejo de desenvolver jogos que façam cada jogador sentir que encontrou algo especial.</p>
+        <span class="highlight" data-i18n="narrative.highlight">Toda essa busca para produzir o diferente, é o que significa ser a BISC8.</span>
       </div>
     </div>
   </section>
@@ -160,7 +160,7 @@
   <!-- Team -->
   <section id="equipe" class="team-section">
     <div class="container">
-      <h2 class="team-title">NOSSA EQUIPE</h2>
+      <h2 class="team-title" data-i18n="team.title">NOSSA EQUIPE</h2>
       <div class="team-members-frame">
       <div class="team-carousel" id="teamCarousel">
         <a href="pages/team/gomes.html" class="team-card" data-index="0">
@@ -247,7 +247,7 @@
   <!-- Contato -->
   <section id="contato" class="contact-section">
     <div class="container contact-content">
-      <h2 class="contact-title display-font">Entre em Contato</h2>
+      <h2 class="contact-title display-font" data-i18n="contact.title">Entre em Contato</h2>
       <div class="contact-links">
         <a class="contact-link" href="mailto:bisc8devstudio@gmail.com">
           <i class="bi bi-envelope-fill" aria-hidden="true"></i>
@@ -280,48 +280,61 @@
   <!-- Footer -->
   <footer class="footer-bisc">
     <div class="container">
-      <p class="mb-0">&copy; 2026 BISC8 Game Devs. Todos os direitos reservados.</p>
+      <p class="mb-0">&copy; <span data-i18n="footer.copyright">2026 BISC8 Game Devs. Todos os direitos reservados.</span></p>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="src/scripts/i18n.js"></script>
   <script>
     const gamesData = [
       {
+        titleKey: 'games.noon.title',
+        descKey: 'games.noon.desc',
         title: 'Noon',
         description: 'Jogue como o Fogo, iluminando o cenário, queimando objetos e caçando criaturas da escuridão, ou assuma o papel de uma Sombra, escondendo-se entre objetos e fundindo-se às trevas para escapar.',
         url: 'pages/games/noon.html',
-        features: [['bi-windows', 'Windows'], ['bi-people-fill', '1-4 Jogadores'], ['bi-shop', 'itch.io']]
+        features: [['bi-windows', 'features.win'], ['bi-people-fill', 'features.multi'], ['bi-shop', 'features.itch']]
       },
       {
+        titleKey: 'games.bananabongo.title',
+        descKey: 'games.bananabongo.desc',
         title: 'BananaBongô',
         description: 'BananaBongô é um jogo de ritmo e memória que coloca seus reflexos à prova em batalhas de dança contra uma divertida tribo de macacos. Memorize sequências de passos, acompanhe o ritmo da música e execute cada movimento com precisão.',
         url: 'pages/games/bananabongo.html',
-        features: [['bi-windows', 'Windows'], ['bi-person-fill', '1 jogador'], ['bi-shop', 'itch.io']]
+        features: [['bi-windows', 'features.win'], ['bi-person-fill', 'features.single'], ['bi-shop', 'features.itch']]
       },
       {
+        titleKey: 'games.overtime.title',
+        descKey: 'games.overtime.desc',
         title: 'Overtime',
         description: 'Overtime retrata a dualidade entre sobreviver e perseguir seus sonhos. Trabalhe em um restaurante durante o dia e, à noite, cozinhe os últimos pedidos de fantasmas antes que encontrem a paz.',
         url: 'pages/games/overtime.html',
-        features: [['bi-windows', 'Windows'], ['bi-person-fill', '1 jogador'], ['bi-shop', 'itch.io']]
+        features: [['bi-windows', 'features.win'], ['bi-person-fill', 'features.single'], ['bi-shop', 'features.itch']]
       },
       {
+        titleKey: 'games.pops.title',
+        descKey: 'games.pops.desc',
         title: 'Pops: On the Go',
         description: 'Uma experiência acolhedora e contemplativa sobre a rotina de um vendedor de pipoca, com narrativa sensível, trilha relaxante e visuais em aquarela.',
         url: 'pages/games/pops.html',
-        features: [['bi-windows', 'Windows'], ['bi-person-fill', '1 jogador'], ['bi-shop', 'itch.io']]
+        features: [['bi-windows', 'features.win'], ['bi-person-fill', 'features.single'], ['bi-shop', 'features.itch']]
       },
       {
+        titleKey: 'games.trashexe.title',
+        descKey: 'games.trashexe.desc',
         title: 'Trash.exe',
         description: 'Transforme a tarefa de liberar espaço no computador em uma aventura caótica: enfrente aplicativos em batalhas intensas e conquiste a memória necessária para uma nova instalação.',
         url: 'pages/games/trashexe.html',
-        features: [['bi-windows', 'Windows'], ['bi-person-fill', '1 jogador'], ['bi-shop', 'itch.io']]
+        features: [['bi-windows', 'features.win'], ['bi-person-fill', 'features.single'], ['bi-shop', 'features.itch']]
       },
       {
+        titleKey: 'games.lastplant.title',
+        descKey: 'games.lastplant.desc',
         title: "Last Plan't",
         description: 'No vasto vazio do espaço, um robô, um adolescente e uma criança carregam a última planta do universo em uma jornada de volta à Terra.',
         url: 'pages/games/lastplant.html',
-        features: [['bi-people-fill', '1-3 jogadores'], ['bi-translate', 'Português'], ['bi-pause-circle', 'Desenvolvimento pausado']],
+        features: [['bi-people-fill', 'features.multi3'], ['bi-translate', 'Português'], ['bi-pause-circle', 'Desenvolvimento pausado']],
         downloadUnavailable: true
       }
     ];
@@ -420,19 +433,29 @@
       }, 100);
     }, { passive: true });
 
+    function getTranslation(key, fallback) {
+      if (window.i18n && window.i18n.getTranslations()[key]) {
+        return window.i18n.getTranslations()[key];
+      }
+      return fallback;
+    }
+
     function updateGameInfo(index, selectedCard = gameCards[index]) {
       activeVisualCard = selectedCard;
-      gameTitle.textContent = gamesData[index].title;
-      gameDescription.textContent = gamesData[index].description;
-      gameMeta.replaceChildren(...gamesData[index].features.map(([icon, label]) => {
+      var game = gamesData[index];
+      var t = (window.i18n && window.i18n.getTranslations()) || {};
+      gameTitle.textContent = t[game.titleKey] || game.title;
+      gameDescription.textContent = t[game.descKey] || game.description;
+      gameMeta.replaceChildren(...game.features.map(([icon, labelKey]) => {
         const feature = document.createElement('span');
         const featureIcon = document.createElement('i');
         featureIcon.className = `bi ${icon}`;
-        feature.append(featureIcon, document.createTextNode(` ${label}`));
+        const labelText = t['games.' + labelKey] || t[labelKey] || labelKey;
+        feature.append(featureIcon, document.createTextNode(` ${labelText}`));
         return feature;
       }));
-      const downloadUnavailable = gamesData[index].downloadUnavailable === true;
-      gameDownload.textContent = downloadUnavailable ? 'Não disponível para download' : 'Download';
+      const downloadUnavailable = game.downloadUnavailable === true;
+      gameDownload.textContent = downloadUnavailable ? getTranslation('games.unavailable', 'Não disponível para download') : getTranslation('games.download', 'Download');
       gameDownload.classList.toggle('disabled', downloadUnavailable);
       gameDownload.hidden = downloadUnavailable;
       gameDownload.closest('.game-buttons').classList.toggle('download-unavailable', downloadUnavailable);
@@ -443,7 +466,8 @@
         gameDownload.href = '#';
         gameDownload.removeAttribute('aria-disabled');
       }
-      gameVerMais.href = gamesData[index].url;
+      gameVerMais.textContent = getTranslation('games.viewMore', 'Ver Mais');
+      gameVerMais.href = game.url;
       gamesCarousel.querySelectorAll('.game-card').forEach((card) => {
         const isSelected = card === selectedCard;
         card.classList.toggle('active', isSelected);
@@ -586,9 +610,9 @@
       lastScrollY = currentScrollY;
     }, { passive: true });
 
-    document.querySelectorAll('.lang-option').forEach((item) => {
-      item.addEventListener('click', (e) => e.preventDefault());
-    });
+    window.onLanguageChanged = function (lang, t) {
+      updateGameInfo(activeGameIndex);
+    };
   </script>
 </body>
 </html>

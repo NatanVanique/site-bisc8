@@ -15,11 +15,11 @@
   <nav class="navbar navbar-expand-lg navbar-dark navbar-bisc fixed-top">
     <div class="container-fluid px-4">
       <a class="navbar-brand" href="../../index.html">BISC8<span>. GAME DEVS</span></a>
-      <a class="nav-link ms-auto active" href="../../index.html">Página Inicial</a>
+      <a class="nav-link ms-auto active" href="../../index.html" data-i18n="nav.home">Página Inicial</a>
     </div>
   </nav>
   <div class="container member-hero">
-    <a href="../../index.html#equipe" class="member-back"><i class="bi bi-arrow-left"></i> Voltar à Equipe</a>
+    <a href="../../index.html#equipe" class="member-back"><i class="bi bi-arrow-left"></i> <span data-i18n="team.back">Voltar à Equipe</span></a>
     <div class="row g-4 align-items-start">
       <div class="col-md-4 text-center">
         <div class="member-photo-wrap">
@@ -35,7 +35,7 @@
           <p>Além disso, é Concept Artist e Pixel Artist, com mais de 6 anos de experiência em ilustração digital utilizando Adobe Photoshop e Krita.</p>
         </div>
         <div class="member-contact-card">
-          <h3 class="member-contact-title">Contatos</h3>
+          <h3 class="member-contact-title" data-i18n="team.contacts">Contatos</h3>
           <ul class="member-contact-list">
             <li><a class="member-contact-item" href="mailto:nvanique.o@gmail.com"><i class="bi bi-envelope-fill"></i> nvanique.o@gmail.com</a></li>
             <li><a class="member-contact-item" href="tel:+5561984575237"><i class="bi bi-telephone-fill"></i> +55 (61) 98457-5237</a></li>
@@ -47,7 +47,7 @@
   </div>
   <section class="member-portfolio">
     <div class="container">
-      <h2 class="member-portfolio-title">Portfólio</h2>
+      <h2 class="member-portfolio-title" data-i18n="team.portfolio">Portfólio</h2>
       <div class="member-portfolio-grid" data-portfolio-folders>
         <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="sound" data-title="Sound Design / OST" style="background-image: url('../../assets/images/portfolio/natan/sound-design-ost.png')">
           <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Sound Design / OST</span>
@@ -74,7 +74,7 @@
           <h3 class="portfolio-folder-title" data-portfolio-title></h3>
           <div class="portfolio-folder-empty" data-portfolio-empty>
             <i class="bi bi-folder-open" aria-hidden="true"></i>
-            <span>Sem trabalho adicionado</span>
+            <span data-i18n="team.noWork">Sem trabalho adicionado</span>
           </div>
           <article class="portfolio-project" data-concept-project hidden>
             <header class="portfolio-project-header">
@@ -106,6 +106,7 @@
       </div>
     </div>
   </section>
+  <script src="../../src/scripts/i18n.js"></script>
   <script src="../../src/scripts/member-page.js"></script>
   <script src="../../src/scripts/game-gallery.js"></script>
   <script>

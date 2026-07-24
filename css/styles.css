@@ -204,6 +204,7 @@ h1, h2, h3, .display-font {
   line-height: 1.15;
   margin-bottom: 0.8rem;
   text-align: center;
+  max-width: 500px;
 }
 
 .hero-text {

@@ -16,9 +16,9 @@
     <div class="container-fluid px-4">
       <a class="navbar-brand" href="../../index.html">BISC8<span>. GAME DEVS</span></a>
       <ul class="navbar-nav ms-auto flex-row align-items-center gap-2">
-        <li class="nav-item"><a class="nav-link active" href="../../index.html">Página Inicial</a></li>
+        <li class="nav-item"><a class="nav-link active" href="../../index.html" data-i18n="nav.home">Página Inicial</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jogos</a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.games">Jogos</a>
           <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
             <li><a class="dropdown-item" href="noon.html">Noon</a></li>
             <li><a class="dropdown-item" href="bananabongo.html">BananaBongô</a></li>
@@ -30,7 +30,7 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://flagcdn.com/w40/br.png" alt="Brasil"> Idiomas
+            <img src="https://flagcdn.com/w40/br.png" alt="Brasil"> <span data-i18n="nav.lang">Idiomas</span>
           </a>
           <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
             <li><a class="dropdown-item lang-option active-lang" href="#"><img src="https://flagcdn.com/w40/br.png" alt="Brasil" class="lang-flag"> Português</a></li>
@@ -51,9 +51,9 @@
   </section>
   <main class="detail-content">
     <div class="container detail-content-inner">
-      <a href="../../index.html#jogos" class="detail-back"><i class="bi bi-arrow-left"></i> Voltar</a>
+      <a href="../../index.html#jogos" class="detail-back"><i class="bi bi-arrow-left"></i> <span data-i18n="games.back">Voltar</span></a>
       <h1 class="display-font display-3 mb-3">Pops: On the Go</h1>
-      <p class="text-white-50"><strong>Pops: On the Go</strong> é uma experiência acolhedora e contemplativa em que você acompanha a rotina de um vendedor de pipoca enquanto reflete sobre seu trabalho, sua vida e seus sentimentos. Prepare pipocas controlando a frigideira e mantendo os grãos aquecidos até estourarem, sem pressão, sem derrota e no seu próprio ritmo. Com uma narrativa sensível, trilha sonora relaxante, visuais em aquarela totalmente animados e suporte completo a controles, o jogo convida você a desacelerar e aproveitar a simplicidade de cada momento.</p>
+      <p class="text-white-50" data-i18n-html="games.pops.detail"><strong>Pops: On the Go</strong> é uma experiência acolhedora e contemplativa em que você acompanha a rotina de um vendedor de pipoca enquanto reflete sobre seu trabalho, sua vida e seus sentimentos. Prepare pipocas controlando a frigideira e mantendo os grãos aquecidos até estourarem, sem pressão, sem derrota e no seu próprio ritmo. Com uma narrativa sensível, trilha sonora relaxante, visuais em aquarela totalmente animados e suporte completo a controles, o jogo convida você a desacelerar e aproveitar a simplicidade de cada momento.</p>
       <div class="media-gallery" data-media-gallery>
         <div class="media-gallery-stage">
           <button class="media-gallery-arrow" type="button" data-gallery-prev aria-label="Mídia anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
@@ -74,8 +74,8 @@
         <div class="media-gallery-scrollbar" data-gallery-scrollbar role="scrollbar" tabindex="0" aria-label="Rolar miniaturas de Pops: On the Go" aria-controls="popsGalleryThumbs" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="media-gallery-scrollbar-thumb" data-gallery-scrollbar-thumb></span></div>
       </div>
       <section class="game-recognition" aria-labelledby="popsRecognitionTitle">
-        <h2 class="game-recognition-title" id="popsRecognitionTitle">Prêmios e comentários</h2>
-        <div class="game-recognition-list"><article class="game-recognition-card"><i class="bi bi-star-fill game-recognition-star" aria-hidden="true"></i><div><h3 class="game-recognition-name">3º Lugar — Sede Regional</h3><p class="game-recognition-source">Game Jam + 24/25</p></div></article></div>
+        <h2 class="game-recognition-title" id="popsRecognitionTitle" data-i18n="games.awards">Prêmios e comentários</h2>
+        <div class="game-recognition-list"><article class="game-recognition-card"><i class="bi bi-star-fill game-recognition-star" aria-hidden="true"></i><div><h3 class="game-recognition-name" data-i18n="games.pops.award1">3º Lugar — Sede Regional</h3><p class="game-recognition-source">Game Jam + 24/25</p></div></article></div>
       </section>
     </div>
   </main>
@@ -84,13 +84,13 @@
       <div class="game-subscribe-content">
         <div class="game-subscribe-decoration"></div>
         <div class="game-subscribe-text">
-          <h3 class="game-subscribe-title">Fique atento às novidades!</h3>
-          <p class="game-subscribe-subtitle">Receba notificações sobre esse projeto no seu email.</p>
+          <h3 class="game-subscribe-title" data-i18n="games.subscribe.title">Fique atento às novidades!</h3>
+          <p class="game-subscribe-subtitle" data-i18n="games.subscribe.subtitle">Receba notificações sobre esse projeto no seu email.</p>
         </div>
         <div class="game-subscribe-input-group">
-          <label class="game-subscribe-label" for="email-pops">Email:</label>
+          <label class="game-subscribe-label" for="email-pops" data-i18n="games.subscribe.email">Email:</label>
           <input class="game-subscribe-input" type="email" id="email-pops" placeholder="seu@email.com">
-          <button class="game-subscribe-btn" type="button">Registrar</button>
+          <button class="game-subscribe-btn" type="button" data-i18n="games.subscribe.btn">Registrar</button>
         </div>
       </div>
     </div>
@@ -101,6 +101,7 @@
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../src/scripts/i18n.js"></script>
   <script src="../../src/scripts/game-gallery.js"></script>
   <script src="../../src/scripts/game-subscribe-footer.js"></script>
 </body>
