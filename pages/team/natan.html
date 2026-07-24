@@ -44,13 +44,69 @@
   <section class="member-portfolio">
     <div class="container">
       <h2 class="member-portfolio-title">Portfólio</h2>
-      <div class="member-portfolio-grid">
-        <div class="member-portfolio-card"><i class="bi bi-image"></i><span>Adicione seu trabalho</span></div>
-        <div class="member-portfolio-card"><i class="bi bi-image"></i><span>Adicione seu trabalho</span></div>
-        <div class="member-portfolio-card"><i class="bi bi-image"></i><span>Adicione seu trabalho</span></div>
-        <div class="member-portfolio-card"><i class="bi bi-image"></i><span>Adicione seu trabalho</span></div>
+      <div class="member-portfolio-grid" data-portfolio-folders>
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="sound" data-image="../../assets/images/portfolio/natan/sound-design-ost.png" data-title="Sound Design / OST" data-alt="Projetos de sound design e trilha sonora de Natan Vanique" style="--folder-cover: url('../../assets/images/portfolio/natan/sound-design-ost.png')">
+          <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Sound Design / OST</span>
+        </button>
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="pitch" data-image="../../assets/images/portfolio/natan/pitch.png" data-title="Pitch" data-alt="Natan Vanique apresentando um projeto" style="--folder-cover: url('../../assets/images/portfolio/natan/pitch.png')">
+          <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Pitch</span>
+        </button>
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="pixel" data-image="../../assets/images/portfolio/natan/pixel-art.png" data-title="Pixel Art" data-alt="Cena em pixel art criada por Natan Vanique" style="--folder-cover: url('../../assets/images/portfolio/natan/pixel-art.png')">
+          <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Pixel Art</span>
+        </button>
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="concept" data-image="../../assets/images/portfolio/natan/concept-art.png" data-title="Concept Art" data-alt="Processo de criação de concept art de personagem" style="--folder-cover: url('../../assets/images/portfolio/natan/concept-art.png')">
+          <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Concept Art</span>
+        </button>
+      </div>
+      <div class="portfolio-folder-view" data-portfolio-view hidden>
+        <div class="portfolio-folder-tabs" role="tablist" aria-label="Pastas do portfólio">
+          <button class="portfolio-back-button" type="button" data-portfolio-back><i class="bi bi-arrow-left" aria-hidden="true"></i> Voltar</button>
+          <button class="portfolio-tab" type="button" role="tab" data-portfolio-tab="sound">Sound Design / OST</button>
+          <button class="portfolio-tab" type="button" role="tab" data-portfolio-tab="pitch">Pitch</button>
+          <button class="portfolio-tab" type="button" role="tab" data-portfolio-tab="pixel">Pixel Art</button>
+          <button class="portfolio-tab" type="button" role="tab" data-portfolio-tab="concept">Concept Art</button>
+        </div>
+        <div class="portfolio-folder-content">
+          <h3 class="portfolio-folder-title" data-portfolio-title></h3>
+          <img class="portfolio-folder-image" data-portfolio-image src="" alt="">
+        </div>
       </div>
     </div>
   </section>
+  <script>
+    (() => {
+      const folders = [...document.querySelectorAll('[data-portfolio-folder]')];
+      const grid = document.querySelector('[data-portfolio-folders]');
+      const view = document.querySelector('[data-portfolio-view]');
+      const title = document.querySelector('[data-portfolio-title]');
+      const image = document.querySelector('[data-portfolio-image]');
+      const tabs = [...document.querySelectorAll('[data-portfolio-tab]')];
+
+      function openFolder(key) {
+        const folder = folders.find((item) => item.dataset.portfolioFolder === key);
+        if (!folder) return;
+        title.textContent = folder.dataset.title;
+        image.src = folder.dataset.image;
+        image.alt = folder.dataset.alt;
+        image.classList.toggle('is-pixel-art', key === 'pixel');
+        tabs.forEach((tab) => {
+          const active = tab.dataset.portfolioTab === key;
+          tab.classList.toggle('active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        grid.hidden = true;
+        view.hidden = false;
+        view.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      folders.forEach((folder) => folder.addEventListener('click', () => openFolder(folder.dataset.portfolioFolder)));
+      tabs.forEach((tab) => tab.addEventListener('click', () => openFolder(tab.dataset.portfolioTab)));
+      document.querySelector('[data-portfolio-back]').addEventListener('click', () => {
+        view.hidden = true;
+        grid.hidden = false;
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+  </script>
 </body>
 </html>
