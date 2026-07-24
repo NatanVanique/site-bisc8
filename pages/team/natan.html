@@ -45,16 +45,16 @@
     <div class="container">
       <h2 class="member-portfolio-title">Portfólio</h2>
       <div class="member-portfolio-grid" data-portfolio-folders>
-        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="sound" data-image="../../assets/images/portfolio/natan/sound-design-ost.png" data-title="Sound Design / OST" data-alt="Projetos de sound design e trilha sonora de Natan Vanique" style="--folder-cover: url('../../assets/images/portfolio/natan/sound-design-ost.png')">
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="sound" data-title="Sound Design / OST" style="--folder-cover: url('../../assets/images/portfolio/natan/sound-design-ost.png')">
           <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Sound Design / OST</span>
         </button>
-        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="pitch" data-image="../../assets/images/portfolio/natan/pitch.png" data-title="Pitch" data-alt="Natan Vanique apresentando um projeto" style="--folder-cover: url('../../assets/images/portfolio/natan/pitch.png')">
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="pitch" data-title="Pitch" style="--folder-cover: url('../../assets/images/portfolio/natan/pitch.png')">
           <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Pitch</span>
         </button>
-        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="pixel" data-image="../../assets/images/portfolio/natan/pixel-art.png" data-title="Pixel Art" data-alt="Cena em pixel art criada por Natan Vanique" style="--folder-cover: url('../../assets/images/portfolio/natan/pixel-art.png')">
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="pixel" data-title="Pixel Art" style="--folder-cover: url('../../assets/images/portfolio/natan/pixel-art.png')">
           <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Pixel Art</span>
         </button>
-        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="concept" data-image="../../assets/images/portfolio/natan/concept-art.png" data-title="Concept Art" data-alt="Processo de criação de concept art de personagem" style="--folder-cover: url('../../assets/images/portfolio/natan/concept-art.png')">
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-portfolio-folder="concept" data-title="Concept Art" style="--folder-cover: url('../../assets/images/portfolio/natan/concept-art.png')">
           <i class="bi bi-folder-fill" aria-hidden="true"></i><span>Concept Art</span>
         </button>
       </div>
@@ -68,7 +68,10 @@
         </div>
         <div class="portfolio-folder-content">
           <h3 class="portfolio-folder-title" data-portfolio-title></h3>
-          <img class="portfolio-folder-image" data-portfolio-image src="" alt="">
+          <div class="portfolio-folder-empty">
+            <i class="bi bi-folder-open" aria-hidden="true"></i>
+            <span>Sem trabalho adicionado</span>
+          </div>
         </div>
       </div>
     </div>
@@ -79,16 +82,12 @@
       const grid = document.querySelector('[data-portfolio-folders]');
       const view = document.querySelector('[data-portfolio-view]');
       const title = document.querySelector('[data-portfolio-title]');
-      const image = document.querySelector('[data-portfolio-image]');
       const tabs = [...document.querySelectorAll('[data-portfolio-tab]')];
 
       function openFolder(key) {
         const folder = folders.find((item) => item.dataset.portfolioFolder === key);
         if (!folder) return;
         title.textContent = folder.dataset.title;
-        image.src = folder.dataset.image;
-        image.alt = folder.dataset.alt;
-        image.classList.toggle('is-pixel-art', key === 'pixel');
         tabs.forEach((tab) => {
           const active = tab.dataset.portfolioTab === key;
           tab.classList.toggle('active', active);
