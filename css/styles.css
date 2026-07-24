@@ -1865,7 +1865,12 @@ h1, h2, h3, .display-font {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.88));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.72));
+}
+
+.portfolio-folder-card[data-portfolio-folder="sound"]::before,
+.portfolio-folder-card[data-portfolio-folder="concept"]::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.48));
 }
 
 .portfolio-folder-card i,
@@ -1881,7 +1886,7 @@ h1, h2, h3, .display-font {
   border-color: var(--bisc-orange-light);
   background-color: transparent;
   color: #fff;
-  transform: translateY(-3px);
+  transform: none;
 }
 
 .portfolio-folder-card:focus-visible {
