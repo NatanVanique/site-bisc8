@@ -15,12 +15,12 @@ document.querySelectorAll('[data-game-subscribe]').forEach((bar) => {
   btn?.addEventListener('click', async () => {
     const email = input?.value.trim();
     if (!email) {
-      showMessage(bar, 'Por favor, insira seu email.', 'error');
+      showMessage(bar, translate('games.subscribe.validation', 'Por favor, insira seu email.'), 'error');
       return;
     }
 
     btn.disabled = true;
-    btn.textContent = 'Enviando...';
+    btn.textContent = translate('games.subscribe.sending', 'Enviando...');
 
     try {
       const res = await fetch('/signup', {
@@ -32,21 +32,25 @@ document.querySelectorAll('[data-game-subscribe]').forEach((bar) => {
       const data = await res.json();
 
       if (res.ok) {
-        showMessage(bar, 'Inscrito com sucesso!', 'success');
+        showMessage(bar, translate('games.subscribe.success', 'Inscrito com sucesso!'), 'success');
         input.value = '';
       } else if (res.status === 409) {
-        showMessage(bar, 'Este email já está inscrito.', 'error');
+        showMessage(bar, translate('games.subscribe.duplicate', 'Este email já está inscrito.'), 'error');
       } else {
-        showMessage(bar, data.error || 'Erro ao inscrever.', 'error');
+        showMessage(bar, data.error || translate('games.subscribe.error', 'Erro ao inscrever.'), 'error');
       }
     } catch {
-      showMessage(bar, 'Erro de conexão. Tente novamente.', 'error');
+      showMessage(bar, translate('games.subscribe.connection', 'Erro de conexão. Tente novamente.'), 'error');
     } finally {
       btn.disabled = false;
-      btn.textContent = 'Registrar';
+      btn.textContent = translate('games.subscribe.btn', 'Registrar');
     }
   });
 });
+
+function translate(key, fallback) {
+  return window.i18n?.getTranslations()?.[key] || fallback;
+}
 
 function showMessage(bar, text, type) {
   let msg = bar.querySelector('.game-subscribe-message');

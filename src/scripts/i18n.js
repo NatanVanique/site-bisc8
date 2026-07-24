@@ -61,6 +61,105 @@
         el.setAttribute('aria-label', translations[key]);
       }
     });
+
+    applyPageTranslations();
+  }
+
+  function setText(selector, key) {
+    const value = translations[key];
+    if (value === undefined) return;
+    document.querySelectorAll(selector).forEach(function (el) {
+      el.textContent = value;
+    });
+  }
+
+  function setTextKeepingIcon(selector, key) {
+    const value = translations[key];
+    if (value === undefined) return;
+    document.querySelectorAll(selector).forEach(function (el) {
+      const icon = el.querySelector('i');
+      el.replaceChildren();
+      if (icon) el.append(icon);
+      el.append(document.createTextNode(' ' + value));
+    });
+  }
+
+  function getPageSlug(section) {
+    const match = window.location.pathname.match(new RegExp('/pages/' + section + '/([^/]+)\\.html$'));
+    return match ? match[1] : '';
+  }
+
+  function applyMemberTranslations() {
+    const slug = getPageSlug('team');
+    if (!slug) return;
+
+    setText('.member-role', 'members.' + slug + '.role');
+    setText('.member-page .nav-link.ms-auto', 'nav.home');
+    setTextKeepingIcon('.member-back', 'team.back');
+    const bio = document.querySelector('.member-bio');
+    const bioTranslation = translations['members.' + slug + '.bio'];
+    if (bio && bioTranslation !== undefined) bio.innerHTML = bioTranslation;
+
+    setText('.member-contact-title', 'team.contacts');
+    setText('.member-portfolio-title', 'team.portfolio');
+    setText('.member-portfolio-card:not(.portfolio-folder-card) span', 'team.noWork');
+    setText('.member-profile-detail:first-child h2', 'team.skills');
+    setText('.member-profile-detail:last-child h2', 'team.programs');
+
+    document.querySelectorAll('.member-profile-detail:first-child .member-profile-items span').forEach(function (el, index) {
+      const value = translations['members.' + slug + '.skill.' + (index + 1)];
+      if (value !== undefined) el.textContent = value;
+    });
+
+    if (slug === 'natan') {
+      setText('[data-portfolio-back]', 'team.portfolioBack');
+      setText('.portfolio-project-description', 'members.natan.project.description');
+      const projectSubtitle = document.querySelector('.portfolio-project-header p');
+      if (projectSubtitle && translations['members.natan.project.subtitle']) {
+        projectSubtitle.textContent = translations['members.natan.project.subtitle'];
+      }
+    }
+  }
+
+  function applyGameTranslations() {
+    const slug = getPageSlug('games');
+    if (!slug) return;
+
+    setTextKeepingIcon('.detail-download', 'games.unavailable');
+    document.querySelectorAll('.detail-tags li').forEach(function (el, index) {
+      const value = translations['games.' + slug + '.tag.' + (index + 1)];
+      if (value !== undefined) el.textContent = value;
+    });
+    document.querySelectorAll('.detail-features li').forEach(function (el, index) {
+      const value = translations['games.' + slug + '.feature.' + (index + 1)];
+      if (value === undefined) return;
+      const icon = el.querySelector('i');
+      el.replaceChildren();
+      if (icon) el.append(icon);
+      el.append(document.createTextNode(' ' + value));
+    });
+
+    const tags = document.querySelector('.detail-tags');
+    const features = document.querySelector('.detail-features');
+    if (tags && translations['games.tags']) tags.setAttribute('aria-label', translations['games.tags']);
+    if (features && translations['games.features']) features.setAttribute('aria-label', translations['games.features']);
+  }
+
+  function applyHomeTranslations() {
+    document.querySelectorAll('.team-card').forEach(function (card) {
+      const link = card.getAttribute('href') || '';
+      const match = link.match(/pages\/team\/([^/]+)\.html/);
+      if (!match) return;
+      const role = card.querySelector('.team-card-role');
+      const value = translations['members.' + match[1] + '.role'];
+      if (role && value !== undefined) role.textContent = value;
+    });
+  }
+
+  function applyPageTranslations() {
+    applyMemberTranslations();
+    applyGameTranslations();
+    applyHomeTranslations();
   }
 
   function updateLangSelectorUI() {
