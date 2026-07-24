@@ -72,27 +72,59 @@
         </div>
         <div class="portfolio-folder-content">
           <h3 class="portfolio-folder-title" data-portfolio-title></h3>
-          <div class="portfolio-folder-empty">
+          <div class="portfolio-folder-empty" data-portfolio-empty>
             <i class="bi bi-folder-open" aria-hidden="true"></i>
             <span>Sem trabalho adicionado</span>
           </div>
+          <article class="portfolio-project" data-concept-project hidden>
+            <header class="portfolio-project-header">
+              <h3>Undevil</h3>
+              <p>Cindy Cinidrius Concept</p>
+            </header>
+            <p class="portfolio-project-description">Cindy Cinidrius é uma gnoma do universo de RPG Undevil, que inspira o jogo de luta atualmente em desenvolvimento. Muito além de sua origem, Cindy é reconhecida como uma das maiores mentes de sua era. Foi uma das principais responsáveis por revolucionar o uso dos Cristais Krobianos, impulsionando avanços que transformaram o mundo. Integrante da 5ª Vanguarda da Aurora, também lutou na Segunda Grande Guerra da Névoa, deixando seu nome marcado tanto pela genialidade quanto por sua contribuição em um dos maiores conflitos da história de Undevil.</p>
+            <div class="media-gallery portfolio-project-gallery" data-media-gallery>
+              <div class="media-gallery-stage">
+                <button class="media-gallery-arrow" type="button" data-gallery-prev aria-label="Mídia anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+                <div class="media-gallery-main" aria-live="polite">
+                  <div class="media-gallery-item active" data-gallery-item><iframe src="https://www.youtube-nocookie.com/embed/148IOq-9K74" title="Vídeo do concept de Cindy Cinidrius para Undevil" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                  <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/portfolio/natan/undevil-cindy/cindy-concept-01.png" alt="Concept art de Cindy Cinidrius"></div>
+                  <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/portfolio/natan/undevil-cindy/cindy-concept-02.png" alt="Folha de expressões e poses de Cindy Cinidrius"></div>
+                  <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/portfolio/natan/undevil-cindy/cindy-concept-03.png" alt="Estudo visual de Cindy Cinidrius"></div>
+                </div>
+                <button class="media-gallery-arrow" type="button" data-gallery-next aria-label="Próxima mídia"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+              </div>
+              <div class="media-gallery-thumbs" aria-label="Mídias do concept de Cindy Cinidrius">
+                <button class="media-gallery-thumb active" type="button" data-gallery-thumb="0" aria-label="Exibir vídeo" aria-pressed="true"><img src="../../assets/images/portfolio/natan/concept-art.png" alt=""><i class="bi bi-play-circle-fill media-gallery-play" aria-hidden="true"></i></button>
+                <button class="media-gallery-thumb" type="button" data-gallery-thumb="1" aria-label="Exibir imagem 1" aria-pressed="false"><img src="../../assets/images/portfolio/natan/undevil-cindy/cindy-concept-01.png" alt=""></button>
+                <button class="media-gallery-thumb" type="button" data-gallery-thumb="2" aria-label="Exibir imagem 2" aria-pressed="false"><img src="../../assets/images/portfolio/natan/undevil-cindy/cindy-concept-02.png" alt=""></button>
+                <button class="media-gallery-thumb" type="button" data-gallery-thumb="3" aria-label="Exibir imagem 3" aria-pressed="false"><img src="../../assets/images/portfolio/natan/undevil-cindy/cindy-concept-03.png" alt=""></button>
+              </div>
+              <div class="media-gallery-scrollbar" data-gallery-scrollbar role="scrollbar" tabindex="0" aria-label="Rolar mídias do concept de Cindy Cinidrius" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="media-gallery-scrollbar-thumb" data-gallery-scrollbar-thumb></span></div>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
   <script src="../../src/scripts/member-page.js"></script>
+  <script src="../../src/scripts/game-gallery.js"></script>
   <script>
     (() => {
       const folders = [...document.querySelectorAll('[data-portfolio-folder]')];
       const grid = document.querySelector('[data-portfolio-folders]');
       const view = document.querySelector('[data-portfolio-view]');
       const title = document.querySelector('[data-portfolio-title]');
+      const emptyState = document.querySelector('[data-portfolio-empty]');
+      const conceptProject = document.querySelector('[data-concept-project]');
       const tabs = [...document.querySelectorAll('[data-portfolio-tab]')];
 
       function openFolder(key) {
         const folder = folders.find((item) => item.dataset.portfolioFolder === key);
         if (!folder) return;
         title.textContent = folder.dataset.title;
+        title.hidden = key === 'concept';
+        emptyState.hidden = key === 'concept';
+        conceptProject.hidden = key !== 'concept';
         tabs.forEach((tab) => {
           const active = tab.dataset.portfolioTab === key;
           tab.classList.toggle('active', active);
@@ -100,6 +132,7 @@
         });
         grid.hidden = true;
         view.hidden = false;
+        requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
         view.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 

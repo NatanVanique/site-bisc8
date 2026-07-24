@@ -1972,6 +1972,43 @@ h1, h2, h3, .display-font {
   font-weight: 600;
 }
 
+.portfolio-project-header {
+  margin-bottom: 1rem;
+}
+
+.portfolio-project-header h3 {
+  margin: 0;
+  color: var(--bisc-orange);
+  font-family: "Bungee", cursive;
+  font-size: clamp(1.65rem, 4vw, 2.6rem);
+}
+
+.portfolio-project-header p {
+  margin: 0.25rem 0 0;
+  color: #fff;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.55rem);
+  letter-spacing: 0.04em;
+}
+
+.portfolio-project-description {
+  max-width: 860px;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.portfolio-project-gallery {
+  margin-top: 0;
+}
+
+.portfolio-project[hidden],
+.portfolio-folder-empty[hidden],
+.portfolio-folder-title[hidden] {
+  display: none !important;
+}
+
 .portfolio-folder-view[hidden],
 .member-portfolio-grid[hidden] {
   display: none !important;
