@@ -1681,6 +1681,18 @@ h1, h2, h3, .display-font {
   line-height: 1.7;
 }
 
+.member-bio p {
+  margin-bottom: 1rem;
+}
+
+.member-bio p:last-child {
+  margin-bottom: 0;
+}
+
+.member-bio strong {
+  color: #fff;
+}
+
 /* ── Contact Card ── */
 .member-contact-card {
   background: rgba(245, 124, 0, 0.08);
@@ -1789,7 +1801,6 @@ h1, h2, h3, .display-font {
   isolation: isolate;
   border-style: solid;
   border-color: rgba(245, 124, 0, 0.72);
-  background-image: var(--folder-cover);
   background-position: center;
   background-size: cover;
   color: #fff;
