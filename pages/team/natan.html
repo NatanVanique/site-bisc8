@@ -76,7 +76,18 @@
             <i class="bi bi-folder-open" aria-hidden="true"></i>
             <span data-i18n="team.noWork">Sem trabalho adicionado</span>
           </div>
-          <article class="portfolio-project" data-concept-project hidden>
+          <article class="portfolio-project" data-noon-project hidden>
+            <header class="portfolio-project-header">
+              <div class="portfolio-project-title-line">
+                <h3>Noon</h3>
+                <a class="portfolio-project-link" href="../games/noon.html">(acessar jogo)</a>
+              </div>
+              <p>Concept de telas</p>
+            </header>
+            <p class="portfolio-project-description">No projeto Noon, Natan foi responsável pela criação de diversos concepts que ajudaram a acelerar a produção de assets, com foco especial no desenvolvimento das interfaces do jogo. A direção artística combina o imaginário gótico e cartunesco de Tim Burton com referências de <em>Don't Starve Together</em>, traduzidas em elementos escuros, rabiscados e cheios de movimento. Mesmo com sua atmosfera sombria, a UI permanece acolhedora, divertida e vibrante, resgatando a emoção de uma boa e velha brincadeira de esconde-esconde.</p>
+            <div class="media-gallery portfolio-project-gallery" data-media-gallery data-noon-gallery></div>
+          </article>
+          <article class="portfolio-project portfolio-project-secondary" data-concept-project hidden>
             <header class="portfolio-project-header">
               <h3>Undevil</h3>
               <p>Cindy Cinidrius Concept</p>
@@ -108,6 +119,47 @@
   </section>
   <script src="../../src/scripts/i18n.js"></script>
   <script src="../../src/scripts/member-page.js"></script>
+  <script>
+    (() => {
+      const gallery = document.querySelector('[data-noon-gallery]');
+      const media = [
+        ['fluxo-de-telas.jpg', 'Fluxo e ciclo das telas de Noon'],
+        ['erro-conexao.jpg', 'Concept da mensagem de erro de conexão'],
+        ['lobby-lateral.jpg', 'Estudo da estrutura lateral do lobby'],
+        ['loading-aberto.jpg', 'Concept da tela de carregamento'],
+        ['loading-transicao.jpg', 'Transição de carregamento sobre a lista de salas'],
+        ['menu-configuracoes.jpg', 'Concept do menu de configurações'],
+        ['menu-creditos.jpg', 'Concept da tela de créditos'],
+        ['menu-idiomas.jpg', 'Concept do seletor de idiomas'],
+        ['menu-principal.jpg', 'Concept do menu principal'],
+        ['customizacao.jpg', 'Concept da tela de customização do personagem'],
+        ['configuracao-host.jpg', 'Concept das configurações do host'],
+        ['lista-de-salas.jpg', 'Concept da lista de salas multiplayer'],
+        ['ui-lobby.jpg', 'Estudo da interface fixa do lobby'],
+        ['menu-saida-jogo.jpg', 'Concept do menu de saída durante a partida'],
+        ['hud-sombra.jpg', 'Estudo da HUD do personagem Sombra'],
+        ['configuracoes-jogo.jpg', 'Concept das configurações durante a partida'],
+        ['hud-fogo.jpg', 'Estudo da HUD do personagem Fogo'],
+        ['localizacao-jogo.jpg', 'Concept da localização durante a partida'],
+        ['jogadores.jpg', 'Concept da lista de jogadores durante a partida'],
+        ['conceitos-lobby.png', 'Painel de concepts do lobby e das habilidades']
+      ];
+      const base = '../../assets/images/portfolio/natan/noon-ui/';
+      gallery.innerHTML = `
+        <div class="media-gallery-stage">
+          <button class="media-gallery-arrow" type="button" data-gallery-prev aria-label="Imagem anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+          <div class="media-gallery-main" aria-live="polite">
+            ${media.map(([file, alt], index) => `<div class="media-gallery-item${index === 0 ? ' active' : ''}" data-gallery-item><img src="${base}${file}" alt="${alt}" loading="${index === 0 ? 'eager' : 'lazy'}"></div>`).join('')}
+          </div>
+          <button class="media-gallery-arrow" type="button" data-gallery-next aria-label="Próxima imagem"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="media-gallery-thumbs" aria-label="Concepts de interface de Noon">
+          ${media.map(([file, alt], index) => `<button class="media-gallery-thumb${index === 0 ? ' active' : ''}" type="button" data-gallery-thumb="${index}" aria-label="Exibir ${alt.toLowerCase()}" aria-pressed="${index === 0}"><img src="${base}${file}" alt="" loading="lazy"></button>`).join('')}
+        </div>
+        <div class="media-gallery-scrollbar" data-gallery-scrollbar role="scrollbar" tabindex="0" aria-label="Rolar concepts de interface de Noon" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="media-gallery-scrollbar-thumb" data-gallery-scrollbar-thumb></span></div>
+      `;
+    })();
+  </script>
   <script src="../../src/scripts/game-gallery.js"></script>
   <script>
     (() => {
@@ -117,6 +169,7 @@
       const title = document.querySelector('[data-portfolio-title]');
       const emptyState = document.querySelector('[data-portfolio-empty]');
       const conceptProject = document.querySelector('[data-concept-project]');
+      const noonProject = document.querySelector('[data-noon-project]');
       const tabs = [...document.querySelectorAll('[data-portfolio-tab]')];
 
       function openFolder(key) {
@@ -126,6 +179,7 @@
         title.hidden = key === 'concept';
         emptyState.hidden = key === 'concept';
         conceptProject.hidden = key !== 'concept';
+        noonProject.hidden = key !== 'concept';
         tabs.forEach((tab) => {
           const active = tab.dataset.portfolioTab === key;
           tab.classList.toggle('active', active);

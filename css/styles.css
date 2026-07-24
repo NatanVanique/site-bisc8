@@ -1977,11 +1977,32 @@ h1, h2, h3, .display-font {
   margin-bottom: 1rem;
 }
 
+.portfolio-project-title-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+}
+
 .portfolio-project-header h3 {
   margin: 0;
   color: var(--bisc-orange);
   font-family: "Bungee", cursive;
   font-size: clamp(1.65rem, 4vw, 2.6rem);
+}
+
+.portfolio-project-link {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.portfolio-project-link:hover,
+.portfolio-project-link:focus-visible {
+  color: var(--bisc-orange);
+  text-decoration: underline;
 }
 
 .portfolio-project-header p {
@@ -1998,6 +2019,12 @@ h1, h2, h3, .display-font {
   color: rgba(255, 255, 255, 0.76);
   font-size: 0.93rem;
   line-height: 1.7;
+}
+
+.portfolio-project-secondary {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: 3rem;
+  padding-top: 3rem;
 }
 
 .portfolio-project-gallery {
