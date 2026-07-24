@@ -123,8 +123,8 @@
 
     if (slug === 'natan') {
       setText('[data-portfolio-back]', 'team.portfolioBack');
-      setText('.portfolio-project-description', 'members.natan.project.description');
-      const projectSubtitle = document.querySelector('.portfolio-project-header p');
+      setText('[data-concept-project] .portfolio-project-description', 'members.natan.project.description');
+      const projectSubtitle = document.querySelector('[data-concept-project] .portfolio-project-header p');
       if (projectSubtitle && translations['members.natan.project.subtitle']) {
         projectSubtitle.textContent = translations['members.natan.project.subtitle'];
       }

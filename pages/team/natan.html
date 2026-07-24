@@ -76,23 +76,23 @@
             <i class="bi bi-folder-open" aria-hidden="true"></i>
             <span data-i18n="team.noWork">Sem trabalho adicionado</span>
           </div>
-          <article class="portfolio-project" data-noon-project hidden>
+          <article class="portfolio-project portfolio-project-secondary" data-noon-project hidden>
             <header class="portfolio-project-header">
               <div class="portfolio-project-title-line">
                 <h3>Noon</h3>
-                <a class="portfolio-project-link" href="../games/noon.html">(acessar jogo)</a>
+                <a class="portfolio-project-link" href="../games/noon.html" data-i18n="members.natan.noon.link">(acessar jogo)</a>
               </div>
-              <p>Concept de telas</p>
+              <p data-i18n="members.natan.noon.subtitle">Concept de telas/UI</p>
             </header>
-            <p class="portfolio-project-description">No projeto Noon, Natan foi responsável pela criação de diversos concepts que ajudaram a acelerar a produção de assets, com foco especial no desenvolvimento das interfaces do jogo. A direção artística combina o imaginário gótico e cartunesco de Tim Burton com referências de <em>Don't Starve Together</em>, traduzidas em elementos escuros, rabiscados e cheios de movimento. Mesmo com sua atmosfera sombria, a UI permanece acolhedora, divertida e vibrante, resgatando a emoção de uma boa e velha brincadeira de esconde-esconde.</p>
+            <p class="portfolio-project-description" data-i18n="members.natan.noon.description">No projeto Noon, Natan foi responsável pela criação de diversos concepts que ajudaram a acelerar a produção de assets, com foco especial no desenvolvimento das interfaces do jogo. A direção artística combina o imaginário gótico e cartunesco de Tim Burton com referências de Don't Starve Together, traduzidas em elementos escuros, rabiscados e cheios de movimento. Mesmo com sua atmosfera sombria, a UI permanece acolhedora, divertida e vibrante, resgatando a emoção de uma boa e velha brincadeira de esconde-esconde.</p>
             <div class="media-gallery portfolio-project-gallery" data-media-gallery data-noon-gallery></div>
           </article>
-          <article class="portfolio-project portfolio-project-secondary" data-concept-project hidden>
+          <article class="portfolio-project" data-concept-project hidden>
             <header class="portfolio-project-header">
               <h3>Undevil</h3>
-              <p>Cindy Cinidrius Concept</p>
+              <p data-i18n="members.natan.project.subtitle">Concept de Cindy Cinidrius</p>
             </header>
-            <p class="portfolio-project-description">Cindy Cinidrius é uma gnoma do universo de RPG Undevil, que inspira o jogo de luta atualmente em desenvolvimento. Muito além de sua origem, Cindy é reconhecida como uma das maiores mentes de sua era. Foi uma das principais responsáveis por revolucionar o uso dos Cristais Krobianos, impulsionando avanços que transformaram o mundo. Integrante da 5ª Vanguarda da Aurora, também lutou na Segunda Grande Guerra da Névoa, deixando seu nome marcado tanto pela genialidade quanto por sua contribuição em um dos maiores conflitos da história de Undevil.</p>
+            <p class="portfolio-project-description" data-i18n="members.natan.project.description">Cindy Cinidrius é uma gnoma do universo de RPG Undevil, que inspira o jogo de luta atualmente em desenvolvimento. Muito além de sua origem, Cindy é reconhecida como uma das maiores mentes de sua era. Foi uma das principais responsáveis por revolucionar o uso dos Cristais Krobianos, impulsionando avanços que transformaram o mundo. Integrante da 5ª Vanguarda da Aurora, também lutou na Segunda Grande Guerra da Névoa, deixando seu nome marcado tanto pela genialidade quanto por sua contribuição em um dos maiores conflitos da história de Undevil.</p>
             <div class="media-gallery portfolio-project-gallery" data-media-gallery>
               <div class="media-gallery-stage">
                 <button class="media-gallery-arrow" type="button" data-gallery-prev aria-label="Mídia anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
@@ -122,6 +122,7 @@
   <script>
     (() => {
       const gallery = document.querySelector('[data-noon-gallery]');
+      document.querySelector('[data-concept-project]').after(gallery.closest('[data-noon-project]'));
       const media = [
         ['menu-principal.jpg', 'Concept do menu principal'],
         ['menu-configuracoes.jpg', 'Concept do menu de configurações'],
