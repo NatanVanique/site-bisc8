@@ -2001,6 +2001,18 @@ h1, h2, h3, .display-font {
 
 .portfolio-project-gallery {
   margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.member-page .media-gallery {
+  width: min(100%, 820px, 100vh);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.member-page .media-gallery-item img {
+  object-fit: contain;
 }
 
 .portfolio-project[hidden],

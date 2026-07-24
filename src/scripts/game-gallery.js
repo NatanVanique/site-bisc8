@@ -28,7 +28,15 @@ document.querySelectorAll('[data-media-gallery]').forEach((gallery) => {
       thumb.classList.toggle('active', isActive);
       thumb.setAttribute('aria-pressed', String(isActive));
     });
-    thumbs[currentIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const activeThumb = thumbs[currentIndex];
+    if (gallery.closest('.member-page')) {
+      thumbsTrack.scrollTo({
+        left: activeThumb.offsetLeft - ((thumbsTrack.clientWidth - activeThumb.offsetWidth) / 2),
+        behavior: 'smooth'
+      });
+    } else {
+      activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
   };
 
   gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => selectMedia(currentIndex - 1));
