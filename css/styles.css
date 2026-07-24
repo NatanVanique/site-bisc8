@@ -2006,7 +2006,7 @@ h1, h2, h3, .display-font {
 }
 
 .member-page .media-gallery {
-  width: min(100%, 820px, 100vh);
+  width: min(100%, 1000px);
   margin-right: auto;
   margin-left: auto;
 }
