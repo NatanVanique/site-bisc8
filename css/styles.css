@@ -1826,7 +1826,7 @@ h1, h2, h3, .display-font {
   overflow: hidden;
 }
 
-.member-portfolio-card:hover {
+.member-portfolio-card:not(.portfolio-folder-card):hover {
   border-color: var(--bisc-orange);
   background: rgba(245, 124, 0, 0.06);
   color: rgba(255, 255, 255, 0.5);
@@ -1871,6 +1871,10 @@ h1, h2, h3, .display-font {
 .portfolio-folder-card[data-portfolio-folder="sound"]::before,
 .portfolio-folder-card[data-portfolio-folder="concept"]::before {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.48));
+}
+
+.portfolio-folder-card[data-portfolio-folder="pitch"]::before {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.86));
 }
 
 .portfolio-folder-card i,
