@@ -84,6 +84,16 @@
     });
   }
 
+  function setTextThenIcon(selector, key) {
+    const value = translations[key];
+    if (value === undefined) return;
+    document.querySelectorAll(selector).forEach(function (el) {
+      const icon = el.querySelector('i');
+      el.replaceChildren(document.createTextNode(value + ' '));
+      if (icon) el.append(icon);
+    });
+  }
+
   function getPageSlug(section) {
     const match = window.location.pathname.match(new RegExp('/pages/' + section + '/([^/]+)\\.html$'));
     return match ? match[1] : '';
@@ -125,7 +135,8 @@
     const slug = getPageSlug('games');
     if (!slug) return;
 
-    setTextKeepingIcon('.detail-download', 'games.unavailable');
+    setTextKeepingIcon('.detail-download[aria-disabled="true"]', 'games.unavailable');
+    setTextThenIcon('.game-subscribe-toggle', 'games.subscribe.toggle');
     document.querySelectorAll('.detail-tags li').forEach(function (el, index) {
       const value = translations['games.' + slug + '.tag.' + (index + 1)];
       if (value !== undefined) el.textContent = value;
