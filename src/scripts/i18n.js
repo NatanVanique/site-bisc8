@@ -11,6 +11,73 @@
 
   let translations = {};
 
+  function buildStandardNavbar() {
+    const navbar = document.querySelector('.navbar-bisc');
+    if (!navbar) return;
+
+    const path = window.location.pathname.replace(/\\/g, '/');
+    const isGamePage = path.includes('/pages/games/');
+    const isTeamPage = path.includes('/pages/team/');
+    const isNestedPage = isGamePage || isTeamPage;
+    const home = isNestedPage ? '../../index.html' : '';
+    const games = isNestedPage ? '../games/' : 'pages/games/';
+    const activeClass = (section) => {
+      if (section === 'games' && isGamePage) return ' active';
+      if (section === 'team' && isTeamPage) return ' active';
+      if (section === 'home' && !isNestedPage) return ' active';
+      return '';
+    };
+
+    navbar.id = 'mainNavbar';
+    navbar.innerHTML = `
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="${home}#hero">
+          BISC8
+          <span>. GAME DEVS</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item"><a class="nav-link${activeClass('home')}" href="${home}#hero" data-i18n="nav.home">Página Inicial</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle${activeClass('games')}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.games">Jogos</a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="${games}noon.html">Noon</a></li>
+                <li><a class="dropdown-item" href="${games}bananabongo.html">BananaBongô</a></li>
+                <li><a class="dropdown-item" href="${games}overtime.html">Overtime</a></li>
+                <li><a class="dropdown-item" href="${games}pops.html">Pops: On the Go</a></li>
+                <li><a class="dropdown-item" href="${games}trashexe.html">Trash.exe</a></li>
+                <li><a class="dropdown-item" href="${games}lastplant.html">Last Plan't</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${home}#equipe" data-i18n="nav.team">Equipe</a></li>
+            <li class="nav-item"><a class="nav-link" href="${home}#contato" data-i18n="nav.contact">Contato</a></li>
+            <li class="nav-item dropdown ms-lg-2">
+              <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
+                <span data-i18n="nav.lang">Idiomas</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                <li><a class="dropdown-item lang-option active-lang" href="#"><img src="https://flagcdn.com/w40/br.png" alt="Brasil" class="lang-flag"> Português</a></li>
+                <li><a class="dropdown-item lang-option" href="#"><img src="https://flagcdn.com/w40/us.png" alt="Estados Unidos" class="lang-flag"> English</a></li>
+                <li><a class="dropdown-item lang-option" href="#"><img src="https://flagcdn.com/w40/es.png" alt="Espanha" class="lang-flag"> Español</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>`;
+
+    if (!window.bootstrap && !document.querySelector('script[data-bisc-bootstrap]')) {
+      const bootstrapScript = document.createElement('script');
+      bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
+      bootstrapScript.dataset.biscBootstrap = 'true';
+      document.body.appendChild(bootstrapScript);
+    }
+  }
+
   function getBasePath() {
     const path = window.location.pathname;
     if (path.includes('/pages/games/') || path.includes('/pages/team/')) {
@@ -229,6 +296,7 @@
   }
 
   async function init() {
+    buildStandardNavbar();
     await loadTranslations(currentLang);
     applyTranslations();
     updateLangSelectorUI();
