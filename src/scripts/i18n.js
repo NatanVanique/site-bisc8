@@ -20,6 +20,7 @@
     const isTeamPage = path.includes('/pages/team/');
     const isNestedPage = isGamePage || isTeamPage;
     const home = isNestedPage ? '../../index.html' : '';
+    const homeTop = isNestedPage ? '../../index.html' : '#';
     const games = isNestedPage ? '../games/' : 'pages/games/';
     const activeClass = (section) => {
       if (section === 'games' && isGamePage) return ' active';
@@ -31,7 +32,7 @@
     navbar.id = 'mainNavbar';
     navbar.innerHTML = `
       <div class="container-fluid px-4">
-        <a class="navbar-brand" href="${home}#hero">
+        <a class="navbar-brand" href="${homeTop}">
           BISC8
           <span>. GAME DEVS</span>
         </a>
@@ -41,7 +42,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-            <li class="nav-item"><a class="nav-link${activeClass('home')}" href="${home}#hero" data-i18n="nav.home">Página Inicial</a></li>
+            <li class="nav-item"><a class="nav-link${activeClass('home')}" href="${homeTop}" data-i18n="nav.home">Página Inicial</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle${activeClass('games')}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.games">Jogos</a>
               <ul class="dropdown-menu dropdown-menu-dark">
@@ -53,7 +54,7 @@
                 <li><a class="dropdown-item" href="${games}lastplant.html">Last Plan't</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${home}#equipe" data-i18n="nav.team">Equipe</a></li>
+            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${home}#quem-somos" data-i18n="nav.team">Equipe</a></li>
             <li class="nav-item"><a class="nav-link" href="${home}#contato" data-i18n="nav.contact">Contato</a></li>
             <li class="nav-item dropdown ms-lg-2">
               <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
