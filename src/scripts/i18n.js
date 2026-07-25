@@ -21,6 +21,7 @@
     const isNestedPage = isGamePage || isTeamPage;
     const home = isNestedPage ? '../../index.html' : '';
     const homeTop = isNestedPage ? '../../index.html' : '#';
+    const imagePath = isNestedPage ? '../../assets/images/' : 'assets/images/';
     const games = isNestedPage ? '../games/' : 'pages/games/';
     const activeClass = (section) => {
       if (section === 'games' && isGamePage) return ' active';
@@ -33,8 +34,8 @@
     navbar.innerHTML = `
       <div class="container-fluid px-4">
         <a class="navbar-brand" href="${homeTop}">
-          BISC8
-          <span>. GAME DEVS</span>
+          <img class="navbar-brand-image navbar-brand-image-orange" src="${imagePath}bisc8-wordmark-orange.png" alt="BISC8">
+          <img class="navbar-brand-image navbar-brand-image-white" src="${imagePath}gamedevs-wordmark-white.png" alt="Game Devs">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegação">
