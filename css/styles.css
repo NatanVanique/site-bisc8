@@ -1086,7 +1086,7 @@ h1, h2, h3, .display-font {
 }
 
 .noon-hero-image {
-  object-position: center top;
+  object-position: center 72%;
 }
 
 .detail-hero-image {
