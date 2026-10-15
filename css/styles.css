@@ -1046,6 +1046,79 @@ h1, h2, h3, .display-font {
   border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+.press-photo-section {
+  padding: 2rem 1.5rem 3rem;
+  background: rgba(17, 17, 17, 0.92);
+}
+
+.press-photo-inner {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+}
+
+.press-photo-folder {
+  width: min(100%, 310px);
+  overflow: hidden;
+  border: 1px solid rgba(245, 124, 0, 0.45);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.42);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.press-photo-folder:hover,
+.press-photo-folder:focus-visible {
+  border-color: var(--bisc-orange);
+  box-shadow: 0 0 0 2px rgba(245, 124, 0, 0.2), 0 12px 28px rgba(0, 0, 0, 0.35);
+  outline: none;
+  transform: translateY(-3px);
+}
+
+.press-photo-folder-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: repeat(2, 90px);
+  gap: 3px;
+  background: #111;
+}
+
+.press-photo-folder-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.press-photo-folder-grid img:first-child {
+  grid-row: 1 / span 2;
+}
+
+.press-photo-folder-info {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1rem;
+}
+
+.press-photo-folder-info > i {
+  color: var(--bisc-orange);
+  font-size: 1.7rem;
+}
+
+.press-photo-folder-info strong,
+.press-photo-folder-info span {
+  display: block;
+}
+
+.press-photo-folder-info strong {
+  color: #fff;
+}
+
+.press-photo-folder-info span {
+  margin-top: 0.2rem;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.75rem;
+}
+
 .press-history-inner {
   width: min(100%, 860px);
   margin: 0 auto;

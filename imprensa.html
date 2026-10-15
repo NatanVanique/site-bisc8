@@ -28,7 +28,7 @@
           </button>
           <div id="press-equipe-submenu" class="press-submenu" hidden>
             <a href="index.html#contato">Contato</a>
-            <a href="index.html#quem-somos">Foto membros</a>
+            <a href="#fotos-membros">Foto membros</a>
             <a href="index.html#quem-somos">Foto equipe</a>
           </div>
         </div>
@@ -69,6 +69,24 @@
       </div>
     </section>
   </main>
+
+  <section id="fotos-membros" class="press-photo-section" aria-labelledby="member-photos-title">
+    <div class="press-photo-inner">
+      <p class="press-section-label">Equipe</p>
+      <h2 id="member-photos-title" class="display-font">Fotos dos membros</h2>
+      <div class="press-photo-folder" tabindex="0">
+        <div class="press-photo-folder-grid">
+          <img src="assets/images/team/members/ismael-lima/f9a0489.jpg" alt="Ismael Lima segurando um boneco de gengibre">
+          <img src="assets/images/team/members/ismael-lima/dsc9175.jpg" alt="Retrato de Ismael Lima em fundo preto">
+          <img src="assets/images/team/members/ismael-lima/dsc9177.jpg" alt="Ismael Lima sorrindo em fundo preto">
+        </div>
+        <div class="press-photo-folder-info">
+          <i class="bi bi-folder-fill" aria-hidden="true"></i>
+          <div><strong>Ismael Lima</strong><span>3 fotos</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="historia" class="press-history" aria-labelledby="history-title">
     <div class="press-history-inner">
@@ -117,7 +135,16 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="src/scripts/i18n.js"></script>
   <script>
-    document.querySelector('.press-card').appendChild(document.querySelector('.press-history'));
+    const pressCard = document.querySelector('.press-card');
+    const pressHistory = document.querySelector('.press-history');
+    const pressPhotos = document.querySelector('.press-photo-section');
+    const pressNav = document.querySelector('.press-side-nav');
+    const navGroups = pressNav.querySelectorAll('.press-nav-group');
+
+    pressCard.appendChild(pressHistory);
+    pressHistory.after(pressPhotos);
+    pressNav.insertBefore(navGroups[0], navGroups[1].nextElementSibling);
+
     document.querySelectorAll('.press-nav-title').forEach((button) => {
       button.addEventListener('click', () => {
         const submenu = document.getElementById(button.getAttribute('aria-controls'));
