@@ -267,6 +267,12 @@
     const natanFolder = [...pressPhotos[0].querySelectorAll('.press-photo-folder')].find((folder) => folder.textContent.includes('Natan Vanique'));
     const firstPhotoFolder = pressPhotos[0].querySelector('.press-photo-folder');
     if (natanFolder && firstPhotoFolder && natanFolder !== firstPhotoFolder) firstPhotoFolder.before(natanFolder);
+    const memberFolderRow = pressPhotos[0].querySelector('.press-photo-folder-row');
+    const memberOrder = ['Natan Vanique', 'Thor Cavalcanti', 'João Galletti', 'Jaqueline Resende', 'Ismael Lima', 'João Gomes'];
+    memberOrder.forEach((memberName) => {
+      const folder = [...memberFolderRow.querySelectorAll('.press-photo-folder')].find((item) => item.textContent.includes(memberName));
+      if (folder) memberFolderRow.appendChild(folder);
+    });
     pressNav.insertBefore(navGroups[0], navGroups[1].nextElementSibling);
 
     const lightbox = document.querySelector('#photo-lightbox');
