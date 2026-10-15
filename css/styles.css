@@ -1057,6 +1057,12 @@ h1, h2, h3, .display-font {
   margin: 0 auto;
 }
 
+.press-photo-inner .press-photo-folder {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 1rem 1rem 0;
+}
+
 .press-photo-folder {
   width: min(100%, 260px);
   overflow: hidden;
