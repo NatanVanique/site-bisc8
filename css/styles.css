@@ -1365,6 +1365,7 @@ h1, h2, h3, .display-font {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .media-gallery-thumb.active,

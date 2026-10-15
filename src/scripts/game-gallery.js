@@ -41,7 +41,11 @@ document.querySelectorAll('[data-media-gallery]').forEach((gallery) => {
 
   gallery.querySelector('[data-gallery-prev]').addEventListener('click', () => selectMedia(currentIndex - 1));
   gallery.querySelector('[data-gallery-next]').addEventListener('click', () => selectMedia(currentIndex + 1));
-  thumbs.forEach((thumb) => thumb.addEventListener('click', () => selectMedia(Number(thumb.dataset.galleryThumb))));
+  thumbs.forEach((thumb) => thumb.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    selectMedia(Number(thumb.dataset.galleryThumb));
+  }));
   thumbsTrack.addEventListener('scroll', updateScrollbar, { passive: true });
   window.addEventListener('resize', updateScrollbar);
 
