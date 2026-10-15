@@ -897,6 +897,66 @@ h1, h2, h3, .display-font {
   text-transform: uppercase;
 }
 
+.contact-link-press {
+  justify-content: center;
+  background-color: #fff;
+  color: var(--bisc-brown);
+  text-align: center;
+}
+
+.contact-link-press:hover,
+.contact-link-press:focus-visible {
+  background-color: #f2f2f2;
+  color: var(--bisc-brown);
+}
+
+.press-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.press-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.press-card {
+  width: min(100%, 620px);
+  padding: clamp(2rem, 6vw, 4rem);
+  border: 1px solid rgba(245, 124, 0, 0.45);
+  border-radius: 16px;
+  background: rgba(17, 17, 17, 0.8);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.3);
+}
+
+.press-icon {
+  color: var(--bisc-orange-light);
+  font-size: 3rem;
+}
+
+.press-card h1 {
+  margin: 0.75rem 0;
+  font-size: clamp(3rem, 8vw, 5rem);
+}
+
+.press-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.press-email:hover,
+.press-email:focus-visible {
+  color: var(--bisc-orange-light);
+}
+
 /* ── Footer ── */
 .footer-bisc {
   background-color: #111;

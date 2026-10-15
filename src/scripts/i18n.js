@@ -45,14 +45,16 @@
     const path = window.location.pathname.replace(/\\/g, '/');
     const isGamePage = path.includes('/pages/games/');
     const isTeamPage = path.includes('/pages/team/');
+    const isPressPage = /\/imprensa\.html$/.test(path);
     const isNestedPage = isGamePage || isTeamPage;
-    const home = isNestedPage ? '../../index.html' : '';
-    const homeTop = isNestedPage ? '../../index.html' : '#';
+    const home = isNestedPage ? '../../index.html' : isPressPage ? 'index.html' : '';
+    const homeTop = isNestedPage || isPressPage ? home : '#';
     const imagePath = isNestedPage ? '../../assets/images/' : 'assets/images/';
     const games = isNestedPage ? '../games/' : 'pages/games/';
     const activeClass = (section) => {
       if (section === 'games' && isGamePage) return ' active';
       if (section === 'team' && isTeamPage) return ' active';
+      if (section === 'press' && isPressPage) return ' active';
       if (section === 'home' && !isNestedPage) return ' active';
       return '';
     };
@@ -84,6 +86,7 @@
             </li>
             <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${home}#quem-somos" data-i18n="nav.team">Equipe</a></li>
             <li class="nav-item"><a class="nav-link" href="${home}#contato" data-i18n="nav.contact">Contato</a></li>
+            <li class="nav-item"><a class="nav-link${activeClass('press')}" href="${home}imprensa.html" data-i18n="nav.press">Imprensa</a></li>
             <li class="nav-item dropdown ms-lg-2">
               <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
