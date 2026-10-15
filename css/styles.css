@@ -1020,10 +1020,7 @@ h1, h2, h3, .display-font {
 }
 
 .press-card-content {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
-  max-width: 480px;
+  display: none;
 }
 
 .press-email {
@@ -1041,8 +1038,12 @@ h1, h2, h3, .display-font {
 }
 
 .press-history {
-  padding: 1rem 1.5rem 5rem;
-  background: rgba(17, 17, 17, 0.92);
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-width: 0;
+  padding: 0 0 0 1rem;
+  background: transparent;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .press-history-inner {
@@ -1077,6 +1078,11 @@ h1, h2, h3, .display-font {
   line-height: 1.8;
 }
 
+.press-history-final {
+  color: var(--bisc-orange) !important;
+  font-weight: 700;
+}
+
 .press-history blockquote {
   margin: 1.5rem 0;
   padding: 1rem 1.25rem;
@@ -1096,6 +1102,13 @@ h1, h2, h3, .display-font {
     display: block;
     min-height: 0;
     padding: 1.25rem;
+  }
+
+  .press-history {
+    display: block;
+    padding: 2rem 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 0;
   }
 
   .press-card-header {
