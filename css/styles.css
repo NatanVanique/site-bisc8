@@ -1082,11 +1082,11 @@ h1, h2, h3, .display-font {
 }
 
 .noon-hero {
-  margin-top: 5.5rem;
+  margin-top: 4.35rem;
 }
 
 .noon-hero-image {
-  object-position: center 88%;
+  object-position: center 55%;
 }
 
 .detail-hero-image {
@@ -2120,7 +2120,7 @@ h1, h2, h3, .display-font {
 
 @media (max-width: 576px) {
   .noon-hero {
-    margin-top: 4.75rem;
+    margin-top: 4rem;
   }
 
   .detail-hero {
