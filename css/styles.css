@@ -1085,6 +1085,10 @@ h1, h2, h3, .display-font {
   margin-top: 5.5rem;
 }
 
+.noon-hero-image {
+  object-position: center top;
+}
+
 .detail-hero-image {
   position: absolute;
   inset: 0;
