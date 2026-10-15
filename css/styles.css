@@ -1085,14 +1085,6 @@ h1, h2, h3, .display-font {
   margin-top: 4.35rem;
 }
 
-.noon-hero-image {
-  object-position: center bottom;
-}
-
-.noon-hero-ui {
-  transform: translateY(clamp(3rem, 7vw, 6rem));
-}
-
 .detail-hero-image {
   position: absolute;
   inset: 0;
