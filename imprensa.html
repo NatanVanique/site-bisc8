@@ -16,13 +16,48 @@
 
   <main class="press-main">
     <section class="press-card" aria-labelledby="press-title">
-      <i class="bi bi-newspaper press-icon" aria-hidden="true"></i>
-      <h1 id="press-title" class="display-font" data-i18n="press.title">Imprensa</h1>
-      <p class="mb-0 text-white-50" data-i18n="press.text">Encontre informações e canais de contato para a imprensa da BISC8 Game Devs.</p>
-      <a class="press-email" href="mailto:bisc8devstudio@gmail.com">
-        <i class="bi bi-envelope-fill" aria-hidden="true"></i>
-        <span data-i18n="press.contact">Contato para imprensa</span>
-      </a>
+      <header class="press-card-header">
+        <i class="bi bi-newspaper press-icon" aria-hidden="true"></i>
+        <h1 id="press-title" class="display-font" data-i18n="press.title">Imprensa</h1>
+      </header>
+
+      <nav class="press-side-nav" aria-label="Navegação da imprensa">
+        <div class="press-nav-group">
+          <button class="press-nav-title" type="button" aria-expanded="false" aria-controls="press-team-submenu">
+            <span>Equipe</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div id="press-team-submenu" class="press-submenu" hidden>
+            <a href="#equipe">Sobre a equipe</a>
+            <a href="#contato">Contato da equipe</a>
+          </div>
+        </div>
+        <div class="press-nav-group">
+          <button class="press-nav-title" type="button" aria-expanded="false" aria-controls="press-games-submenu">
+            <span>Jogos</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div id="press-games-submenu" class="press-submenu" hidden>
+            <a href="#jogos">Catálogo de jogos</a>
+            <a href="#materiais">Materiais para imprensa</a>
+          </div>
+        </div>
+        <div class="press-nav-group">
+          <button class="press-nav-title" type="button" aria-expanded="false" aria-controls="press-awards-submenu">
+            <span>Prêmios</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div id="press-awards-submenu" class="press-submenu" hidden>
+            <a href="#premios">Conquistas</a>
+            <a href="#destaques">Destaques</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="press-card-content">
+        <p class="mb-0 text-white-50" data-i18n="press.text">Encontre informações e canais de contato para a imprensa da BISC8 Game Devs.</p>
+        <a class="press-email" href="mailto:bisc8devstudio@gmail.com">
+          <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+          <span data-i18n="press.contact">Contato para imprensa</span>
+        </a>
+      </div>
     </section>
   </main>
 
@@ -34,5 +69,16 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="src/scripts/i18n.js"></script>
+  <script>
+    document.querySelectorAll('.press-nav-title').forEach((button) => {
+      button.addEventListener('click', () => {
+        const submenu = document.getElementById(button.getAttribute('aria-controls'));
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isOpen));
+        button.closest('.press-nav-group').classList.toggle('is-open', !isOpen);
+        submenu.hidden = isOpen;
+      });
+    });
+  </script>
 </body>
 </html>
