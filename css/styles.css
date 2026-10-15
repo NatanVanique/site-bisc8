@@ -1081,6 +1081,10 @@ h1, h2, h3, .display-font {
   isolation: isolate;
 }
 
+.noon-hero {
+  margin-top: 5.5rem;
+}
+
 .detail-hero-image {
   position: absolute;
   inset: 0;
@@ -2111,6 +2115,10 @@ h1, h2, h3, .display-font {
 }
 
 @media (max-width: 576px) {
+  .noon-hero {
+    margin-top: 4.75rem;
+  }
+
   .detail-hero {
     min-height: 62vh;
     margin-top: 4rem;
