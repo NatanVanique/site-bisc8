@@ -29,7 +29,7 @@
           <div id="press-equipe-submenu" class="press-submenu" hidden>
             <a href="index.html#contato">Contato</a>
             <a href="#fotos-membros">Foto membros</a>
-            <a href="index.html#quem-somos">Foto equipe</a>
+            <a href="#fotos-equipe">Foto equipe</a>
           </div>
         </div>
         <div class="press-nav-group">
@@ -109,6 +109,45 @@
         </div>
         <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>João Galletti</strong><span>3 fotos</span></div></div>
       </div>
+      <div class="press-photo-folder" tabindex="0">
+        <div class="press-photo-folder-grid">
+          <img src="assets/images/team/members/jaqueline-resende/jaqueline-resende_01.jpg" alt="Jaqueline Resende com um boneco de gengibre">
+          <img src="assets/images/team/members/jaqueline-resende/jaqueline-resende_02.jpg" alt="Jaqueline Resende sorrindo">
+          <img src="assets/images/team/members/jaqueline-resende/jaqueline-resende_03.jpg" alt="Jaqueline Resende em retrato">
+        </div>
+        <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Jaqueline Resende</strong><span>3 fotos</span></div></div>
+      </div>
+      <div class="press-photo-folder" tabindex="0">
+        <div class="press-photo-folder-grid">
+          <img src="assets/images/team/members/joao-gomes/joao-gomes_01.jpg" alt="João Gomes em retrato">
+          <img src="assets/images/team/members/joao-gomes/joao-gomes_02.jpg" alt="João Gomes usando uma camiseta branca">
+          <img src="assets/images/team/members/joao-gomes/joao-gomes_03.jpg" alt="João Gomes com os braços cruzados">
+        </div>
+        <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>João Gomes</strong><span>3 fotos</span></div></div>
+      </div>
+      <div class="press-photo-folder" tabindex="0">
+        <div class="press-photo-folder-grid">
+          <img src="assets/images/team/members/thor-cavalcanti/thor-cavalcanti_01.jpg" alt="Thor Cavalcanti em retrato">
+          <img src="assets/images/team/members/thor-cavalcanti/thor-cavalcanti_02.jpg" alt="Thor Cavalcanti sorrindo">
+          <img src="assets/images/team/members/thor-cavalcanti/thor-cavalcanti_03.jpg" alt="Thor Cavalcanti em pé">
+          <img class="gallery-only" src="assets/images/team/members/thor-cavalcanti/thor-cavalcanti_04.jpg" alt="Thor Cavalcanti com os braços cruzados">
+        </div>
+        <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Thor Cavalcanti</strong><span>4 fotos</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fotos-equipe" class="press-photo-section" aria-labelledby="team-photos-title">
+    <div class="press-photo-inner">
+      <p class="press-section-label">Equipe</p>
+      <h2 id="team-photos-title" class="display-font">Fotos da equipe</h2>
+      <div class="press-photo-folder" tabindex="0">
+        <div class="press-photo-folder-grid">
+          <img src="assets/images/team/team-photos/posadas/Team_Pose01.jpg" alt="Equipe BISC8 reunida em estúdio">
+          <img src="assets/images/team/team-photos/posadas/Team_Pose02.jpg" alt="Equipe BISC8 em um evento de jogos">
+        </div>
+        <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Posadas</strong><span>2 fotos</span></div></div>
+      </div>
     </div>
   </section>
 
@@ -170,12 +209,15 @@
   <script>
     const pressCard = document.querySelector('.press-card');
     const pressHistory = document.querySelector('.press-history');
-    const pressPhotos = document.querySelector('.press-photo-section');
+    const pressPhotos = [...document.querySelectorAll('.press-photo-section')];
     const pressNav = document.querySelector('.press-side-nav');
     const navGroups = pressNav.querySelectorAll('.press-nav-group');
 
     pressCard.appendChild(pressHistory);
-    pressHistory.after(pressPhotos);
+    [...pressPhotos].reverse().forEach((section) => pressHistory.after(section));
+    const natanFolder = [...pressPhotos[0].querySelectorAll('.press-photo-folder')].find((folder) => folder.textContent.includes('Natan Vanique'));
+    const firstPhotoFolder = pressPhotos[0].querySelector('.press-photo-folder');
+    if (natanFolder && firstPhotoFolder && natanFolder !== firstPhotoFolder) firstPhotoFolder.before(natanFolder);
     pressNav.insertBefore(navGroups[0], navGroups[1].nextElementSibling);
 
     const lightbox = document.querySelector('#photo-lightbox');
