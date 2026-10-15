@@ -46,6 +46,15 @@
           </div>
         </div>
         <div class="press-nav-group">
+          <button class="press-nav-title" type="button" aria-expanded="false" aria-controls="press-logo-submenu">
+            <span>Logo</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div id="press-logo-submenu" class="press-submenu" hidden>
+            <a href="#logos-pequena">Pequena</a>
+            <a href="#logos-grande">Grande</a>
+          </div>
+        </div>
+        <div class="press-nav-group">
           <button class="press-nav-title" type="button" aria-expanded="false" aria-controls="press-games-submenu">
             <span>Jogos</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
           </button>
@@ -74,6 +83,7 @@
     <div class="press-photo-inner">
       <p class="press-section-label">Equipe</p>
       <h2 id="member-photos-title" class="display-font">Fotos dos membros</h2>
+      <div class="press-photo-folder-row">
       <div class="press-photo-folder" tabindex="0">
         <div class="press-photo-folder-grid">
           <img src="assets/images/team/members/ismael-lima/ismael-lima_01.jpg" alt="Ismael Lima segurando um boneco de gengibre">
@@ -134,6 +144,7 @@
         </div>
         <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Thor Cavalcanti</strong><span>4 fotos</span></div></div>
       </div>
+      </div>
     </div>
   </section>
 
@@ -141,12 +152,48 @@
     <div class="press-photo-inner">
       <p class="press-section-label">Equipe</p>
       <h2 id="team-photos-title" class="display-font">Fotos da equipe</h2>
+      <div class="press-photo-folder-row">
       <div class="press-photo-folder" tabindex="0">
         <div class="press-photo-folder-grid">
           <img src="assets/images/team/team-photos/posadas/Team_Pose01.jpg" alt="Equipe BISC8 reunida em estúdio">
           <img src="assets/images/team/team-photos/posadas/Team_Pose02.jpg" alt="Equipe BISC8 em um evento de jogos">
         </div>
         <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Posadas</strong><span>2 fotos</span></div></div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="logos-pequena" class="press-photo-section" aria-labelledby="small-logo-title">
+    <div class="press-photo-inner">
+      <p class="press-section-label">Logo</p>
+      <h2 id="small-logo-title" class="display-font">Pequena</h2>
+      <div class="press-photo-folder-row">
+        <div class="press-photo-folder" tabindex="0">
+          <div class="press-photo-folder-grid">
+            <img src="assets/images/branding/logo/pequena/BrandSmall_White.png" alt="Logo BISC8 vazada branca">
+            <img src="assets/images/branding/logo/pequena/BrandSmall_Orange.png" alt="Logo BISC8 vazada laranja">
+            <img src="assets/images/branding/logo/pequena/BrandSmall_Black.png" alt="Logo BISC8 vazada preta">
+          </div>
+          <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Pequena</strong><span>3 logos</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="logos-grande" class="press-photo-section" aria-labelledby="large-logo-title">
+    <div class="press-photo-inner">
+      <p class="press-section-label">Logo</p>
+      <h2 id="large-logo-title" class="display-font">Grande</h2>
+      <div class="press-photo-folder-row">
+        <div class="press-photo-folder" tabindex="0">
+          <div class="press-photo-folder-grid">
+            <img src="assets/images/branding/logo/grande/BrandBig_Orange.png" alt="Logo BISC8 laranja">
+            <img src="assets/images/branding/logo/grande/BrandBig_White.png" alt="Logo BISC8 branca">
+            <img src="assets/images/branding/logo/grande/BrandBig_Background.png" alt="Logo BISC8 com fundo">
+          </div>
+          <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Grande</strong><span>3 logos</span></div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -197,7 +244,12 @@
 
   <div class="photo-lightbox" id="photo-lightbox" hidden role="dialog" aria-modal="true" aria-label="Galeria de fotos">
     <button class="photo-lightbox-close" type="button" aria-label="Fechar galeria">&times;</button>
-    <span class="photo-lightbox-counter" aria-live="polite">1/3</span>
+    <div class="photo-lightbox-member-switcher">
+      <button class="photo-lightbox-member-prev" type="button" aria-label="Membro anterior"><i class="bi bi-chevron-left"></i></button>
+      <span class="photo-lightbox-member" aria-live="polite">Membro</span>
+      <span class="photo-lightbox-counter" aria-live="polite">1/3</span>
+      <button class="photo-lightbox-member-next" type="button" aria-label="Próximo membro"><i class="bi bi-chevron-right"></i></button>
+    </div>
     <button class="photo-lightbox-arrow photo-lightbox-prev" type="button" aria-label="Foto anterior"><i class="bi bi-chevron-left"></i></button>
     <img class="photo-lightbox-image" alt="">
     <button class="photo-lightbox-arrow photo-lightbox-next" type="button" aria-label="Próxima foto"><i class="bi bi-chevron-right"></i></button>
@@ -224,6 +276,15 @@
     const lightboxImage = lightbox.querySelector('.photo-lightbox-image');
     let galleryImages = [];
     let galleryIndex = 0;
+    let galleryFolders = [];
+    let galleryFolderIndex = 0;
+    const setGalleryFolder = (folderIndex) => {
+      galleryFolderIndex = (folderIndex + galleryFolders.length) % galleryFolders.length;
+      const folder = galleryFolders[galleryFolderIndex];
+      galleryImages = [...folder.querySelectorAll('img')];
+      lightbox.querySelector('.photo-lightbox-member').textContent = folder.querySelector('strong').textContent;
+      showPhoto(0);
+    };
     const showPhoto = (index) => {
       galleryIndex = (index + galleryImages.length) % galleryImages.length;
       lightboxImage.src = galleryImages[galleryIndex].src;
@@ -231,14 +292,16 @@
       lightbox.querySelector('.photo-lightbox-download').href = galleryImages[galleryIndex].src;
       lightbox.querySelector('.photo-lightbox-counter').textContent = `${galleryIndex + 1}/${galleryImages.length}`;
     };
-    document.querySelectorAll('.press-photo-folder').forEach((folder) => {
+    galleryFolders = [...document.querySelectorAll('.press-photo-folder')];
+    galleryFolders.forEach((folder, folderIndex) => {
       folder.addEventListener('click', () => {
-        galleryImages = [...folder.querySelectorAll('img')];
-        showPhoto(0);
+        setGalleryFolder(folderIndex);
         lightbox.hidden = false;
         document.body.classList.add('lightbox-open');
       });
     });
+    lightbox.querySelector('.photo-lightbox-member-prev').addEventListener('click', () => setGalleryFolder(galleryFolderIndex - 1));
+    lightbox.querySelector('.photo-lightbox-member-next').addEventListener('click', () => setGalleryFolder(galleryFolderIndex + 1));
     lightbox.querySelector('.photo-lightbox-close').addEventListener('click', () => { lightbox.hidden = true; document.body.classList.remove('lightbox-open'); });
     lightbox.querySelector('.photo-lightbox-prev').addEventListener('click', () => showPhoto(galleryIndex - 1));
     lightbox.querySelector('.photo-lightbox-next').addEventListener('click', () => showPhoto(galleryIndex + 1));
