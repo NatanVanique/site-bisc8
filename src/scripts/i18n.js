@@ -49,6 +49,7 @@
     const isNestedPage = isGamePage || isTeamPage;
     const home = isNestedPage ? '../../index.html' : isPressPage ? 'index.html' : '';
     const homeTop = isNestedPage || isPressPage ? home : '#';
+    const pressHome = isPressPage ? './index.html' : home;
     const press = isNestedPage ? '../../imprensa.html' : 'imprensa.html';
     const imagePath = isNestedPage ? '../../assets/images/' : 'assets/images/';
     const games = isNestedPage ? '../games/' : 'pages/games/';
@@ -63,7 +64,7 @@
     navbar.id = 'mainNavbar';
     navbar.innerHTML = `
       <div class="container-fluid px-4">
-        <a class="navbar-brand" href="${homeTop}">
+        <a class="navbar-brand" href="${isPressPage ? pressHome : homeTop}">
           <img class="navbar-brand-image navbar-brand-image-orange" src="${imagePath}bisc8-wordmark-orange.png" alt="BISC8">
           <img class="navbar-brand-image navbar-brand-image-white" src="${imagePath}gamedevs-wordmark-white.png" alt="Game Devs">
         </a>
@@ -73,7 +74,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-            <li class="nav-item"><a class="nav-link${activeClass('home')}" href="${homeTop}" data-i18n="nav.home">Página Inicial</a></li>
+            <li class="nav-item"><a class="nav-link${activeClass('home')}" href="${isPressPage ? pressHome : homeTop}" data-i18n="nav.home">Página Inicial</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle${activeClass('games')}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.games">Jogos</a>
               <ul class="dropdown-menu dropdown-menu-dark">
@@ -85,8 +86,8 @@
                 <li><a class="dropdown-item" href="${games}lastplant.html">Last Plan't</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${isPressPage ? 'index.html' : home}#quem-somos" data-i18n="nav.team">Equipe</a></li>
-            <li class="nav-item"><a class="nav-link" href="${isPressPage ? 'index.html' : home}#contato" data-i18n="nav.contact">Contato</a></li>
+            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${pressHome}#quem-somos" data-i18n="nav.team">Equipe</a></li>
+            <li class="nav-item"><a class="nav-link" href="${pressHome}#contato" data-i18n="nav.contact">Contato</a></li>
             ${isPressPage ? '' : `<li class="nav-item"><a class="nav-link${activeClass('press')}" href="${press}" data-i18n="nav.press">Imprensa</a></li>`}
             <li class="nav-item dropdown ms-lg-2">
               <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

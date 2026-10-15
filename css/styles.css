@@ -1047,6 +1047,7 @@ h1, h2, h3, .display-font {
 }
 
 .press-photo-section {
+  grid-column: 1 / -1;
   padding: 2rem 1.5rem 3rem;
   background: rgba(17, 17, 17, 0.92);
 }
@@ -1057,7 +1058,7 @@ h1, h2, h3, .display-font {
 }
 
 .press-photo-folder {
-  width: min(100%, 310px);
+  width: min(100%, 260px);
   overflow: hidden;
   border: 1px solid rgba(245, 124, 0, 0.45);
   border-radius: 12px;
@@ -1077,7 +1078,7 @@ h1, h2, h3, .display-font {
 .press-photo-folder-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: repeat(2, 90px);
+  grid-template-rows: repeat(2, 68px);
   gap: 3px;
   background: #111;
 }
