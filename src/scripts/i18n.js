@@ -6,8 +6,35 @@
   const FLAG_URLS = { pt: 'br', en: 'us', es: 'es' };
   const LANG_NAMES = { pt: 'Portugues', en: 'English', es: 'Espanol' };
 
-  let currentLang = localStorage.getItem(LANG_KEY) || 'pt';
-  if (!SUPPORTED.includes(currentLang)) currentLang = 'pt';
+  function normalizeLanguage(language) {
+    if (typeof language !== 'string') return null;
+    const baseLanguage = language.toLowerCase().split('-')[0];
+    return SUPPORTED.includes(baseLanguage) ? baseLanguage : null;
+  }
+
+  function getInitialLanguage() {
+    const languageFromUrl = normalizeLanguage(new URLSearchParams(window.location.search).get('lang'));
+    if (languageFromUrl) return languageFromUrl;
+
+    try {
+      const savedLanguage = normalizeLanguage(localStorage.getItem(LANG_KEY));
+      if (savedLanguage) return savedLanguage;
+    } catch (e) {
+      // Storage can be unavailable in privacy-restricted browser contexts.
+    }
+
+    const browserLanguages = navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language];
+    for (const language of browserLanguages) {
+      const supportedLanguage = normalizeLanguage(language);
+      if (supportedLanguage) return supportedLanguage;
+    }
+
+    return 'en';
+  }
+
+  let currentLang = getInitialLanguage();
 
   let translations = {};
 
@@ -86,6 +113,29 @@
       return '../../src/translations/';
     }
     return 'src/translations/';
+  }
+
+  function withLanguageInUrl(href) {
+    if (!href || href.startsWith('#')) return href;
+
+    let url;
+    try {
+      url = new URL(href, window.location.href);
+    } catch (e) {
+      return href;
+    }
+
+    if (url.origin !== window.location.origin) return href;
+    url.searchParams.set('lang', currentLang);
+    return url.href;
+  }
+
+  function preserveLanguageInInternalLinks() {
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      const href = link.getAttribute('href');
+      const localizedHref = withLanguageInUrl(href);
+      if (localizedHref !== href) link.setAttribute('href', localizedHref);
+    });
   }
 
   async function loadTranslations(lang) {
@@ -271,10 +321,15 @@
   async function setLanguage(lang) {
     if (!SUPPORTED.includes(lang)) return;
     currentLang = lang;
-    localStorage.setItem(LANG_KEY, lang);
+    try {
+      localStorage.setItem(LANG_KEY, lang);
+    } catch (e) {
+      // Keep the chosen language for the current page when storage is unavailable.
+    }
     await loadTranslations(lang);
     applyTranslations();
     updateLangSelectorUI();
+    preserveLanguageInInternalLinks();
 
     if (typeof window.onLanguageChanged === 'function') {
       window.onLanguageChanged(lang, translations);
@@ -302,6 +357,7 @@
     await loadTranslations(currentLang);
     applyTranslations();
     updateLangSelectorUI();
+    preserveLanguageInInternalLinks();
     initLangSwitcher();
   }
 
@@ -314,6 +370,7 @@
   window.i18n = {
     setLanguage: setLanguage,
     getLanguage: function () { return currentLang; },
-    getTranslations: function () { return translations; }
+    getTranslations: function () { return translations; },
+    withLanguageInUrl: withLanguageInUrl
   };
 })();

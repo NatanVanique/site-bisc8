@@ -253,10 +253,6 @@
           <i class="bi bi-envelope-fill" aria-hidden="true"></i>
           <span><strong>Email</strong>bisc8devstudio@gmail.com</span>
         </a>
-        <a class="contact-link" href="https://wa.me/5561984575237" target="_blank" rel="noopener noreferrer">
-          <i class="bi bi-whatsapp" aria-hidden="true"></i>
-          <span><strong>WhatsApp</strong>+55 (61) 98457-5237</span>
-        </a>
         <a class="contact-link" href="https://www.instagram.com/bisc8.gamedev/" target="_blank" rel="noopener noreferrer">
           <i class="bi bi-instagram" aria-hidden="true"></i>
           <span><strong>Instagram</strong>@bisc8.gamedev</span>
@@ -468,7 +464,9 @@
         gameDownload.removeAttribute('aria-disabled');
       }
       gameVerMais.textContent = getTranslation('games.viewMore', 'Ver Mais');
-      gameVerMais.href = game.url;
+      gameVerMais.href = window.i18n
+        ? window.i18n.withLanguageInUrl(game.url)
+        : game.url;
       gamesCarousel.querySelectorAll('.game-card').forEach((card) => {
         const isSelected = card === selectedCard;
         card.classList.toggle('active', isSelected);
