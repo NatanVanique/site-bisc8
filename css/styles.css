@@ -904,6 +904,15 @@ h1, h2, h3, .display-font {
   text-align: center;
 }
 
+.contact-link-press span {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.contact-link-press strong {
+  margin-bottom: 0;
+}
+
 .contact-link-press:hover,
 .contact-link-press:focus-visible {
   background-color: #f2f2f2;
