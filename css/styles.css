@@ -1175,6 +1175,10 @@ h1, h2, h3, .display-font {
 .photo-lightbox-next { right: 1.5rem; }
 .photo-lightbox-download { position: absolute; left: 50%; bottom: 1.25rem; display: grid; width: 58px; height: 58px; place-items: center; border-radius: 50%; background: #fff; color: #17110e; text-decoration: none; font-size: 1.45rem; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35); transform: translateX(-50%); }
 .photo-lightbox-download:hover { background: var(--bisc-orange); color: #fff; }
+.photo-lightbox-actions { position: absolute; bottom: 1.25rem; left: 50%; display: flex; align-items: center; gap: 0.7rem; transform: translateX(-50%); }
+.photo-lightbox-more { padding: 0.65rem 1rem; border-radius: 999px; background: #fff; color: #17110e; font-size: 0.8rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.photo-lightbox-more:hover { background: var(--bisc-orange); color: #fff; }
+.photo-lightbox-actions .photo-lightbox-download { position: static; transform: none; }
 
 .press-photo-folder-info strong {
   color: #fff;

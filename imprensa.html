@@ -27,9 +27,8 @@
             <span>Fotos</span><i class="bi bi-chevron-down" aria-hidden="true"></i>
           </button>
           <div id="press-equipe-submenu" class="press-submenu" hidden>
-            <a href="index.html#contato">Contato</a>
-            <a href="#fotos-membros">Foto membros</a>
-            <a href="#fotos-equipe">Foto equipe</a>
+            <a href="#fotos-membros">Membros</a>
+            <a href="#fotos-equipe">Equipe</a>
             <a href="#logos-pequena">Logo Pequena</a>
             <a href="#logos-grande">Logo Grande</a>
           </div>
@@ -246,7 +245,10 @@
     <button class="photo-lightbox-arrow photo-lightbox-prev" type="button" aria-label="Foto anterior"><i class="bi bi-chevron-left"></i></button>
     <img class="photo-lightbox-image" alt="">
     <button class="photo-lightbox-arrow photo-lightbox-next" type="button" aria-label="Próxima foto"><i class="bi bi-chevron-right"></i></button>
-    <a class="photo-lightbox-download" download aria-label="Baixar foto"><i class="bi bi-download"></i></a>
+    <div class="photo-lightbox-actions">
+      <a class="photo-lightbox-more" href="#">Ver mais</a>
+      <a class="photo-lightbox-download" download aria-label="Baixar foto"><i class="bi bi-download"></i></a>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -276,11 +278,23 @@
     let galleryIndex = 0;
     let galleryFolders = [];
     let galleryFolderIndex = 0;
+    const memberLinks = {
+      'Natan Vanique': 'pages/team/natan.html',
+      'Ismael Lima': 'pages/team/ismael.html',
+      'João Galletti': 'pages/team/galetti.html',
+      'Jaqueline Resende': 'pages/team/jaque.html',
+      'João Gomes': 'pages/team/gomes.html',
+      'Thor Cavalcanti': 'pages/team/thor.html'
+    };
     const setGalleryFolder = (folderIndex) => {
       galleryFolderIndex = (folderIndex + galleryFolders.length) % galleryFolders.length;
       const folder = galleryFolders[galleryFolderIndex];
       galleryImages = [...folder.querySelectorAll('img')];
-      lightbox.querySelector('.photo-lightbox-member').textContent = folder.querySelector('strong').textContent;
+      const folderName = folder.querySelector('strong').textContent;
+      lightbox.querySelector('.photo-lightbox-member').textContent = folderName;
+      const moreLink = lightbox.querySelector('.photo-lightbox-more');
+      moreLink.hidden = !memberLinks[folderName];
+      if (memberLinks[folderName]) moreLink.href = memberLinks[folderName];
       showPhoto(0);
     };
     const showPhoto = (index) => {
