@@ -898,18 +898,25 @@ h1, h2, h3, .display-font {
 }
 
 .contact-link-press {
-  justify-content: center;
+  position: relative;
+  min-height: 62px;
   background-color: #fff;
   color: var(--bisc-brown);
-  text-align: center;
 }
 
-.contact-link-press span {
-  flex: 0 0 auto;
-  text-align: center;
+.contact-link-press-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
-.contact-link-press strong {
+.contact-link-press-content strong {
+  display: block;
   margin-bottom: 0;
 }
 
