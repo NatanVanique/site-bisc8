@@ -85,9 +85,9 @@
                 <li><a class="dropdown-item" href="${games}lastplant.html">Last Plan't</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${home}#quem-somos" data-i18n="nav.team">Equipe</a></li>
-            <li class="nav-item"><a class="nav-link" href="${home}#contato" data-i18n="nav.contact">Contato</a></li>
-            <li class="nav-item"><a class="nav-link${activeClass('press')}" href="${press}" data-i18n="nav.press">Imprensa</a></li>
+            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${isPressPage ? 'index.html' : home}#quem-somos" data-i18n="nav.team">Equipe</a></li>
+            <li class="nav-item"><a class="nav-link" href="${isPressPage ? 'index.html' : home}#contato" data-i18n="nav.contact">Contato</a></li>
+            ${isPressPage ? '' : `<li class="nav-item"><a class="nav-link${activeClass('press')}" href="${press}" data-i18n="nav.press">Imprensa</a></li>`}
             <li class="nav-item dropdown ms-lg-2">
               <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://flagcdn.com/w40/br.png" alt="Brasil">

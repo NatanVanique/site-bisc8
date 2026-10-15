@@ -1079,6 +1079,19 @@ h1, h2, h3, .display-font {
   line-height: 1.8;
 }
 
+.press-member-link {
+  color: var(--bisc-orange-light);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.press-member-link:hover,
+.press-member-link:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .press-history-final {
   color: var(--bisc-orange) !important;
   font-weight: 700;
