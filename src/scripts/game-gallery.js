@@ -4,7 +4,7 @@ document.querySelectorAll('[data-media-gallery]').forEach((gallery) => {
   const thumbsTrack = gallery.querySelector('.media-gallery-thumbs');
   const scrollbar = gallery.querySelector('[data-gallery-scrollbar]');
   const scrollbarThumb = gallery.querySelector('[data-gallery-scrollbar-thumb]');
-  let currentIndex = 0;
+  let currentIndex = Number(gallery.dataset.galleryInitial || 0);
 
   const updateScrollbar = () => {
     const maxScroll = thumbsTrack.scrollWidth - thumbsTrack.clientWidth;

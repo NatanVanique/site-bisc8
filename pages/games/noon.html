@@ -79,14 +79,14 @@
       <a href="../../index.html#jogos" class="detail-back"><i class="bi bi-arrow-left"></i> <span data-i18n="games.back">Voltar</span></a>
         <h1 class="display-font display-3 mb-3">Noon</h1>
         <p class="text-white-50" data-i18n-html="games.noon.detail"><strong>Noon</strong> reinventa o esconde-esconde com uma mecânica inovadora baseada em luz e sombras. Jogue como o Fogo, iluminando o cenário, queimando objetos e caçando criaturas da escuridão, ou assuma o papel de uma Sombra, escondendo-se entre objetos e fundindo-se às trevas para escapar. Em cada partida, controlar a luz significa controlar a sobrevivência.</p>
-        <div class="media-gallery" data-media-gallery>
+        <div class="media-gallery" data-media-gallery data-gallery-initial="1">
           <div class="media-gallery-stage">
             <button class="media-gallery-arrow" type="button" data-gallery-prev aria-label="Mídia anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
             <div class="media-gallery-main" aria-live="polite">
-              <div class="media-gallery-item active" data-gallery-item>
+              <div class="media-gallery-item" data-gallery-item>
                 <iframe src="https://www.youtube-nocookie.com/embed/oIPzTfkmuiI" title="Trailer de Noon" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
-              <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/games/noon/noon-warter-prts.png" alt="Partida de Noon na floresta noturna"></div>
+              <div class="media-gallery-item active" data-gallery-item><img src="../../assets/images/games/noon/noon-warter-prts.png" alt="Partida de Noon na floresta noturna"></div>
               <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/games/noon/noon-shadow-skins.png" alt="Skins de sombra de Noon"></div>
               <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/games/noon/noon-fire-skins.png" alt="Skins de fogo de Noon"></div>
               <div class="media-gallery-item" data-gallery-item><img src="../../assets/images/games/noon/noon-print-05.png" alt="Cenário de Noon sob a lua"></div>
@@ -97,8 +97,8 @@
             <button class="media-gallery-arrow" type="button" data-gallery-next aria-label="Próxima mídia"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
           </div>
           <div class="media-gallery-thumbs" id="noonGalleryThumbs" aria-label="Mídias de Noon">
-            <button class="media-gallery-thumb active" type="button" data-gallery-thumb="0" aria-label="Exibir trailer" aria-pressed="true"><img src="../../assets/images/game-covers/noon-cover.png" alt=""><i class="bi bi-play-circle-fill media-gallery-play" aria-hidden="true"></i></button>
-            <button class="media-gallery-thumb" type="button" data-gallery-thumb="1" aria-label="Exibir imagem 1" aria-pressed="false"><img src="../../assets/images/games/noon/noon-warter-prts.png" alt=""></button>
+            <button class="media-gallery-thumb" type="button" data-gallery-thumb="0" aria-label="Exibir trailer" aria-pressed="false"><img src="../../assets/images/game-covers/noon-cover.png" alt=""><i class="bi bi-play-circle-fill media-gallery-play" aria-hidden="true"></i></button>
+            <button class="media-gallery-thumb active" type="button" data-gallery-thumb="1" aria-label="Exibir imagem 1" aria-pressed="true"><img src="../../assets/images/games/noon/noon-warter-prts.png" alt=""></button>
             <button class="media-gallery-thumb" type="button" data-gallery-thumb="2" aria-label="Exibir imagem 2" aria-pressed="false"><img src="../../assets/images/games/noon/noon-shadow-skins.png" alt=""></button>
             <button class="media-gallery-thumb" type="button" data-gallery-thumb="3" aria-label="Exibir imagem 3" aria-pressed="false"><img src="../../assets/images/games/noon/noon-fire-skins.png" alt=""></button>
             <button class="media-gallery-thumb" type="button" data-gallery-thumb="4" aria-label="Exibir imagem 4" aria-pressed="false"><img src="../../assets/images/games/noon/noon-print-05.png" alt=""></button>
@@ -125,28 +125,8 @@
         </section>
     </div>
   </main>
-  <div class="game-subscribe-footer is-open" data-game-subscribe data-game-name="Noon">
-    <button class="game-subscribe-toggle" type="button" data-subscribe-toggle aria-expanded="false">
-      Se Inscrever <i class="bi bi-chevron-down toggle-arrow" aria-hidden="true"></i>
-    </button>
-    <div class="game-subscribe-form">
-      <div class="game-subscribe-content">
-        <div class="game-subscribe-decoration"></div>
-        <div class="game-subscribe-text">
-          <h3 class="game-subscribe-title" data-i18n="games.subscribe.title">Fique atento às novidades!</h3>
-          <p class="game-subscribe-subtitle" data-i18n="games.subscribe.subtitle">Receba notificações sobre esse projeto no seu email.</p>
-        </div>
-        <div class="game-subscribe-input-group">
-          <label class="game-subscribe-label" for="email-noon" data-i18n="games.subscribe.email">Email:</label>
-          <input class="game-subscribe-input" type="email" id="email-noon" placeholder="seu@email.com">
-          <button class="game-subscribe-btn" type="button" data-i18n="games.subscribe.btn">Registrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../../src/scripts/i18n.js"></script>
-  <script src="../../src/scripts/game-subscribe-footer.js"></script>
   <script src="../../src/scripts/game-gallery.js"></script>
 </body>
 </html>
