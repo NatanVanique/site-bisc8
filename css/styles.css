@@ -898,24 +898,8 @@ h1, h2, h3, .display-font {
 }
 
 .contact-link-press {
-  display: grid;
-  place-items: center;
   background-color: #fff;
   color: var(--bisc-brown);
-}
-
-.contact-link-press-content {
-  display: inline-flex !important;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.contact-link-press-content strong {
-  display: block;
-  margin-bottom: 0;
 }
 
 .contact-link-press:hover,
