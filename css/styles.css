@@ -1141,11 +1141,12 @@ h1, h2, h3, .display-font {
   cursor: pointer;
 }
 .photo-lightbox-close { top: 1rem; right: 1.5rem; font-size: 2.25rem; }
+.photo-lightbox-counter { position: absolute; top: 1.35rem; left: 50%; color: #fff; font-weight: 700; transform: translateX(-50%); }
 .photo-lightbox-arrow { top: 50%; padding: 0.7rem 1rem; font-size: 1.8rem; transform: translateY(-50%); }
 .photo-lightbox-prev { left: 1.5rem; }
 .photo-lightbox-next { right: 1.5rem; }
-.photo-lightbox-download { position: absolute; bottom: 1.25rem; padding: 0.65rem 1rem; border-radius: 6px; background: var(--bisc-orange); color: #fff; text-decoration: none; font-weight: 700; }
-.photo-lightbox-download:hover { background: var(--bisc-orange-light); color: #fff; }
+.photo-lightbox-download { position: absolute; right: max(1.5rem, calc(7vw - 1rem)); bottom: max(1.5rem, calc(9vh - 1rem)); display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: #fff; color: #17110e; text-decoration: none; font-size: 1.15rem; box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35); }
+.photo-lightbox-download:hover { background: var(--bisc-orange); color: #fff; }
 
 .press-photo-folder-info strong {
   color: #fff;

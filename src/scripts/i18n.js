@@ -104,6 +104,25 @@
         </div>
       </div>`;
 
+    if (isPressPage) {
+      navbar.querySelector('.navbar-brand').addEventListener('click', (event) => {
+        event.preventDefault();
+        window.location.assign('./index.html');
+      });
+      navbar.querySelector('[data-i18n="nav.home"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        window.location.assign('./index.html');
+      });
+      navbar.querySelector('[data-i18n="nav.team"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        window.location.assign('./index.html#quem-somos');
+      });
+      navbar.querySelector('[data-i18n="nav.contact"]').addEventListener('click', (event) => {
+        event.preventDefault();
+        window.location.assign('./index.html#contato');
+      });
+    }
+
     if (!window.bootstrap && !document.querySelector('script[data-bisc-bootstrap]')) {
       const bootstrapScript = document.createElement('script');
       bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
