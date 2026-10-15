@@ -923,7 +923,7 @@ h1, h2, h3, .display-font {
 }
 
 .press-card {
-  width: min(100%, 980px);
+  width: min(100%, 1200px);
   min-height: 430px;
   padding: clamp(1.5rem, 4vw, 2.75rem);
   border: 1px solid rgba(245, 124, 0, 0.45);
@@ -931,7 +931,7 @@ h1, h2, h3, .display-font {
   background: rgba(17, 17, 17, 0.8);
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.3);
   display: grid;
-  grid-template-columns: minmax(190px, 250px) 1fr;
+  grid-template-columns: minmax(250px, 340px) minmax(0, 1fr);
   grid-template-rows: auto 1fr;
   column-gap: clamp(1.5rem, 5vw, 4rem);
 }
@@ -1041,7 +1041,7 @@ h1, h2, h3, .display-font {
   grid-column: 2;
   grid-row: 1 / span 2;
   min-width: 0;
-  padding: 0 0 0 1rem;
+  padding: 0 1rem 0 2rem;
   background: transparent;
   border-left: 1px solid rgba(255, 255, 255, 0.12);
 }
@@ -1067,6 +1067,7 @@ h1, h2, h3, .display-font {
 }
 
 .press-history h3 {
+  scroll-margin-top: 6rem;
   margin: 2.25rem 0 0.75rem;
   color: var(--bisc-orange-light);
   font-size: clamp(1.55rem, 3vw, 2.2rem);
