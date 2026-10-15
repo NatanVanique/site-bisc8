@@ -1,9 +1,9 @@
-name: Deploy codex-test to GitHub Pages
+name: Deploy main to GitHub Pages
 
 on:
   push:
     branches:
-      - codex-test
+      - main
   workflow_dispatch:
 
 permissions:
