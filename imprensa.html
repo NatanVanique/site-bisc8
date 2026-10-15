@@ -164,12 +164,12 @@
     </div>
   </section>
 
-  <section id="logos-pequena" class="press-photo-section" aria-labelledby="small-logo-title">
+  <section id="logos-section" class="press-photo-section" aria-labelledby="small-logo-title">
     <div class="press-photo-inner">
       <p class="press-section-label">Logo</p>
-      <h2 id="small-logo-title" class="display-font">Pequena</h2>
+      <h2 id="small-logo-title" class="display-font">Logo</h2>
       <div class="press-photo-folder-row">
-        <div class="press-photo-folder" tabindex="0">
+        <div id="logos-pequena" class="press-photo-folder" tabindex="0">
           <div class="press-photo-folder-grid">
             <img src="assets/images/branding/logo/pequena/BrandSmall_White.png" alt="Logo BISC8 vazada branca">
             <img src="assets/images/branding/logo/pequena/BrandSmall_Orange.png" alt="Logo BISC8 vazada laranja">
@@ -181,12 +181,12 @@
     </div>
   </section>
 
-  <section id="logos-grande" class="press-photo-section" aria-labelledby="large-logo-title">
+  <section id="logos-grande-section" class="press-photo-section" aria-labelledby="large-logo-title">
     <div class="press-photo-inner">
       <p class="press-section-label">Logo</p>
       <h2 id="large-logo-title" class="display-font">Grande</h2>
       <div class="press-photo-folder-row">
-        <div class="press-photo-folder" tabindex="0">
+        <div id="logos-grande" class="press-photo-folder" tabindex="0">
           <div class="press-photo-folder-grid">
             <img src="assets/images/branding/logo/grande/BrandBig_Orange.png" alt="Logo BISC8 laranja">
             <img src="assets/images/branding/logo/grande/BrandBig_White.png" alt="Logo BISC8 branca">
@@ -267,6 +267,11 @@
 
     pressCard.appendChild(pressHistory);
     [...pressPhotos].reverse().forEach((section) => pressHistory.after(section));
+    const logoSmallSection = document.querySelector('#logos-pequena').closest('.press-photo-section');
+    const logoLargeSection = document.querySelector('#logos-grande-section');
+    const logoLargeFolder = logoLargeSection.querySelector('.press-photo-folder');
+    logoSmallSection.querySelector('.press-photo-folder-row').appendChild(logoLargeFolder);
+    logoLargeSection.remove();
     const natanFolder = [...pressPhotos[0].querySelectorAll('.press-photo-folder')].find((folder) => folder.textContent.includes('Natan Vanique'));
     const firstPhotoFolder = pressPhotos[0].querySelector('.press-photo-folder');
     if (natanFolder && firstPhotoFolder && natanFolder !== firstPhotoFolder) firstPhotoFolder.before(natanFolder);
