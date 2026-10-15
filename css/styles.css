@@ -1040,6 +1040,53 @@ h1, h2, h3, .display-font {
   color: var(--bisc-orange-light);
 }
 
+.press-history {
+  padding: 1rem 1.5rem 5rem;
+  background: rgba(17, 17, 17, 0.92);
+}
+
+.press-history-inner {
+  width: min(100%, 860px);
+  margin: 0 auto;
+}
+
+.press-section-label {
+  margin-bottom: 0.35rem;
+  color: var(--bisc-orange);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.press-history h2 {
+  margin-bottom: 2.5rem;
+  color: #fff;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+}
+
+.press-history h3 {
+  margin: 2.25rem 0 0.75rem;
+  color: var(--bisc-orange-light);
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+.press-history p {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.press-history blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--bisc-orange);
+  background: rgba(245, 124, 0, 0.08);
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
 @media (max-width: 640px) {
   .press-main {
     padding: 6.5rem 1rem 3rem;
