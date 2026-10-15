@@ -1099,6 +1099,10 @@ h1, h2, h3, .display-font {
   grid-row: 1 / span 2;
 }
 
+.press-photo-folder-grid img.gallery-only {
+  display: none;
+}
+
 .press-photo-folder-info {
   display: flex;
   align-items: center;
@@ -1115,6 +1119,33 @@ h1, h2, h3, .display-font {
 .press-photo-folder-info span {
   display: block;
 }
+
+.lightbox-open { overflow: hidden; }
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.94);
+}
+.photo-lightbox[hidden] { display: none; }
+.photo-lightbox-image { max-width: min(86vw, 1100px); max-height: 82vh; object-fit: contain; }
+.photo-lightbox-close,
+.photo-lightbox-arrow {
+  position: absolute;
+  border: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+}
+.photo-lightbox-close { top: 1rem; right: 1.5rem; font-size: 2.25rem; }
+.photo-lightbox-arrow { top: 50%; padding: 0.7rem 1rem; font-size: 1.8rem; transform: translateY(-50%); }
+.photo-lightbox-prev { left: 1.5rem; }
+.photo-lightbox-next { right: 1.5rem; }
+.photo-lightbox-download { position: absolute; bottom: 1.25rem; padding: 0.65rem 1rem; border-radius: 6px; background: var(--bisc-orange); color: #fff; text-decoration: none; font-weight: 700; }
+.photo-lightbox-download:hover { background: var(--bisc-orange-light); color: #fff; }
 
 .press-photo-folder-info strong {
   color: #fff;

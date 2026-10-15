@@ -76,9 +76,9 @@
       <h2 id="member-photos-title" class="display-font">Fotos dos membros</h2>
       <div class="press-photo-folder" tabindex="0">
         <div class="press-photo-folder-grid">
-          <img src="assets/images/team/members/ismael-lima/f9a0489.jpg" alt="Ismael Lima segurando um boneco de gengibre">
-          <img src="assets/images/team/members/ismael-lima/dsc9175.jpg" alt="Retrato de Ismael Lima em fundo preto">
-          <img src="assets/images/team/members/ismael-lima/dsc9177.jpg" alt="Ismael Lima sorrindo em fundo preto">
+          <img src="assets/images/team/members/ismael-lima/ismael-lima_01.jpg" alt="Ismael Lima segurando um boneco de gengibre">
+          <img src="assets/images/team/members/ismael-lima/ismael-lima_02.jpg" alt="Retrato de Ismael Lima em fundo preto">
+          <img src="assets/images/team/members/ismael-lima/ismael-lima_03.jpg" alt="Ismael Lima sorrindo em fundo preto">
         </div>
         <div class="press-photo-folder-info">
           <i class="bi bi-folder-fill" aria-hidden="true"></i>
@@ -87,14 +87,27 @@
       </div>
       <div class="press-photo-folder" tabindex="0">
         <div class="press-photo-folder-grid">
-          <img src="assets/images/team/members/natan-vanique/dsc9239.jpg" alt="Natan Vanique com um boneco de gengibre">
-          <img src="assets/images/team/members/natan-vanique/dsc9238.jpg" alt="Natan Vanique sorrindo">
-          <img src="assets/images/team/members/natan-vanique/dsc9244.jpg" alt="Natan Vanique segurando um boneco de gengibre">
+          <img src="assets/images/team/members/natan-vanique/natan-vanique_01.jpg" alt="Natan Vanique com um boneco de gengibre">
+          <img src="assets/images/team/members/natan-vanique/natan-vanique_02.jpg" alt="Natan Vanique sorrindo">
+          <img src="assets/images/team/members/natan-vanique/natan-vanique_03.jpg" alt="Natan Vanique segurando um boneco de gengibre">
+          <img class="gallery-only" src="assets/images/team/members/natan-vanique/natan-vanique_04.jpg" alt="Natan Vanique em fantasia">
+          <img class="gallery-only" src="assets/images/team/members/natan-vanique/natan-vanique_05.jpg" alt="Natan Vanique usando fantasia marrom">
+          <img class="gallery-only" src="assets/images/team/members/natan-vanique/natan-vanique_06.jpg" alt="Natan Vanique em retrato com capuz">
+          <img class="gallery-only" src="assets/images/team/members/natan-vanique/natan-vanique_07.jpg" alt="Natan Vanique sorrindo em retrato">
+          <img class="gallery-only" src="assets/images/team/members/natan-vanique/natan-vanique_08.jpg" alt="Natan Vanique em retrato com braços cruzados">
         </div>
         <div class="press-photo-folder-info">
           <i class="bi bi-folder-fill" aria-hidden="true"></i>
           <div><strong>Natan Vanique</strong><span>8 fotos</span></div>
         </div>
+      </div>
+      <div class="press-photo-folder" tabindex="0">
+        <div class="press-photo-folder-grid">
+          <img src="assets/images/team/members/joao-galletti/joao-galletti_01.jpg" alt="João Galletti em retrato">
+          <img src="assets/images/team/members/joao-galletti/joao-galletti_02.jpg" alt="João Galletti usando moletom">
+          <img src="assets/images/team/members/joao-galletti/joao-galletti_03.jpg" alt="João Galletti em pose lateral">
+        </div>
+        <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>João Galletti</strong><span>3 fotos</span></div></div>
       </div>
     </div>
   </section>
@@ -143,6 +156,14 @@
     </div>
   </footer>
 
+  <div class="photo-lightbox" id="photo-lightbox" hidden role="dialog" aria-modal="true" aria-label="Galeria de fotos">
+    <button class="photo-lightbox-close" type="button" aria-label="Fechar galeria">&times;</button>
+    <button class="photo-lightbox-arrow photo-lightbox-prev" type="button" aria-label="Foto anterior"><i class="bi bi-chevron-left"></i></button>
+    <img class="photo-lightbox-image" alt="">
+    <button class="photo-lightbox-arrow photo-lightbox-next" type="button" aria-label="Próxima foto"><i class="bi bi-chevron-right"></i></button>
+    <a class="photo-lightbox-download" download><i class="bi bi-download"></i> Baixar foto</a>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="src/scripts/i18n.js"></script>
   <script>
@@ -155,6 +176,35 @@
     pressCard.appendChild(pressHistory);
     pressHistory.after(pressPhotos);
     pressNav.insertBefore(navGroups[0], navGroups[1].nextElementSibling);
+
+    const lightbox = document.querySelector('#photo-lightbox');
+    const lightboxImage = lightbox.querySelector('.photo-lightbox-image');
+    let galleryImages = [];
+    let galleryIndex = 0;
+    const showPhoto = (index) => {
+      galleryIndex = (index + galleryImages.length) % galleryImages.length;
+      lightboxImage.src = galleryImages[galleryIndex].src;
+      lightboxImage.alt = galleryImages[galleryIndex].alt;
+      lightbox.querySelector('.photo-lightbox-download').href = galleryImages[galleryIndex].src;
+    };
+    document.querySelectorAll('.press-photo-folder').forEach((folder) => {
+      folder.addEventListener('click', () => {
+        galleryImages = [...folder.querySelectorAll('img')];
+        showPhoto(0);
+        lightbox.hidden = false;
+        document.body.classList.add('lightbox-open');
+      });
+    });
+    lightbox.querySelector('.photo-lightbox-close').addEventListener('click', () => { lightbox.hidden = true; document.body.classList.remove('lightbox-open'); });
+    lightbox.querySelector('.photo-lightbox-prev').addEventListener('click', () => showPhoto(galleryIndex - 1));
+    lightbox.querySelector('.photo-lightbox-next').addEventListener('click', () => showPhoto(galleryIndex + 1));
+    lightbox.addEventListener('click', (event) => { if (event.target === lightbox) { lightbox.hidden = true; document.body.classList.remove('lightbox-open'); } });
+    document.addEventListener('keydown', (event) => {
+      if (lightbox.hidden) return;
+      if (event.key === 'Escape') lightbox.querySelector('.photo-lightbox-close').click();
+      if (event.key === 'ArrowLeft') showPhoto(galleryIndex - 1);
+      if (event.key === 'ArrowRight') showPhoto(galleryIndex + 1);
+    });
 
     document.querySelectorAll('.press-nav-title').forEach((button) => {
       button.addEventListener('click', () => {
