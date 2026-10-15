@@ -118,6 +118,18 @@
         </div>
         <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Thor Cavalcanti</strong><span>4 fotos</span></div></div>
       </div>
+      <div class="press-photo-folder" tabindex="0">
+        <div class="press-photo-folder-grid">
+          <img src="assets/images/team/members/ian-mourao/ian-mourao_01.jpg" alt="Ian Mourão em retrato">
+        </div>
+        <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Ian Mourão</strong><span>1 foto</span></div></div>
+      </div>
+      <div class="press-photo-folder" tabindex="0">
+        <div class="press-photo-folder-grid">
+          <img src="assets/images/team/members/maria-florentino/maria-florentino_01.png" alt="Maria Florentino em retrato">
+        </div>
+        <div class="press-photo-folder-info"><i class="bi bi-folder-fill" aria-hidden="true"></i><div><strong>Maria Florentino</strong><span>1 foto</span></div></div>
+      </div>
       </div>
     </div>
   </section>
@@ -268,7 +280,7 @@
     const firstPhotoFolder = pressPhotos[0].querySelector('.press-photo-folder');
     if (natanFolder && firstPhotoFolder && natanFolder !== firstPhotoFolder) firstPhotoFolder.before(natanFolder);
     const memberFolderRow = pressPhotos[0].querySelector('.press-photo-folder-row');
-    const memberOrder = ['Natan Vanique', 'Thor Cavalcanti', 'João Galletti', 'Jaqueline Resende', 'Ismael Lima', 'João Gomes'];
+    const memberOrder = ['Natan Vanique', 'Thor Cavalcanti', 'João Galletti', 'Jaqueline Resende', 'Ismael Lima', 'João Gomes', 'Ian Mourão', 'Maria Florentino'];
     memberOrder.forEach((memberName) => {
       const folder = [...memberFolderRow.querySelectorAll('.press-photo-folder')].find((item) => item.textContent.includes(memberName));
       if (folder) memberFolderRow.appendChild(folder);
@@ -287,7 +299,9 @@
       'João Galletti': 'pages/team/galetti.html',
       'Jaqueline Resende': 'pages/team/jaque.html',
       'João Gomes': 'pages/team/gomes.html',
-      'Thor Cavalcanti': 'pages/team/thor.html'
+      'Thor Cavalcanti': 'pages/team/thor.html',
+      'Ian Mourão': 'pages/team/ian.html',
+      'Maria Florentino': 'pages/team/maria.html'
     };
     const setGalleryFolder = (folderIndex) => {
       galleryFolderIndex = (folderIndex + galleryFolders.length) % galleryFolders.length;
