@@ -1089,6 +1089,10 @@ h1, h2, h3, .display-font {
   object-position: center 72%;
 }
 
+.noon-hero-ui {
+  transform: translateY(clamp(3rem, 7vw, 6rem));
+}
+
 .detail-hero-image {
   position: absolute;
   inset: 0;
