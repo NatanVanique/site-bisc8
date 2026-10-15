@@ -49,7 +49,8 @@
     const isNestedPage = isGamePage || isTeamPage;
     const home = isNestedPage ? '../../index.html' : isPressPage ? 'index.html' : '';
     const homeTop = isNestedPage || isPressPage ? home : '#';
-    const pressHome = isPressPage ? './index.html' : home;
+    const pressLanding = 'https://www.bisc8.dev.br/?lang=pt';
+    const pressHome = isPressPage ? `${pressLanding}#` : home;
     const press = isNestedPage ? '../../imprensa.html' : 'imprensa.html';
     const imagePath = isNestedPage ? '../../assets/images/' : 'assets/images/';
     const games = isNestedPage ? '../games/' : 'pages/games/';
@@ -86,8 +87,8 @@
                 <li><a class="dropdown-item" href="${games}lastplant.html">Last Plan't</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${pressHome}#quem-somos" data-i18n="nav.team">Equipe</a></li>
-            <li class="nav-item"><a class="nav-link" href="${pressHome}#contato" data-i18n="nav.contact">Contato</a></li>
+            <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${isPressPage ? `${pressLanding}#quem-somos` : `${pressHome}#quem-somos`}" data-i18n="nav.team">Equipe</a></li>
+            <li class="nav-item"><a class="nav-link" href="${isPressPage ? `${pressLanding}#contato` : `${pressHome}#contato`}" data-i18n="nav.contact">Contato</a></li>
             ${isPressPage ? '' : `<li class="nav-item"><a class="nav-link${activeClass('press')}" href="${press}" data-i18n="nav.press">Imprensa</a></li>`}
             <li class="nav-item dropdown ms-lg-2">
               <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -107,19 +108,19 @@
     if (isPressPage) {
       navbar.querySelector('.navbar-brand').addEventListener('click', (event) => {
         event.preventDefault();
-        window.location.assign('./index.html');
+        window.location.assign(pressLanding);
       });
       navbar.querySelector('[data-i18n="nav.home"]').addEventListener('click', (event) => {
         event.preventDefault();
-        window.location.assign('./index.html');
+        window.location.assign(pressLanding);
       });
       navbar.querySelector('[data-i18n="nav.team"]').addEventListener('click', (event) => {
         event.preventDefault();
-        window.location.assign('./index.html#quem-somos');
+        window.location.assign(`${pressLanding}#quem-somos`);
       });
       navbar.querySelector('[data-i18n="nav.contact"]').addEventListener('click', (event) => {
         event.preventDefault();
-        window.location.assign('./index.html#contato');
+        window.location.assign(`${pressLanding}#contato`);
       });
     }
 
