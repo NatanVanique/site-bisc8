@@ -2494,6 +2494,36 @@ h1, h2, h3, .display-font {
   object-fit: contain;
 }
 
+.portfolio-audio-panel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background: radial-gradient(circle at center, rgba(245, 124, 0, 0.24), rgba(15, 10, 8, 0.96));
+  color: #fff;
+  text-align: center;
+}
+
+.portfolio-audio-panel i {
+  color: var(--bisc-orange);
+  font-size: clamp(3rem, 8vw, 5rem);
+}
+
+.portfolio-audio-panel p {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  letter-spacing: 0.04em;
+}
+
+.portfolio-audio-panel audio {
+  width: min(100%, 560px);
+}
+
 .portfolio-project[hidden],
 .portfolio-folder-empty[hidden],
 .portfolio-folder-title[hidden] {

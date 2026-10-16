@@ -22,7 +22,11 @@ document.querySelectorAll('[data-media-gallery]').forEach((gallery) => {
 
   const selectMedia = (index) => {
     currentIndex = (index + items.length) % items.length;
-    items.forEach((item, itemIndex) => item.classList.toggle('active', itemIndex === currentIndex));
+    items.forEach((item, itemIndex) => {
+      const isActive = itemIndex === currentIndex;
+      item.classList.toggle('active', isActive);
+      if (!isActive) item.querySelectorAll('audio').forEach((audio) => audio.pause());
+    });
     thumbs.forEach((thumb, thumbIndex) => {
       const isActive = thumbIndex === currentIndex;
       thumb.classList.toggle('active', isActive);
