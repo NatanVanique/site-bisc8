@@ -92,7 +92,7 @@ const isPressPage = document.body.classList.contains('press-page')
             </li>
             <li class="nav-item"><a class="nav-link${activeClass('team')}" href="${isPressPage ? `${pressLanding}#quem-somos` : `${pressHome}#quem-somos`}" data-i18n="nav.team">Equipe</a></li>
             <li class="nav-item"><a class="nav-link" href="${isPressPage ? `${pressLanding}#contato` : `${pressHome}#contato`}" data-i18n="nav.contact">Contato</a></li>
-            ${isPressPage ? '' : `<li class="nav-item"><a class="nav-link${activeClass('press')}" href="${press}" data-i18n="nav.press">Imprensa</a></li>`}
+            <li class="nav-item"><a class="nav-link${activeClass('press')}" href="${isPressPage ? '#' : press}" data-i18n="nav.press">Imprensa</a></li>
             <li class="nav-item dropdown ms-lg-2">
               <a class="nav-link dropdown-toggle lang-selector" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
