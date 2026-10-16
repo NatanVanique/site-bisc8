@@ -23,7 +23,7 @@
         <div class="member-profile-items">${skills}</div>
       </section>
       <section class="member-profile-detail">
-        <h2>Programas</h2>
+        <h2>Tecnologias</h2>
         <div class="member-profile-items">${programs}</div>
       </section>
     `;
