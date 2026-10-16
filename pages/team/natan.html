@@ -177,6 +177,7 @@
         const page = String(index + 1).padStart(4, '0');
         return [`maple-valley-noon_page-${page}.jpg`, `Partitura de Maple Valley — página ${index + 1}`];
       });
+      const maplePagePairs = Array.from({ length: 5 }, (_, index) => maplePages.slice(index * 2, index * 2 + 2));
       const mapleBase = '../../assets/images/portfolio/natan/maple-valley/';
       mapleGallery.innerHTML = `
         <div class="media-gallery-stage">
@@ -189,13 +190,13 @@
                 <audio controls preload="metadata"><source src="../../assets/audio/natan/maple-valley-noon.mp3" type="audio/mpeg">Seu navegador não suporta áudio HTML5.</audio>
               </div>
             </div>
-            ${maplePages.map(([file, alt]) => `<div class="media-gallery-item" data-gallery-item><img src="${mapleBase}${file}" alt="${alt}" loading="lazy"></div>`).join('')}
+            ${maplePagePairs.map((pages) => `<div class="media-gallery-item" data-gallery-item><div class="score-page-pair">${pages.map(([file, alt]) => `<img src="${mapleBase}${file}" alt="${alt}" loading="lazy">`).join('')}</div></div>`).join('')}
           </div>
           <button class="media-gallery-arrow" type="button" data-gallery-next aria-label="Próxima mídia"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
         </div>
         <div class="media-gallery-thumbs" aria-label="Áudio e partitura de Maple Valley">
           <button class="media-gallery-thumb active" type="button" data-gallery-thumb="0" aria-label="Ouvir Maple Valley" aria-pressed="true"><img src="${mapleBase}${maplePages[0][0]}" alt=""><i class="bi bi-music-note-beamed media-gallery-play" aria-hidden="true"></i></button>
-          ${maplePages.map(([file, alt], index) => `<button class="media-gallery-thumb" type="button" data-gallery-thumb="${index + 1}" aria-label="Exibir ${alt.toLowerCase()}" aria-pressed="false"><img src="${mapleBase}${file}" alt="" loading="lazy"></button>`).join('')}
+          ${maplePagePairs.map((pages, index) => `<button class="media-gallery-thumb" type="button" data-gallery-thumb="${index + 1}" aria-label="Exibir páginas ${index * 2 + 1} e ${index * 2 + 2} da partitura" aria-pressed="false"><img src="${mapleBase}${pages[0][0]}" alt="" loading="lazy"></button>`).join('')}
         </div>
         <div class="media-gallery-scrollbar" data-gallery-scrollbar role="scrollbar" tabindex="0" aria-label="Rolar áudio e páginas da partitura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="media-gallery-scrollbar-thumb" data-gallery-scrollbar-thumb></span></div>
       `;
