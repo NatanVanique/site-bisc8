@@ -287,6 +287,34 @@
     });
     pressNav.insertBefore(navGroups[0], navGroups[1].nextElementSibling);
 
+    const setupFolderSlider = (folderRow) => {
+      const slider = document.createElement('input');
+      slider.type = 'range';
+      slider.className = 'press-folder-slider';
+      slider.min = '0';
+      slider.step = '1';
+      slider.setAttribute('aria-label', 'Deslizar pastas');
+      folderRow.insertAdjacentElement('afterend', slider);
+
+      const syncSlider = () => {
+        const maxScroll = Math.max(0, folderRow.scrollWidth - folderRow.clientWidth);
+        slider.max = String(maxScroll);
+        slider.value = String(Math.min(folderRow.scrollLeft, maxScroll));
+        slider.disabled = maxScroll === 0;
+      };
+
+      slider.addEventListener('input', () => {
+        folderRow.scrollLeft = Number(slider.value);
+      });
+      folderRow.addEventListener('scroll', () => {
+        slider.value = String(folderRow.scrollLeft);
+      }, { passive: true });
+      new ResizeObserver(syncSlider).observe(folderRow);
+      requestAnimationFrame(syncSlider);
+    };
+
+    document.querySelectorAll('.press-photo-folder-row').forEach(setupFolderSlider);
+
     const lightbox = document.querySelector('#photo-lightbox');
     const lightboxImage = lightbox.querySelector('.photo-lightbox-image');
     let galleryImages = [];

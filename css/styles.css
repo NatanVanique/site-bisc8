@@ -1062,24 +1062,29 @@ h1, h2, h3, .display-font {
   flex-wrap: nowrap;
   gap: 1rem;
   overflow-x: auto;
-  padding: 0 0.25rem 0.9rem;
-  scrollbar-width: auto;
-  scrollbar-color: var(--bisc-orange) rgba(255, 255, 255, 0.12);
-  scroll-snap-type: x proximity;
+  padding: 0 0.25rem 0.35rem;
+  scrollbar-width: none;
+  scroll-snap-type: none;
+  touch-action: pan-x;
+  overscroll-behavior-x: contain;
 }
 
 .press-photo-folder-row::-webkit-scrollbar {
-  height: 10px;
+  display: none;
 }
 
-.press-photo-folder-row::-webkit-scrollbar-track {
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+.press-folder-slider {
+  display: block;
+  width: 100%;
+  height: 1rem;
+  margin: 0.15rem 0 1.25rem;
+  accent-color: var(--bisc-orange);
+  cursor: pointer;
 }
 
-.press-photo-folder-row::-webkit-scrollbar-thumb {
-  border-radius: 999px;
-  background: var(--bisc-orange);
+.press-folder-slider:disabled {
+  cursor: default;
+  opacity: 0.35;
 }
 
 .press-photo-folder-row .press-photo-folder {
