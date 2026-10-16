@@ -45,7 +45,10 @@
     const path = window.location.pathname.replace(/\\/g, '/');
     const isGamePage = path.includes('/pages/games/');
     const isTeamPage = path.includes('/pages/team/');
-    const isPressPage = /\/imprensa\.html$/.test(path);
+// `pathname` can vary between local previews and the published site. The
+// page class is the reliable signal that this is the press page.
+const isPressPage = document.body.classList.contains('press-page')
+    || /(?:^|\/)imprensa(?:\.html)?$/.test(path);
     const isNestedPage = isGamePage || isTeamPage;
     const home = isNestedPage ? '../../index.html' : isPressPage ? 'index.html' : '';
     const homeTop = isNestedPage || isPressPage ? home : '#';
