@@ -48,20 +48,41 @@
     <div class="container">
       <h2 class="member-portfolio-title">Portfólio</h2>
       <div class="member-portfolio-grid">
-        <div class="member-portfolio-card"><i class="bi bi-window"></i><span>UI e Interfaces</span></div>
-        <div class="member-portfolio-card"><i class="bi bi-diagram-3"></i><span>Multiplayer</span></div>
-        <div class="member-portfolio-card"><i class="bi bi-controller"></i><span>Gameplay</span></div>
-        <div class="member-portfolio-card"><i class="bi bi-gear"></i><span>Game Systems</span></div>
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-jaque-folder="ui"><i class="bi bi-window"></i><span>UI e Interfaces</span></button>
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-jaque-folder="multiplayer"><i class="bi bi-diagram-3"></i><span>Multiplayer</span></button>
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-jaque-folder="gameplay"><i class="bi bi-controller"></i><span>Gameplay</span></button>
+        <button class="member-portfolio-card portfolio-folder-card" type="button" data-jaque-folder="systems"><i class="bi bi-gear"></i><span>Game Systems</span></button>
       </div>
-      <div class="portfolio-projects">
-        <article class="portfolio-project"><h3>UI &amp; Interfaces</h3><h4>NooN — Implementação de UI</h4><p>No projeto NooN, Jaqueline foi responsável pela implementação e integração de diferentes interfaces dentro da Unity, conectando os elementos visuais aos sistemas e funcionalidades do jogo. Seu trabalho envolveu a programação do comportamento de telas, menus e elementos interativos, além da integração das interfaces com diferentes estados do jogo e funcionalidades multiplayer.</p><h4>NooN — Localização de interfaces</h4><p>Implementou o sistema de localização utilizando Unity Localization, permitindo a adaptação dos textos e interfaces do jogo para diferentes idiomas.</p><h4>Ahoy Little Captain — Personalização de deck</h4><p>Implementou a interface de personalização de deck, integrada ao sistema de cartas para refletir as alterações durante as partidas.</p></article>
-        <article class="portfolio-project"><h3>Multiplayer</h3><h4>NooN — Unity Relay &amp; Networking</h4><p>Trabalhou na implementação de funcionalidades multiplayer utilizando Unity Netcode for GameObjects, integrando o Unity Relay e sistemas relacionados à conexão entre jogadores. Também atuou no tratamento de erros de rede e na estabilidade do fluxo multiplayer.</p></article>
-        <article class="portfolio-project"><h3>Gameplay</h3><h4>Frenemies — Minigames e multiplayer local</h4><p>Foi responsável pela programação dos minigames Pedra, Papel e Tesoura e Faroeste, incluindo mecânicas e animações durante o gameplay. Desenvolveu o sistema de inputs para multiplayer local, a seleção de personagens e o sorteio de três minigames por partida, estruturando as disputas em melhor de três. Também participou do Game Design.</p></article>
-        <article class="portfolio-project"><h3>Game Systems</h3><h4>Banana Bongo — Sistema de diálogos</h4><p>Implementou o sistema de diálogos utilizando Yarn Spinner na Unity, integrando conversas às interações, ao fluxo do jogo e às batalhas.</p><h4>NooN — Sistema de água</h4><p>Desenvolveu o sistema de água utilizado pela Shadow, incluindo coleta, recarga, armazenamento, mira, disparo, feedbacks visuais e integração multiplayer com Unity Netcode.</p><h4>Ahoy Little Captain — Sistema de cartas</h4><p>Implementou a lógica e o gerenciamento das cartas, integrando o sistema à personalização de deck e ao gameplay.</p></article>
+      <div class="portfolio-folder-view" data-jaque-view hidden>
+        <button class="portfolio-back-button" type="button" data-jaque-back><i class="bi bi-arrow-left" aria-hidden="true"></i> Voltar</button>
+        <div class="portfolio-projects">
+          <article class="portfolio-project" data-jaque-content="ui" hidden><h3>UI &amp; Interfaces</h3><h4>NooN — Implementação de UI</h4><p>No projeto NooN, Jaqueline foi responsável pela implementação e integração de diferentes interfaces dentro da Unity, conectando os elementos visuais aos sistemas e funcionalidades do jogo. Seu trabalho envolveu a programação do comportamento de telas, menus e elementos interativos, além da integração das interfaces com diferentes estados do jogo e funcionalidades multiplayer.</p><h4>NooN — Localização de interfaces</h4><p>Implementou o sistema de localização utilizando Unity Localization, permitindo a adaptação dos textos e interfaces do jogo para diferentes idiomas.</p><h4>Ahoy Little Captain — Personalização de deck</h4><p>Implementou a interface de personalização de deck, integrada ao sistema de cartas para refletir as alterações durante as partidas.</p></article>
+          <article class="portfolio-project" data-jaque-content="multiplayer" hidden><h3>Multiplayer</h3><h4>NooN — Unity Relay &amp; Networking</h4><p>Trabalhou na implementação de funcionalidades multiplayer utilizando Unity Netcode for GameObjects, integrando o Unity Relay e sistemas relacionados à conexão entre jogadores. Também atuou no tratamento de erros de rede e na estabilidade do fluxo multiplayer.</p></article>
+          <article class="portfolio-project" data-jaque-content="gameplay" hidden><h3>Gameplay</h3><h4>Frenemies — Minigames e multiplayer local</h4><p>Foi responsável pela programação dos minigames Pedra, Papel e Tesoura e Faroeste, incluindo mecânicas e animações durante o gameplay. Desenvolveu o sistema de inputs para multiplayer local, a seleção de personagens e o sorteio de três minigames por partida, estruturando as disputas em melhor de três. Também participou do Game Design.</p></article>
+          <article class="portfolio-project" data-jaque-content="systems" hidden><h3>Game Systems</h3><h4>Banana Bongo — Sistema de diálogos</h4><p>Implementou o sistema de diálogos utilizando Yarn Spinner na Unity, integrando conversas às interações, ao fluxo do jogo e às batalhas.</p><h4>NooN — Sistema de água</h4><p>Desenvolveu o sistema de água utilizado pela Shadow, incluindo coleta, recarga, armazenamento, mira, disparo, feedbacks visuais e integração multiplayer com Unity Netcode.</p><h4>Ahoy Little Captain — Sistema de cartas</h4><p>Implementou a lógica e o gerenciamento das cartas, integrando o sistema à personalização de deck e ao gameplay.</p></article>
+        </div>
       </div>
     </div>
   </section>
   <script src="../../src/scripts/i18n.js"></script>
   <script src="../../src/scripts/member-page.js"></script>
+  <script>
+    (() => {
+      const grid = document.querySelector('.member-portfolio-grid');
+      const view = document.querySelector('[data-jaque-view]');
+      const contents = [...document.querySelectorAll('[data-jaque-content]')];
+      document.querySelectorAll('[data-jaque-folder]').forEach((folder) => folder.addEventListener('click', () => {
+        contents.forEach((content) => { content.hidden = content.dataset.jaqueContent !== folder.dataset.jaqueFolder; });
+        grid.hidden = true;
+        view.hidden = false;
+        view.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }));
+      document.querySelector('[data-jaque-back]').addEventListener('click', () => {
+        view.hidden = true;
+        grid.hidden = false;
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+  </script>
 </body>
 </html>
