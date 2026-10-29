@@ -100,6 +100,17 @@
             <p class="portfolio-project-description">Dessa forma, a composição busca equilibrar melancolia, mistério e diversão, reforçando a sensação de estar em um mundo de Halloween visto por uma perspectiva infantil.</p>
             <div class="media-gallery portfolio-project-gallery maple-score-gallery" data-media-gallery data-maple-gallery></div>
           </article>
+          <article class="portfolio-project portfolio-project-secondary" data-born-project hidden>
+            <header class="portfolio-project-header">
+              <h3>Born to Be a Monster</h3>
+              <p>How May I Hell You? - OST</p>
+            </header>
+            <p class="portfolio-project-description">Born to Be a Monster is the main theme of How May I Hell You?, a game developed for Game Jam+ 2026/2027 through a collaboration between the game studios BISC8 Game Dev and Astera Game Studio.</p>
+            <p class="portfolio-project-description">The game tells the story of a monster who, after spending his entire life being judged as a villain by society, decides to challenge that perception and prove that he, too, can be a hero. To achieve this, he establishes a guild of helpful monsters, recruiting other monsters and choosing which requests for help to take on, hoping to show the world that his appearance does not define his intentions.</p>
+            <p class="portfolio-project-description">The composition of Born to Be a Monster seeks to musically express this duality between the monstrous and the heroic. To represent the protagonist's darker side, we use the organ, drawing inspiration from the sound of Toccata and Fugue in D Minor by Johann Sebastian Bach, a classical piece frequently associated with horror and Gothic imagery. In contrast, the prominent use of trumpets and melodies inspired by heroic themes evokes a sense of courage, hope, and grandeur, qualities traditionally associated with great heroes.</p>
+            <p class="portfolio-project-description">The combination of these elements creates a musical identity that shifts between the eerie and the triumphant, reflecting the essence of the game: a monster who, despite his intimidating appearance, wishes to be recognized not for the fear he inspires, but for the people he manages to save.</p>
+            <div class="media-gallery portfolio-project-gallery maple-score-gallery" data-media-gallery data-born-gallery></div>
+          </article>
           <article class="portfolio-project" data-concept-project hidden>
             <header class="portfolio-project-header">
               <h3>Undevil</h3>
@@ -136,6 +147,7 @@
     (() => {
       const gallery = document.querySelector('[data-noon-gallery]');
       const mapleGallery = document.querySelector('[data-maple-gallery]');
+      const bornGallery = document.querySelector('[data-born-gallery]');
       document.querySelector('[data-concept-project]').after(gallery.closest('[data-noon-project]'));
       const media = [
         ['menu-principal.jpg', 'Concept do menu principal'],
@@ -200,6 +212,33 @@
         </div>
         <div class="media-gallery-scrollbar" data-gallery-scrollbar role="scrollbar" tabindex="0" aria-label="Rolar áudio e páginas da partitura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="media-gallery-scrollbar-thumb" data-gallery-scrollbar-thumb></span></div>
       `;
+      const bornPages = Array.from({ length: 5 }, (_, index) => {
+        const file = `9c910347b40b4cd5af6c8e0039b7e974Acc9abSYpT3p5nkO-${index}.png`;
+        return [file, `Partitura de Born to Be a Monster — página ${index + 1}`];
+      });
+      const bornPagePairs = Array.from({ length: Math.ceil(bornPages.length / 2) }, (_, index) => bornPages.slice(index * 2, index * 2 + 2));
+      const bornBase = '../../assets/images/portfolio/natan/born-to-be-a-monster/';
+      bornGallery.innerHTML = `
+        <div class="media-gallery-stage">
+          <button class="media-gallery-arrow" type="button" data-gallery-prev aria-label="Mídia anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+          <div class="media-gallery-main" aria-live="polite">
+            <div class="media-gallery-item active" data-gallery-item>
+              <div class="portfolio-audio-panel">
+                <i class="bi bi-music-note-beamed" aria-hidden="true"></i>
+                <p>Born to Be a Monster</p>
+                <audio controls preload="metadata"><source src="../../assets/audio/natan/born-to-be-a-monster.mp3" type="audio/mpeg">Seu navegador não suporta áudio HTML5.</audio>
+              </div>
+            </div>
+            ${bornPagePairs.map((pages) => `<div class="media-gallery-item" data-gallery-item><div class="score-page-pair">${pages.map(([file, alt]) => `<img src="${bornBase}${file}" alt="${alt}" loading="lazy">`).join('')}</div></div>`).join('')}
+          </div>
+          <button class="media-gallery-arrow" type="button" data-gallery-next aria-label="Próxima mídia"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+        </div>
+        <div class="media-gallery-thumbs" aria-label="Áudio e partitura de Born to Be a Monster">
+          <button class="media-gallery-thumb active" type="button" data-gallery-thumb="0" aria-label="Ouvir Born to Be a Monster" aria-pressed="true"><img src="${bornBase}${bornPages[0][0]}" alt=""><i class="bi bi-music-note-beamed media-gallery-play" aria-hidden="true"></i></button>
+          ${bornPagePairs.map((pages, index) => `<button class="media-gallery-thumb" type="button" data-gallery-thumb="${index + 1}" aria-label="Exibir páginas ${index * 2 + 1}${pages.length === 2 ? ` e ${index * 2 + 2}` : ''} da partitura" aria-pressed="false"><img src="${bornBase}${pages[0][0]}" alt="" loading="lazy"></button>`).join('')}
+        </div>
+        <div class="media-gallery-scrollbar" data-gallery-scrollbar role="scrollbar" tabindex="0" aria-label="Rolar áudio e páginas da partitura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="media-gallery-scrollbar-thumb" data-gallery-scrollbar-thumb></span></div>
+      `;
     })();
   </script>
   <script src="../../src/scripts/game-gallery.js"></script>
@@ -213,6 +252,7 @@
       const conceptProject = document.querySelector('[data-concept-project]');
       const noonProject = document.querySelector('[data-noon-project]');
       const mapleProject = document.querySelector('[data-maple-project]');
+      const bornProject = document.querySelector('[data-born-project]');
       const tabs = [...document.querySelectorAll('[data-portfolio-tab]')];
 
       function openFolder(key) {
@@ -224,6 +264,7 @@
         conceptProject.hidden = key !== 'concept';
         noonProject.hidden = key !== 'concept';
         mapleProject.hidden = key !== 'sound';
+        bornProject.hidden = key !== 'sound';
         tabs.forEach((tab) => {
           const active = tab.dataset.portfolioTab === key;
           tab.classList.toggle('active', active);
